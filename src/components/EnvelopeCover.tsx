@@ -164,9 +164,68 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
               <line x1="360" y1="0" x2="180" y2="140" stroke="#C5A059" strokeWidth="1.5" opacity="0.75" />
             </svg>
 
+            {/* Circular Photo Frame on Envelope Flap with Floral Wreath Accent */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-[10px] sm:top-[14px] flex items-center justify-center pointer-events-none select-none z-20">
+              {/* Watercolor Floral Wreath SVG in Pastel Blue & Navy */}
+              <div className="absolute w-[116px] h-[116px] sm:w-[136px] sm:h-[136px] pointer-events-none -z-0">
+                <svg viewBox="0 0 160 160" className="w-full h-full drop-shadow-sm" fill="none">
+                  {/* Delicate Gold Vine Arc */}
+                  <circle cx="80" cy="80" r="54" stroke="#C5A059" strokeWidth="1.2" strokeDasharray="3 3" opacity="0.8" />
+                  
+                  {/* Top floral cluster */}
+                  <g transform="translate(80, 26)">
+                    <circle cx="0" cy="0" r="5" fill="#8FA9C4" />
+                    <circle cx="-5" cy="-2" r="3.5" fill="#BAE6FD" />
+                    <circle cx="5" cy="-2" r="3.5" fill="#A3BED8" />
+                    <circle cx="0" cy="-6" r="3.5" fill="#000080" />
+                    <circle cx="0" cy="0" r="2" fill="#C5A059" />
+                  </g>
+                  {/* Left floral cluster */}
+                  <g transform="translate(26, 80) rotate(-45)">
+                    <ellipse cx="-4" cy="-3" rx="6" ry="3.5" fill="#8FA9C4" transform="rotate(-30)" />
+                    <ellipse cx="-2" cy="4" rx="5" ry="3" fill="#000080" transform="rotate(20)" />
+                    <circle cx="4" cy="0" r="4.5" fill="#BAE6FD" />
+                    <circle cx="4" cy="0" r="1.8" fill="#C5A059" />
+                    <path d="M-8,-8 Q-4,-12 0,-10" stroke="#C5A059" strokeWidth="1" fill="none" />
+                  </g>
+                  {/* Right floral cluster */}
+                  <g transform="translate(134, 80) rotate(45)">
+                    <ellipse cx="4" cy="-3" rx="6" ry="3.5" fill="#8FA9C4" transform="rotate(30)" />
+                    <ellipse cx="2" cy="4" rx="5" ry="3" fill="#000080" transform="rotate(-20)" />
+                    <circle cx="-4" cy="0" r="4.5" fill="#BAE6FD" />
+                    <circle cx="-4" cy="0" r="1.8" fill="#C5A059" />
+                    <path d="M8,-8 Q4,-12 0,-10" stroke="#C5A059" strokeWidth="1" fill="none" />
+                  </g>
+                  {/* Bottom leaf accents */}
+                  <g transform="translate(50, 128) rotate(35)">
+                    <ellipse cx="0" cy="0" rx="6" ry="2.5" fill="#8FA9C4" />
+                    <ellipse cx="4" cy="-4" rx="5" ry="2" fill="#000080" opacity="0.85" />
+                  </g>
+                  <g transform="translate(110, 128) rotate(-35)">
+                    <ellipse cx="0" cy="0" rx="6" ry="2.5" fill="#8FA9C4" />
+                    <ellipse cx="-4" cy="-4" rx="5" ry="2" fill="#000080" opacity="0.85" />
+                  </g>
+                </svg>
+              </div>
+
+              {/* Circular Gold Border Photo Frame */}
+              <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full p-[2.5px] bg-gradient-to-tr from-[#C5A059] via-[#FFF3D6] to-[#9E7E3E] shadow-md z-10">
+                <div className="w-full h-full rounded-full overflow-hidden border border-white/70 bg-[#FAF9F6]">
+                  <img
+                    src="/assets/foto-pasangan.jpg"
+                    alt="Foto Pasangan Nur & Udi"
+                    className="w-full h-full object-cover object-center"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/assets/hero.jpg';
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
             {/* Gold Wax Seal on the Flap Tip */}
             <div
-              className={`absolute left-1/2 -translate-x-1/2 bottom-[-20px] w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#E6D4A5] via-[#C5A059] to-[#8C6B28] border-2 border-[#FFF8EB] shadow-xl flex items-center justify-center text-[#1A1918] transition-transform duration-300 ${
+              className={`absolute left-1/2 -translate-x-1/2 bottom-[-20px] w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#E6D4A5] via-[#C5A059] to-[#8C6B28] border-2 border-[#FFF8EB] shadow-xl flex items-center justify-center text-[#1A1918] transition-transform duration-300 z-30 ${
                 isAnimating ? 'scale-115 ring-4 ring-[#C5A059]/30' : 'hover:scale-105'
               }`}
             >

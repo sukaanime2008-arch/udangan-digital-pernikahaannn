@@ -27,7 +27,7 @@ import { GuestLinkGenerator } from './components/GuestLinkGenerator';
 
 // Exact generated image asset paths
 const IMAGES = {
-  cover: '/src/assets/images/wedding_couple_cover_1794141712367.jpg',
+  cover: '/assets/foto-pasangan.jpg',
   groom: '/src/assets/images/groom_portrait_1794141714007.jpg',
   bride: '/src/assets/images/bride_portrait_1794141715689.jpg',
   gallery1: '/src/assets/images/gallery_moment_one_1794141714727.jpg',
