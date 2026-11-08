@@ -195,6 +195,19 @@ Hormat kami yang berbahagia,
             {waMessage}
           </div>
         </div>
+
+        {/* Bottom Close Button */}
+        {onClose && (
+          <div className="pt-4 text-center border-t border-stone-200 mt-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className="py-2 px-5 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold text-xs inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+            >
+              <span>▲ Tutup Panel Generator</span>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

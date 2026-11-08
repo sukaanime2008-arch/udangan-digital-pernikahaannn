@@ -14,6 +14,9 @@ import {
   Check,
   MailOpen,
   Sparkles,
+  Lock,
+  X,
+  AlertCircle,
 } from 'lucide-react';
 import { FloralBranchTop, GoldDivider, BotanicalCorner } from './components/FloralDecorations';
 import { AudioPlayer, AudioPlayerRef } from './components/AudioPlayer';
@@ -43,7 +46,39 @@ export default function App() {
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
   const [copiedAddress, setCopiedAddress] = useState(false);
   const [showGuestGenerator, setShowGuestGenerator] = useState(false);
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const audioPlayerRef = useRef<AudioPlayerRef>(null);
+
+  const handleTriggerFooterGenerator = () => {
+    if (showGuestGenerator) {
+      // Jika panel sedang terbuka, klik akan menutup panel
+      setShowGuestGenerator(false);
+    } else {
+      // Tampilkan popup input sandi
+      setPasswordInput('');
+      setPasswordError('');
+      setShowPasswordModal(true);
+    }
+  };
+
+  const handleVerifyPassword = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const cleanPassword = passwordInput.trim().toLowerCase();
+    if (cleanPassword === 'waliwali') {
+      setShowPasswordModal(false);
+      setPasswordError('');
+      setPasswordInput('');
+      setShowGuestGenerator(true);
+      setTimeout(() => {
+        const el = document.getElementById('guest-generator-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+    } else {
+      setPasswordError('Sandi salah! Silakan coba lagi.');
+    }
+  };
 
   // Read guest name from URL query parameter (e.g. ?to=Bapak+Ahmad or ?guest=...)
   useEffect(() => {
@@ -825,20 +860,12 @@ export default function App() {
             </div>
           )}
 
-          {/* Interactive Footer Trigger to Open/Close Guest Link Generator */}
+          {/* Interactive Footer Trigger to Open/Close Guest Link Generator with Password Protection */}
           <div className="pt-10 pb-4 text-center border-t border-stone-200/80">
             <button
               type="button"
-              onClick={() => {
-                setShowGuestGenerator((prev) => !prev);
-                if (!showGuestGenerator) {
-                  setTimeout(() => {
-                    const el = document.getElementById('guest-generator-section');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }, 150);
-                }
-              }}
-              className="group inline-flex flex-col items-center justify-center py-2 px-4 rounded-2xl hover:bg-sky-50 transition-colors cursor-pointer"
+              onClick={handleTriggerFooterGenerator}
+              className="group inline-flex flex-col items-center justify-center py-2 px-4 rounded-2xl hover:bg-sky-50 transition-colors cursor-pointer select-none"
             >
               <p className="text-xs text-stone-500 group-hover:text-[#000080] font-sans tracking-wide font-medium transition-colors">
                 The Wedding of Nurhidayah &amp; Muh. Saifuddin · Sinjai, 22 Desember 2026
@@ -848,6 +875,86 @@ export default function App() {
               </span>
             </button>
           </div>
+
+          {/* Password Protection Modal ("waliwali") */}
+          {showPasswordModal && (
+            <div
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4"
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  setShowPasswordModal(false);
+                }
+              }}
+            >
+              <div className="bg-[#FAF9F6] border-2 border-[#000080]/30 shadow-2xl rounded-3xl max-w-sm w-full p-6 text-center space-y-4 relative animate-in fade-in duration-200">
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={() => setShowPasswordModal(false)}
+                  className="absolute top-4 right-4 p-1.5 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-200/60 transition-colors cursor-pointer"
+                  aria-label="Tutup"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+
+                {/* Lock Icon */}
+                <div className="w-12 h-12 rounded-full bg-[#000080] text-[#C5A059] flex items-center justify-center mx-auto shadow-md shadow-[#000080]/20">
+                  <Lock className="w-6 h-6" />
+                </div>
+
+                <div className="space-y-1">
+                  <span className="text-[10px] uppercase tracking-widest font-sans font-bold text-[#000080]">
+                    Proteksi Sandi
+                  </span>
+                  <h3 className="font-serif text-xl font-bold text-[#181716]">
+                    Akses Generator Undangan
+                  </h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Silakan masukkan kata sandi untuk membuka Panel Generator Link Tamu:
+                  </p>
+                </div>
+
+                <form onSubmit={handleVerifyPassword} className="space-y-3 pt-1">
+                  <div>
+                    <input
+                      type="password"
+                      autoFocus
+                      value={passwordInput}
+                      onChange={(e) => {
+                        setPasswordInput(e.target.value);
+                        if (passwordError) setPasswordError('');
+                      }}
+                      placeholder="Masukkan sandi..."
+                      className="w-full px-4 py-2.5 rounded-xl bg-white border-2 border-stone-200 focus:border-[#000080] focus:outline-hidden text-sm font-semibold text-[#181716] text-center tracking-widest placeholder:text-stone-400 placeholder:tracking-normal transition-colors"
+                    />
+                  </div>
+
+                  {passwordError && (
+                    <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center justify-center gap-1.5">
+                      <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+                      <span>{passwordError}</span>
+                    </div>
+                  )}
+
+                  <div className="flex gap-2 pt-1">
+                    <button
+                      type="button"
+                      onClick={() => setShowPasswordModal(false)}
+                      className="flex-1 py-2.5 px-3 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      Batal
+                    </button>
+                    <button
+                      type="submit"
+                      className="flex-1 py-2.5 px-3 rounded-xl bg-[#000080] hover:bg-[#000066] text-white text-xs font-bold shadow-md shadow-[#000080]/20 transition-all cursor-pointer"
+                    >
+                      Buka Panel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
         </section>
       </div>
     </div>

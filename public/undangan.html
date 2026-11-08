@@ -9,14 +9,17 @@
   <!-- Open Graph & Social Media Meta Tags -->
   <meta property="og:title" content="The Wedding of Nur & Udi - 22 Desember 2026">
   <meta property="og:description" content="Undangan Pernikahan Digital Nurhidayah & Muh. Saifuddin Assa'diah - 22 Desember 2026 di Sinjai, Sulawesi Selatan.">
-  <meta property="og:image" content="assets/foto-pasangan.jpg">
-  <meta property="og:image:width" content="800">
-  <meta property="og:image:height" content="1200">
+  <meta property="og:url" content="https://undanganpernikahannurudi.vercel.app/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://undanganpernikahannurudi.vercel.app/assets/foto-pasangan.jpg">
+  <meta property="og:image:secure_url" content="https://undanganpernikahannurudi.vercel.app/assets/foto-pasangan.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Wedding of Nur & Udi - 22 Desember 2026">
   <meta name="twitter:description" content="Undangan Pernikahan Digital Nurhidayah & Muh. Saifuddin Assa'diah - 22 Desember 2026 di Sinjai.">
-  <meta name="twitter:image" content="assets/foto-pasangan.jpg">
+  <meta name="twitter:image" content="https://undanganpernikahannurudi.vercel.app/assets/foto-pasangan.jpg">
 
   <!-- Google Fonts: Cormorant Garamond, Great Vibes, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1158,9 +1161,15 @@
     btnTriggerGen.addEventListener('click', function () {
       const isHidden = panelGen.classList.contains('hidden');
       if (isHidden) {
-        panelGen.classList.remove('hidden');
-        panelGen.scrollIntoView({ behavior: 'smooth' });
-        genInputName.focus();
+        const inputPassword = window.prompt("Masukkan kata sandi untuk membuka Panel Generator Undangan:");
+        if (inputPassword === null) return; // Pengguna menekan Batal
+        if (inputPassword.trim().toLowerCase() === "waliwali") {
+          panelGen.classList.remove('hidden');
+          panelGen.scrollIntoView({ behavior: 'smooth' });
+          genInputName.focus();
+        } else {
+          alert("Kata sandi salah! Akses ditolak.");
+        }
       } else {
         panelGen.classList.add('hidden');
       }
