@@ -1,0 +1,6 @@
+{
+  "name": "The Wedding of Nur & Udi - Undangan Pernikahan Digital",
+  "description": "Website undangan pernikahan digital bernuansa floral lembut, simpel, elegan, dan minimalis untuk Nur & Udi (22 Desember 2026).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

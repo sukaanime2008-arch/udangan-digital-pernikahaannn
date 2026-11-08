@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Wedding of Nur & Udi - 22 Desember 2026</title>
+  <meta name="description" content="Undangan Pernikahan Digital Nurhidâyah & Muh. Saifuddin Assa'diah - 22 Desember 2026 di Sinjai.">
+
+  <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            offwhite: '#FAF9F6',
+            dusty: {
+              DEFAULT: '#D4A5A5',
+              light: '#F7EFEF',
+              dark: '#B88282'
+            },
+            sage: {
+              DEFAULT: '#8F9E8B',
+              light: '#F0F3EF',
+              dark: '#4A5847'
+            },
+            gold: {
+              DEFAULT: '#C5A059',
+              light: '#EFE4CA',
+              dark: '#9E7E3E'
+            },
+            charcoal: '#2F2D2C',
+            muted: '#6B6664'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            script: ['"Great Vibes"', 'cursive']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Styling for Floral Arch & Animations */
+    body {
+      background-color: #FAF9F6;
+      color: #2F2D2C;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .arch-frame {
+      border-top-left-radius: 9999px;
+      border-top-right-radius: 9999px;
+    }
+
+    /* Scroll Fade Up Animation: Translate Y from 30px to 0 with opacity */
+    .reveal-fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Delay utilities for staggered cards */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    /* Spinning Vinyl Animation */
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-vinyl {
+      animation: spinVinyl 6s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF9F6] text-[#2F2D2C] selection:bg-[#D4A5A5]/30">
+
+  <!-- ==========================================
+       TAG AUDIO HTML5 (WEDDING NASHEED)
+  =========================================== -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/nasheed.mp3" type="audio/mpeg">
+    <source src="assets/wedding_nasheed.ogg" type="audio/ogg">
+    <!-- Fallback online copyright-free wedding nasheed instrumental -->
+    <source src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Pachelbel_Canon_in_D_Major.ogg" type="audio/ogg">
+  </audio>
+
+  <!-- ==========================================
+       TOMBOL FLOATING MUSIK (SUDUT BAWAH LAYAR)
+  =========================================== -->
+  <div class="fixed bottom-6 right-5 z-50">
+    <button id="music-toggle-btn" 
+            aria-label="Putar / Hentikan Musik"
+            class="flex items-center gap-2 p-1.5 pr-3.5 bg-white/90 backdrop-blur-md rounded-full border border-[#C5A059]/40 shadow-lg shadow-black/10 text-[#2F2D2C] hover:border-[#C5A059] transition-all active:scale-95 group">
+      
+      <!-- Piringan Vinyl Berputar -->
+      <div id="vinyl-disc" class="w-10 h-10 rounded-full bg-[#2F2D2C] flex items-center justify-center relative border border-[#C5A059]/60 shadow-inner">
+        <!-- Vinyl grooves rings -->
+        <div class="w-8 h-8 rounded-full border border-stone-600/60 flex items-center justify-center">
+          <div class="w-5 h-5 rounded-full border border-stone-500/50 flex items-center justify-center bg-[#D4A5A5]">
+            <!-- Center Hole -->
+            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Icon & Text State -->
+      <div class="flex items-center gap-1.5">
+        <svg id="icon-play" class="w-4 h-4 text-[#8F9E8B]" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        <svg id="icon-pause" class="w-4 h-4 text-[#C5A059] hidden" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+        <span id="music-text" class="text-[11px] font-serif tracking-wider text-[#4A5847] font-medium hidden sm:inline">
+          Musik
+        </span>
+      </div>
+    </button>
+  </div>
+
+  <!-- ==========================================
+       KONTEN UTAMA (MOBILE-FIRST PAPER CARD)
+  =========================================== -->
+  <main class="max-w-md mx-auto min-h-screen bg-[#FAF9F6] shadow-2xl shadow-stone-300/40 border-x border-[#8F9E8B]/20 relative">
+
+    <!-- ----------------------------------------
+         1. HERO / COVER SECTION
+    ----------------------------------------- -->
+    <section id="hero" class="min-h-screen flex flex-col justify-between items-center text-center px-6 py-10 relative">
+      
+      <!-- Header Teks Save The Date -->
+      <div class="space-y-1.5 pt-2 z-10">
+        <span class="text-xs uppercase tracking-[0.3em] font-sans text-[#8F9E8B] font-semibold block">
+          Save The Date
+        </span>
+        <div class="flex items-center justify-center gap-2 text-xs font-serif tracking-widest text-[#C5A059]">
+          <span class="w-6 h-[1px] bg-[#C5A059]/50"></span>
+          <span>22 Desember 2026</span>
+          <span class="w-6 h-[1px] bg-[#C5A059]/50"></span>
+        </div>
+      </div>
+
+      <!-- FRAME FOTO UTAMA LENGKUNG (LEBIH BESAR & MENONJOL: 380px - 420px) -->
+      <div class="relative my-4 z-10 w-full flex justify-center">
+        <!-- Outer Gold & Sage Halo -->
+        <div class="w-[280px] sm:w-[310px] h-[400px] arch-frame p-2.5 bg-gradient-to-b from-[#C5A059]/30 via-[#D4A5A5]/25 to-[#8F9E8B]/25 shadow-lg">
+          <!-- Inner White Border Frame -->
+          <div class="w-full h-full arch-frame p-1 bg-[#FAF9F6] border border-[#C5A059]/50">
+            <!-- Foto Utama Lengkung -->
+            <div class="w-full h-full arch-frame overflow-hidden relative bg-stone-100">
+              <img src="assets/hero.jpg" 
+                   alt="Foto Mempelai Nur & Udi" 
+                   class="w-full h-full object-cover object-center"
+                   onerror="this.src='/src/assets/images/wedding_couple_cover_1794141712367.jpg'">
+              <!-- Bottom gradient vignette -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Judul Nama Mempelai & Tombol Buka Undangan -->
+      <div class="space-y-3 z-10 w-full max-w-xs pb-2">
+        <div>
+          <p class="text-xs font-serif uppercase tracking-widest text-[#6B6664]">The Wedding of</p>
+          <h1 class="font-serif text-4xl sm:text-5xl font-semibold text-[#2F2D2C] tracking-tight mt-1">
+            Nur <span class="font-script text-3xl sm:text-4xl text-[#D4A5A5] mx-1">&</span> Udi
+          </h1>
+          <p class="text-xs text-[#8F9E8B] mt-1 font-sans">Selasa, 22 Desember 2026 · Sinjai</p>
+        </div>
+
+        <!-- Box Nama Tamu & Tombol Buka Undangan -->
+        <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-[#8F9E8B]/30 shadow-xs space-y-2.5">
+          <p class="text-[11px] uppercase tracking-wider text-[#6B6664]">Kepada Yth. Tamu Undangan:</p>
+          <h2 id="guest-name-display" class="font-serif text-lg font-bold text-[#2F2D2C]">
+            Tamu Undangan Yang Berbahagia
+          </h2>
+
+          <button id="btn-open-invitation"
+                  type="button"
+                  class="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-full bg-[#8F9E8B] hover:bg-[#7b8a77] text-white font-medium text-sm shadow-md shadow-[#8F9E8B]/25 transition-all duration-300 active:scale-95">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>Buka Undangan</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Pembatas Floral Emas -->
+    <div class="flex items-center justify-center gap-3 my-6 text-[#C5A059]">
+      <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
+      <span class="w-2 h-2 rotate-45 border border-[#C5A059] bg-[#FAF9F6]"></span>
+      <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+    </div>
+
+    <!-- ----------------------------------------
+         2. SECTION MEMPELAI
+    ----------------------------------------- -->
+    <section id="mempelai" class="px-6 py-10 scroll-mt-6 text-center space-y-8">
+      
+      <!-- Kutipan Pembuka (Ayat Suci) -->
+      <div class="reveal-fade-up max-w-sm mx-auto space-y-3">
+        <p class="font-serif text-base text-[#4A5847] tracking-wider">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <p class="font-serif text-sm font-semibold text-[#2F2D2C]">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+        
+        <div class="p-4 rounded-2xl bg-[#F0F3EF]/80 border border-[#8F9E8B]/30 text-left">
+          <p class="font-serif text-xs text-[#4A5847] italic text-center leading-relaxed">
+            “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.”
+          </p>
+          <p class="text-[10px] font-sans font-bold text-center text-[#8F9E8B] uppercase tracking-widest mt-2">
+            QS. Ar-Rum: 21
+          </p>
+        </div>
+      </div>
+
+      <!-- Kartu Mempelai Pria -->
+      <div class="reveal-fade-up delay-100 bg-white/90 rounded-3xl p-6 border border-[#8F9E8B]/25 shadow-xs max-w-xs mx-auto">
+        <!-- Frame Foto Pria Lengkung -->
+        <div class="w-36 h-48 mx-auto arch-frame p-1.5 bg-gradient-to-b from-[#8F9E8B]/40 to-[#C5A059]/30 mb-4 shadow-xs">
+          <div class="w-full h-full arch-frame overflow-hidden bg-stone-100">
+            <img src="assets/pria.jpg" 
+                 alt="Muh. Saifuddin Assa'diah, S.Hf" 
+                 class="w-full h-full object-cover object-top"
+                 onerror="this.src='/src/assets/images/groom_portrait_1794141714007.jpg'">
+          </div>
+        </div>
+
+        <span class="text-[11px] uppercase tracking-widest text-[#8F9E8B] font-semibold">Mempelai Pria</span>
+        <h3 class="font-serif text-xl font-bold text-[#2F2D2C] mt-1 mb-2">
+          Muh. Saifuddin Assa'diah, S.Hf
+        </h3>
+        <p class="text-xs text-[#6B6664] leading-relaxed">
+          Putra dari Pasangan:<br>
+          <strong class="text-[#2F2D2C] font-semibold">Bapak H. Assa'diah</strong><br>
+          <span class="text-[#8F9E8B]">&</span><br>
+          <strong class="text-[#2F2D2C] font-semibold">Ibu Hj. Sitti Maryam</strong>
+        </p>
+      </div>
+
+      <!-- Pemisah Kaligrafi & -->
+      <div class="reveal-fade-up flex justify-center">
+        <div class="w-10 h-10 rounded-full bg-[#F7EFEF] border border-[#D4A5A5]/40 flex items-center justify-center">
+          <span class="font-script text-2xl text-[#D4A5A5] leading-none pt-0.5">&</span>
+        </div>
+      </div>
+
+      <!-- Kartu Mempelai Wanita -->
+      <div class="reveal-fade-up delay-200 bg-white/90 rounded-3xl p-6 border border-[#D4A5A5]/30 shadow-xs max-w-xs mx-auto">
+        <!-- Frame Foto Wanita Lengkung -->
+        <div class="w-36 h-48 mx-auto arch-frame p-1.5 bg-gradient-to-b from-[#D4A5A5]/40 to-[#C5A059]/30 mb-4 shadow-xs">
+          <div class="w-full h-full arch-frame overflow-hidden bg-stone-100">
+            <img src="assets/wanita.jpg" 
+                 alt="Nurhidâyah, S.Pd" 
+                 class="w-full h-full object-cover object-top"
+                 onerror="this.src='/src/assets/images/bride_portrait_1794141715689.jpg'">
+          </div>
+        </div>
+
+        <span class="text-[11px] uppercase tracking-widest text-[#D4A5A5] font-semibold">Mempelai Wanita</span>
+        <h3 class="font-serif text-xl font-bold text-[#2F2D2C] mt-1 mb-2">
+          Nurhidâyah, S.Pd
+        </h3>
+        <p class="text-xs text-[#6B6664] leading-relaxed">
+          Putri dari Pasangan:<br>
+          <strong class="text-[#2F2D2C] font-semibold">Bapak H. Mansyur</strong><br>
+          <span class="text-[#D4A5A5]">&</span><br>
+          <strong class="text-[#2F2D2C] font-semibold">Ibu Hj. Rosdiana</strong>
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Pembatas Floral Emas -->
+    <div class="flex items-center justify-center gap-3 my-4 text-[#C5A059]">
+      <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
+      <span class="w-2 h-2 rotate-45 border border-[#C5A059] bg-[#FAF9F6]"></span>
+      <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+    </div>
+
+    <!-- ----------------------------------------
+         3. SECTION ACARA
+    ----------------------------------------- -->
+    <section id="acara" class="px-6 py-10 scroll-mt-6 text-center space-y-6">
+      
+      <div class="reveal-fade-up">
+        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#8F9E8B] font-semibold">Informasi Acara</span>
+        <h2 class="font-serif text-3xl font-semibold text-[#2F2D2C] mt-1">Akad & Resepsi</h2>
+        <p class="text-xs text-[#6B6664] mt-0.5">Dengan penuh syukur mengundang Anda pada:</p>
+      </div>
+
+      <!-- Dua Card Acara Berdampingan / Stacked -->
+      <div class="space-y-4 max-w-xs mx-auto">
+        
+        <!-- Card Akad -->
+        <div class="reveal-fade-up delay-100 bg-white/95 rounded-3xl p-6 border border-[#8F9E8B]/30 shadow-xs text-center space-y-2.5">
+          <div class="w-9 h-9 rounded-full bg-[#F0F3EF] text-[#8F9E8B] flex items-center justify-center mx-auto">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-[#2F2D2C]">Akad Nikah</h3>
+          <div class="h-[1px] w-8 bg-[#C5A059] mx-auto"></div>
+          <p class="text-xs font-semibold text-[#2F2D2C]">Selasa, 22 Desember 2026</p>
+          <p class="text-xs text-[#4A5847] font-medium">Pukul 09.00 WITA - Selesai</p>
+          <p class="text-[11px] text-[#6B6664]">Kediaman Mempelai Wanita</p>
+        </div>
+
+        <!-- Card Resepsi -->
+        <div class="reveal-fade-up delay-200 bg-white/95 rounded-3xl p-6 border border-[#D4A5A5]/35 shadow-xs text-center space-y-2.5">
+          <div class="w-9 h-9 rounded-full bg-[#F7EFEF] text-[#D4A5A5] flex items-center justify-center mx-auto">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-[#2F2D2C]">Resepsi Pernikahan</h3>
+          <div class="h-[1px] w-8 bg-[#C5A059] mx-auto"></div>
+          <p class="text-xs font-semibold text-[#2F2D2C]">Selasa, 22 Desember 2026</p>
+          <p class="text-xs text-[#4A5847] font-medium">Pukul 11.00 WITA s/d Selesai</p>
+          <p class="text-[11px] text-[#6B6664]">Kediaman Mempelai Wanita</p>
+        </div>
+
+      </div>
+
+      <!-- Lokasi Acara Card -->
+      <div class="reveal-fade-up delay-300 bg-white/95 rounded-3xl p-6 border border-[#C5A059]/30 shadow-xs max-w-xs mx-auto text-left space-y-3">
+        <div class="flex items-center gap-2 text-[#4A5847]">
+          <svg class="w-4 h-4 text-[#C5A059] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <h4 class="font-serif text-base font-semibold text-[#2F2D2C]">Lokasi Acara</h4>
+        </div>
+
+        <p class="text-xs text-[#5C5856] leading-relaxed">
+          Jl. Ranggong Dg Romo No. 56 B, Lingk. Taipa Kel. Biringere Kec. Sinjai Utara Kab. Sinjai
+        </p>
+
+        <!-- Tombol Buka Maps & Salin Alamat -->
+        <div class="space-y-2 pt-1">
+          <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Ranggong+Dg+Romo+No.+56+B+Taipa+Biringere+Sinjai+Utara+Kabupaten+Sinjai" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#8F9E8B] hover:bg-[#7b8a77] text-white text-xs font-medium shadow-xs transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+            <span>Buka di Google Maps</span>
+          </a>
+
+          <button id="btn-copy-address" 
+                  type="button" 
+                  class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-white border border-stone-200 hover:bg-stone-50 text-[#2F2D2C] text-xs font-medium transition-colors">
+            <span id="copy-address-text">Salin Alamat</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Pembatas Floral Emas -->
+    <div class="flex items-center justify-center gap-3 my-4 text-[#C5A059]">
+      <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
+      <span class="w-2 h-2 rotate-45 border border-[#C5A059] bg-[#FAF9F6]"></span>
+      <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+    </div>
+
+    <!-- ----------------------------------------
+         4. SECTION COUNTDOWN & PENUTUP
+    ----------------------------------------- -->
+    <section id="countdown" class="px-6 py-10 scroll-mt-6 text-center space-y-8">
+      
+      <!-- Widget Hitung Mundur Sederhana -->
+      <div class="reveal-fade-up space-y-3">
+        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#8F9E8B] font-semibold">Menghitung Hari</span>
+        <h2 class="font-serif text-3xl font-semibold text-[#2F2D2C]">Hitung Mundur</h2>
+        
+        <!-- 4 Kotak Countdown -->
+        <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto pt-3">
+          <div class="p-3 bg-white/90 rounded-2xl border border-[#8F9E8B]/30 shadow-xs">
+            <span id="cd-days" class="font-serif text-2xl font-bold text-[#2F2D2C] block tabular-nums">00</span>
+            <span class="text-[10px] text-[#8F9E8B] uppercase tracking-wider font-semibold">Hari</span>
+          </div>
+          <div class="p-3 bg-white/90 rounded-2xl border border-[#8F9E8B]/30 shadow-xs">
+            <span id="cd-hours" class="font-serif text-2xl font-bold text-[#2F2D2C] block tabular-nums">00</span>
+            <span class="text-[10px] text-[#8F9E8B] uppercase tracking-wider font-semibold">Jam</span>
+          </div>
+          <div class="p-3 bg-white/90 rounded-2xl border border-[#8F9E8B]/30 shadow-xs">
+            <span id="cd-minutes" class="font-serif text-2xl font-bold text-[#2F2D2C] block tabular-nums">00</span>
+            <span class="text-[10px] text-[#8F9E8B] uppercase tracking-wider font-semibold">Menit</span>
+          </div>
+          <div class="p-3 bg-white/90 rounded-2xl border border-[#8F9E8B]/30 shadow-xs">
+            <span id="cd-seconds" class="font-serif text-2xl font-bold text-[#2F2D2C] block tabular-nums">00</span>
+            <span class="text-[10px] text-[#8F9E8B] uppercase tracking-wider font-semibold">Detik</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ucapan Terima Kasih & Penutup -->
+      <div class="reveal-fade-up delay-100 max-w-sm mx-auto space-y-4 pt-4">
+        <p class="text-xs sm:text-sm text-[#5C5856] leading-relaxed">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami berdua.
+        </p>
+        <p class="font-serif text-sm font-semibold text-[#2F2D2C]">
+          Wassalamu’alaikum Warahmatullahi Wabarakatuh
+        </p>
+        <div class="pt-2">
+          <p class="text-[11px] font-serif uppercase tracking-widest text-[#8F9E8B]">Kami yang berbahagia,</p>
+          <h3 class="font-script text-4xl text-[#C5A059] mt-1">Nur & Udi</h3>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="pt-8 pb-4 text-center border-t border-stone-200/60">
+        <p class="text-[11px] text-stone-400 font-sans tracking-wider">
+          The Wedding of Nur & Udi · Sinjai 2026
+        </p>
+      </footer>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       JAVASCRIPT MURNI (AUDIO + INTERSECTION OBSERVER + COUNTDOWN)
+  =========================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. URL Query Parameter untuk Nama Tamu (?to=Nama+Tamu)
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestParam = urlParams.get('to') || urlParams.get('guest') || urlParams.get('u');
+      if (guestParam) {
+        const guestEl = document.getElementById('guest-name-display');
+        if (guestEl) guestEl.textContent = decodeURIComponent(guestParam);
+      }
+
+      // 2. Musik Latar & Tombol Floating Vinyl
+      const audio = document.getElementById('bg-music');
+      const musicBtn = document.getElementById('music-toggle-btn');
+      const vinylDisc = document.getElementById('vinyl-disc');
+      const iconPlay = document.getElementById('icon-play');
+      const iconPause = document.getElementById('icon-pause');
+      const openBtn = document.getElementById('btn-open-invitation');
+      let isPlaying = false;
+
+      function playAudio() {
+        if (!audio) return;
+        audio.play().then(() => {
+          isPlaying = true;
+          updateMusicUI(true);
+        }).catch(err => {
+          console.warn('Autoplay terblokir browser, memerlukan interaksi pengguna:', err);
+        });
+      }
+
+      function pauseAudio() {
+        if (!audio) return;
+        audio.pause();
+        isPlaying = false;
+        updateMusicUI(false);
+      }
+
+      function updateMusicUI(active) {
+        if (active) {
+          vinylDisc.classList.add('animate-spin-vinyl');
+          iconPlay.classList.add('hidden');
+          iconPause.classList.remove('hidden');
+        } else {
+          vinylDisc.classList.remove('animate-spin-vinyl');
+          iconPlay.classList.remove('hidden');
+          iconPause.classList.add('hidden');
+        }
+      }
+
+      // Toggle music button click
+      musicBtn.addEventListener('click', () => {
+        if (isPlaying) {
+          pauseAudio();
+        } else {
+          playAudio();
+        }
+      });
+
+      // Tombol Buka Undangan: Mulai musik & Scroll halus ke mempelai
+      openBtn.addEventListener('click', () => {
+        playAudio();
+        const targetSection = document.getElementById('mempelai');
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+
+      // 3. Animasi Scroll Halus & Cepat Menggunakan IntersectionObserver
+      const observerOptions = {
+        threshold: 0.12,
+        rootMargin: '0px 0px -30px 0px'
+      };
+
+      const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Hanya animasi sekali saat masuk
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-fade-up').forEach(el => {
+        scrollObserver.observe(el);
+      });
+
+      // 4. Hitung Mundur (Countdown) ke 22 Desember 2026 09:00 WITA
+      const weddingDate = new Date('2026-12-22T09:00:00+08:00').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = weddingDate - now;
+
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-minutes').textContent = '00';
+          document.getElementById('cd-seconds').textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // 5. Salin Alamat Acara
+      const copyBtn = document.getElementById('btn-copy-address');
+      const copyText = document.getElementById('copy-address-text');
+      const addressString = "Jl. Ranggong Dg Romo No. 56 B, Lingk. Taipa Kel. Biringere Kec. Sinjai Utara Kab. Sinjai";
+
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(addressString).then(() => {
+          copyText.textContent = "Alamat Berhasil Disalin ✓";
+          copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-300');
+          setTimeout(() => {
+            copyText.textContent = "Salin Alamat";
+            copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-300');
+          }, 2500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
