@@ -23,6 +23,7 @@ import { GuestbookRSVP } from './components/GuestbookRSVP';
 import { FloatingNav } from './components/FloatingNav';
 import { EnvelopeCover } from './components/EnvelopeCover';
 import { ScrollReveal } from './components/ScrollReveal';
+import { GuestLinkGenerator } from './components/GuestLinkGenerator';
 
 // Exact generated image asset paths
 const IMAGES = {
@@ -784,6 +785,11 @@ export default function App() {
                 Nur &amp; Udi
               </h4>
             </div>
+          </ScrollReveal>
+
+          {/* Guest Link Generator Panel for Bride/Groom & Committee */}
+          <ScrollReveal delay={250} className="pt-4">
+            <GuestLinkGenerator baseUrl="https://undanganpernikahannurudi.vercel.app/" />
           </ScrollReveal>
 
           {/* Simple Clean Footer */}
