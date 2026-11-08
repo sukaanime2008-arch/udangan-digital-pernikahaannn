@@ -5,9 +5,10 @@
     --bg-primary: #FAF9F6;
     --dusty-rose: #D4A5A5;
     --dusty-rose-light: #F7EFEF;
-    --sage-green: #8F9E8B;
-    --sage-light: #F0F3EF;
-    --sage-dark: #4A5847;
+    --pastel-blue: #7B9CB9;
+    --pastel-light: #EBF3FA;
+    --pastel-border: #B5CEE3;
+    --navy-primary: #000080;
     --gold-accent: #C5A059;
     --text-primary: #181716;
     --text-muted: #383634;
@@ -48,8 +49,8 @@
   border: 1px solid rgba(212, 165, 165, 0.4);
 }
 
-.sage-border {
-  border: 1px solid rgba(143, 158, 139, 0.35);
+.pastel-border {
+  border: 1px solid rgba(123, 156, 185, 0.35);
 }
 
 @keyframes floatSlow {
@@ -83,15 +84,15 @@
   width: 5px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #F0F3EF;
+  background: #EBF3FA;
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #C5CEC2;
+  background: #B5CEE3;
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #8F9E8B;
+  background: #7B9CB9;
 }
 
 /* 3D Envelope Animation Utilities */

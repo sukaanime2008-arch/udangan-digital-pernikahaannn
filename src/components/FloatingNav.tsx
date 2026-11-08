@@ -51,7 +51,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ isVisible }) => {
   return (
     <nav
       aria-label="Navigasi Undangan"
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-lg bg-[#FAF9F6]/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-[#8F9E8B]/35 shadow-xl shadow-stone-900/10 px-3 py-2 transition-all duration-300"
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-lg bg-[#FAF9F6]/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-[#8FA9C4]/40 shadow-xl shadow-stone-900/10 px-3 py-2 transition-all duration-300"
     >
       <div className="grid grid-cols-5 items-center gap-1">
         {navItems.map((item) => {
@@ -63,18 +63,18 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ isVisible }) => {
               onClick={() => scrollToSection(item.id)}
               className={`min-h-[52px] sm:min-h-[56px] flex flex-col items-center justify-center rounded-xl sm:rounded-full transition-all ${
                 isActive
-                  ? 'text-[#3D4B3A] font-bold'
+                  ? 'text-[#000080] font-bold'
                   : 'text-stone-400 hover:text-stone-600'
               }`}
             >
               <div
                 className={`w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl sm:rounded-full transition-transform ${
-                  isActive ? 'bg-[#8F9E8B]/25 scale-110 shadow-xs' : ''
+                  isActive ? 'bg-[#8FA9C4]/25 scale-110 shadow-xs' : ''
                 }`}
               >
                 <Icon
                   className={`w-5 h-5 sm:w-5.5 sm:h-5.5 ${
-                    isActive ? 'text-[#3D4B3A]' : 'text-stone-400'
+                    isActive ? 'text-[#000080]' : 'text-stone-400'
                   }`}
                 />
               </div>

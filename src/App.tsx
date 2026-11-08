@@ -25,13 +25,16 @@ import { EnvelopeCover } from './components/EnvelopeCover';
 import { ScrollReveal } from './components/ScrollReveal';
 import { GuestLinkGenerator } from './components/GuestLinkGenerator';
 
-// Exact generated image asset paths
+// Image assets stored cleanly in assets/
 const IMAGES = {
   cover: '/assets/foto-pasangan.jpg',
-  groom: '/src/assets/images/groom_portrait_1794141714007.jpg',
-  bride: '/src/assets/images/bride_portrait_1794141715689.jpg',
-  gallery1: '/src/assets/images/gallery_moment_one_1794141714727.jpg',
-  gallery2: '/src/assets/images/gallery_details_rings_1794141717014.jpg',
+  groom: '/assets/foto-pasangan.jpg',
+  bride: '/assets/foto-pasangan.jpg',
+  galeri1: '/assets/galeri-1.jpg', // Landscape (Seated on grass)
+  galeri2: '/assets/galeri-2.jpg', // Portrait 1 (Standing under tree)
+  galeri3: '/assets/galeri-3.jpg', // Portrait 2 (Side angle gentle smile)
+  galeri4: '/assets/galeri-4.jpg', // Portrait 3 (Leaning on tree trunk)
+  galeri5: '/assets/galeri-5.jpg', // Portrait 4 (Medium shot smiling)
 };
 
 export default function App() {
@@ -53,7 +56,6 @@ export default function App() {
 
   const handleOpenInvitation = () => {
     setIsUnlocked(true);
-    // Smoothly scroll down to greeting section
     setTimeout(() => {
       const el = document.getElementById('cover');
       if (el) {
@@ -80,42 +82,47 @@ export default function App() {
     setTimeout(() => setCopiedAddress(false), 2500);
   };
 
+  // 5 Gallery Photos as requested: Foto 1 (Landscape), Foto 2-5 (Portrait)
   const galleryPhotos: GalleryPhoto[] = [
     {
-      src: IMAGES.cover,
-      title: 'Nur & Udi',
-      caption: 'Harmoni cinta dalam keindahan taman bunga',
+      src: IMAGES.galeri1,
+      title: 'Kebersamaan & Kehangatan',
+      caption: 'Duduk berdampingan merajut mimpi di hamparan rasa syukur',
     },
     {
-      src: IMAGES.gallery1,
+      src: IMAGES.galeri2,
       title: 'Langkah Bersama',
-      caption: 'Menuju babak baru penuh ridha dan kasih sayang',
+      caption: 'Menatap masa depan penuh berkah di bawah rindangnya doa',
     },
     {
-      src: IMAGES.gallery2,
-      title: 'Ikatan Suci',
-      caption: 'Dua cincin tanda komitmen seumur hidup',
+      src: IMAGES.galeri3,
+      title: 'Senyuman Kasih',
+      caption: 'Kelembutan hati yang menyinari setiap detik penantian',
     },
     {
-      src: IMAGES.bride,
-      title: 'Nurhidayah, S.Pd (Nur)',
-      caption: 'Mempelai Wanita yang anggun dan berhati mulia',
+      src: IMAGES.galeri4,
+      title: 'Keteguhan Hati',
+      caption: 'Sandaran cinta yang kokoh dalam ikrar suci pernikahan',
     },
     {
-      src: IMAGES.groom,
-      title: "Muh. Saifuddin Assa'diah, S.Hf (Udi)",
-      caption: 'Mempelai Pria yang teguh dan penuh tanggung jawab',
+      src: IMAGES.galeri5,
+      title: 'Dua Jiwa Satu Tujuan',
+      caption: 'Menyempurnakan separuh agama dalam ikatan sakinah mawaddah warahmah',
     },
   ];
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#181716] selection:bg-[#D4A5A5]/30 selection:text-[#181716] relative overflow-x-hidden">
-      {/* 3D Sage Green Envelope with Soft Rose Pink Background on initial load */}
+      {/* 3D Pastel Blue Envelope with Soft Rose Pink Background on initial load */}
       <EnvelopeCover
         guestName={guestName}
-        onOpen={handleOpenInvitation}
-        onStartOpen={() => audioPlayerRef.current?.play()}
         isOpen={isUnlocked}
+        onOpen={handleOpenInvitation}
+        onStartOpen={() => {
+          if (audioPlayerRef.current) {
+            audioPlayerRef.current.play();
+          }
+        }}
       />
 
       {/* Background audio player & music control disc playing user's orchestral MP3 */}
@@ -125,7 +132,7 @@ export default function App() {
       <FloatingNav isVisible={isUnlocked} />
 
       {/* Main Single-Column Luxury Wedding Paper Container */}
-      <div className="max-w-xl mx-auto min-h-screen bg-[#FAF9F6] shadow-xl shadow-stone-200/50 border-x border-[#8F9E8B]/20 relative">
+      <div className="max-w-xl mx-auto min-h-screen bg-[#FAF9F6] shadow-xl shadow-stone-200/50 border-x border-[#8FA9C4]/25 relative">
         
         {/* =========================================================================
             1. COVER SECTION
@@ -134,13 +141,13 @@ export default function App() {
           id="cover"
           className="relative min-h-screen flex flex-col items-center justify-between px-4 sm:px-6 py-12 text-center overflow-hidden"
         >
-          {/* Subtle floral watermark corners */}
+          {/* Subtle floral watercolor corners */}
           <BotanicalCorner position="top-left" className="absolute top-2 left-2" />
           <BotanicalCorner position="top-right" className="absolute top-2 right-2" />
 
           {/* Top Header */}
           <ScrollReveal delay={50} className="w-full pt-2 space-y-2 z-10">
-            <span className="text-xs uppercase tracking-[0.3em] font-sans text-[#2C3A29] font-bold">
+            <span className="text-xs uppercase tracking-[0.3em] font-sans text-[#000080] font-extrabold">
               Save The Date
             </span>
             <div className="flex items-center justify-center gap-2 text-xs font-serif tracking-widest text-[#B8860B] font-semibold">
@@ -150,13 +157,13 @@ export default function App() {
             </div>
           </ScrollReveal>
 
-          {/* Center Large Arch Frame Image */}
+          {/* Center Large Arch Frame Image (Photo of the Couple) */}
           <ScrollReveal delay={150} className="relative my-6 z-10">
             {/* Outer Decorative Gold Halo Border - Grand Size */}
-            <div className="w-[88vw] max-w-[360px] sm:max-w-[420px] md:max-w-[460px] h-[500px] sm:h-[580px] md:h-[620px] arch-frame p-3 sm:p-4 bg-gradient-to-b from-[#C5A059]/40 via-[#D4A5A5]/30 to-[#8F9E8B]/30 shadow-2xl transition-all duration-500">
-              {/* Inner White/Off-White Matte with Double Border */}
+            <div className="w-[88vw] max-w-[360px] sm:max-w-[420px] md:max-w-[460px] h-[500px] sm:h-[580px] md:h-[620px] arch-frame p-3 sm:p-4 bg-gradient-to-b from-[#C5A059]/40 via-[#D4A5A5]/30 to-[#8FA9C4]/35 shadow-2xl transition-all duration-500">
+              {/* Inner Matte with Double Border */}
               <div className="w-full h-full arch-frame p-2 sm:p-2.5 bg-[#FAF9F6] border border-[#C5A059]/50 shadow-inner">
-                {/* Photo Arch Frame */}
+                {/* Photo Arch Frame - object-cover object-center */}
                 <div className="w-full h-full arch-frame overflow-hidden relative group shadow-sm">
                   <img
                     src={IMAGES.cover}
@@ -165,8 +172,6 @@ export default function App() {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
-
-                  {/* Subtle inner gold arch hairline */}
                   <div className="absolute inset-2 arch-frame border border-white/20 pointer-events-none" />
                 </div>
               </div>
@@ -181,26 +186,26 @@ export default function App() {
 
           {/* Title & Couple Names */}
           <ScrollReveal delay={200} className="space-y-3 z-10 mt-3 mb-2">
-            <p className="text-xs font-serif tracking-widest text-[#383634] uppercase font-bold">
+            <p className="text-xs font-serif tracking-widest text-[#000080] uppercase font-bold">
               The Wedding of
             </p>
             <h1 className="font-serif text-4xl sm:text-5xl font-bold text-[#181716] tracking-tight">
               Nur <span className="font-script text-3xl sm:text-4xl text-[#B87A7A] mx-1">&</span> Udi
             </h1>
-            <p className="text-xs text-[#2C3A29] tracking-wide font-sans font-bold">
+            <p className="text-xs text-[#000080] tracking-wide font-sans font-bold">
               Selasa, 22 Desember 2026 · Sinjai, Sulawesi Selatan
             </p>
           </ScrollReveal>
 
           {/* Guest Personalization Card & Reopen Envelope Trigger */}
-          <ScrollReveal delay={250} className="w-full max-w-sm mt-4 p-5 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#8F9E8B]/35 shadow-xs z-10 space-y-3">
-            <p className="text-[11px] uppercase tracking-wider text-[#383634] font-semibold">
+          <ScrollReveal delay={250} className="w-full max-w-sm mt-4 p-5 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#8FA9C4]/40 shadow-xs z-10 space-y-3">
+            <p className="text-[11px] uppercase tracking-wider text-[#000080] font-bold">
               Kepada Yth. Bapak/Ibu/Saudara/i:
             </p>
-            <h2 className="font-serif text-lg sm:text-xl font-bold text-[#181716] leading-snug px-2">
+            <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug px-2">
               {guestName}
             </h2>
-            <p className="text-[11px] text-[#383634] italic font-medium">
+            <p className="text-[11px] text-stone-500 italic font-medium">
               *Merupakan suatu kehormatan bagi kami atas kehadiran dan doa restu Anda
             </p>
 
@@ -211,7 +216,7 @@ export default function App() {
                   const el = document.getElementById('mempelai');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#5C6E58] hover:bg-[#4F5F4B] text-white font-bold text-sm shadow-md shadow-[#5C6E58]/30 transition-all duration-300 active:scale-[0.98] cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#6387A5] hover:bg-[#4F7391] text-white font-bold text-sm shadow-md shadow-[#6387A5]/30 transition-all duration-300 active:scale-[0.98] cursor-pointer"
               >
                 <span>Lihat Informasi Pernikahan</span>
               </button>
@@ -219,9 +224,9 @@ export default function App() {
               <button
                 type="button"
                 onClick={handleReopenEnvelope}
-                className="inline-flex items-center justify-center gap-1.5 py-1.5 text-xs text-[#2C3A29] hover:text-[#181716] font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 py-1.5 text-xs text-[#000080] hover:text-[#181716] font-bold transition-colors"
               >
-                <MailOpen className="w-3.5 h-3.5" />
+                <MailOpen className="w-3.5 h-3.5 text-[#C5A059]" />
                 <span>Buka Kembali Amplop Pembuka</span>
               </button>
             </div>
@@ -256,7 +261,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#F0F3EF]/90 border border-[#8F9E8B]/35 text-center space-y-2 mt-4 shadow-xs">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#EBF3FA]/90 border border-[#8FA9C4]/40 text-center space-y-2 mt-4 shadow-xs">
               <p className="font-serif text-sm sm:text-base text-[#181716] italic leading-relaxed font-semibold">
                 “Maha Suci Allah yang telah menciptakan makhluk-Nya berpasangan-pasangan. Ya Allah dengan Ridho-Mu perkenankanlah kami menikahkah putra-putri kami:”
               </p>
@@ -274,7 +279,7 @@ export default function App() {
                   <img
                     src={IMAGES.bride}
                     alt="Nurhidayah, S.Pd (Nur)"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent pointer-events-none" />
@@ -285,7 +290,7 @@ export default function App() {
 
             {/* Info Mempelai Wanita */}
             <div className="w-full max-w-sm px-4 text-center space-y-2">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#B87A7A] font-bold block">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#B87A7A] font-extrabold block">
                 Mempelai Wanita
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#181716]">
@@ -300,7 +305,7 @@ export default function App() {
           {/* "Dengan" Floral Transition Badge */}
           <ScrollReveal delay={100} className="flex items-center justify-center my-6">
             <div className="px-6 py-2 rounded-full bg-[#FAF9F6] border border-[#C5A059]/60 shadow-xs flex items-center justify-center">
-              <span className="font-serif italic text-lg sm:text-xl text-[#B8860B] font-bold tracking-wider">
+              <span className="font-serif italic text-lg sm:text-xl text-[#000080] font-bold tracking-wider">
                 Dengan
               </span>
             </div>
@@ -309,13 +314,13 @@ export default function App() {
           {/* Mempelai Pria (Groom) - Second */}
           <ScrollReveal delay={150} className="w-full max-w-md mx-auto flex flex-col items-center">
             {/* Grand Arch Frame seukuran bingkai gambar paling atas */}
-            <div className="w-[88vw] max-w-[360px] sm:max-w-[420px] md:max-w-[460px] h-[500px] sm:h-[580px] md:h-[620px] arch-frame p-3 sm:p-4 bg-gradient-to-b from-[#8F9E8B]/45 via-[#C5A059]/30 to-[#FAF9F6] shadow-2xl mb-6 relative">
-              <div className="w-full h-full arch-frame p-2 sm:p-2.5 bg-[#FAF9F6] border border-[#8F9E8B]/50 shadow-inner">
+            <div className="w-[88vw] max-w-[360px] sm:max-w-[420px] md:max-w-[460px] h-[500px] sm:h-[580px] md:h-[620px] arch-frame p-3 sm:p-4 bg-gradient-to-b from-[#6387A5]/45 via-[#C5A059]/30 to-[#FAF9F6] shadow-2xl mb-6 relative">
+              <div className="w-full h-full arch-frame p-2 sm:p-2.5 bg-[#FAF9F6] border border-[#8FA9C4]/50 shadow-inner">
                 <div className="w-full h-full arch-frame overflow-hidden relative group shadow-sm">
                   <img
                     src={IMAGES.groom}
                     alt="Muh. Saifuddin Assa'diah, S.Hf (Udi)"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent pointer-events-none" />
@@ -326,7 +331,7 @@ export default function App() {
 
             {/* Info Mempelai Pria */}
             <div className="w-full max-w-sm px-4 text-center space-y-2">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#2C3A29] font-bold block">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#000080] font-extrabold block">
                 Mempelai Pria
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#181716]">
@@ -344,7 +349,10 @@ export default function App() {
         ========================================================================= */}
         <section id="acara" className="px-6 py-12 scroll-mt-6 bg-[#FAF9F6] text-center space-y-8">
           <ScrollReveal delay={100} className="max-w-md mx-auto space-y-3">
-            <p className="font-serif text-xl sm:text-2xl font-bold text-[#181716]">
+            <span className="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold block">
+              Rangkaian Acara
+            </span>
+            <p className="font-serif text-xl sm:text-2xl font-bold text-[#000080]">
               Assalamu'alaikum Warahmatullahi Wabarakatuh
             </p>
             <p className="text-xs sm:text-sm text-[#252423] leading-relaxed font-medium">
@@ -354,9 +362,9 @@ export default function App() {
 
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {/* Card Akad Nikah */}
-            <ScrollReveal delay={150} className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#8F9E8B]/35 shadow-sm relative">
-              <div className="w-12 h-12 rounded-full bg-[#F0F3EF] text-[#2C3A29] flex items-center justify-center mx-auto mb-3 shadow-xs">
-                <Heart className="w-6 h-6 text-[#5C6E58]" />
+            <ScrollReveal delay={150} className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#8FA9C4]/40 shadow-sm relative">
+              <div className="w-12 h-12 rounded-full bg-[#EBF3FA] text-[#000080] flex items-center justify-center mx-auto mb-3 shadow-xs">
+                <Heart className="w-6 h-6 text-[#000080]" />
               </div>
 
               <h3 className="font-serif text-2xl font-bold text-[#181716]">
@@ -366,17 +374,17 @@ export default function App() {
 
               <div className="space-y-3 text-xs sm:text-sm text-[#252423]">
                 <div className="flex items-center justify-center gap-2 text-[#181716] font-bold">
-                  <Calendar className="w-4 h-4 text-[#5C6E58]" />
+                  <Calendar className="w-4 h-4 text-[#000080]" />
                   <span>Selasa, 22 Desember 2026</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 text-[#2C3A29] font-bold">
+                <div className="flex items-center justify-center gap-2 text-[#000080] font-bold">
                   <Clock className="w-4 h-4 text-[#B8860B]" />
                   <span>Pukul 09.00 Wita</span>
                 </div>
                 <div className="pt-1 text-[#181716] text-xs">
                   Bertempat di:
                   <br />
-                  <strong className="text-sm font-serif font-bold text-[#2C3A29]">Di Kediaman Mempelai Wanita</strong>
+                  <strong className="text-sm font-serif font-bold text-[#000080]">Di Kediaman Mempelai Wanita</strong>
                 </div>
               </div>
             </ScrollReveal>
@@ -397,7 +405,7 @@ export default function App() {
                   <Calendar className="w-4 h-4 text-[#B87A7A]" />
                   <span>Selasa, 22 Desember 2026</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 text-[#2C3A29] font-bold">
+                <div className="flex items-center justify-center gap-2 text-[#000080] font-bold">
                   <Clock className="w-4 h-4 text-[#B8860B]" />
                   <span>Pukul 11.00 WITA s/d Selesai</span>
                 </div>
@@ -412,7 +420,7 @@ export default function App() {
 
           {/* Location Details Card */}
           <ScrollReveal delay={250} className="max-w-md mx-auto bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#C5A059]/40 shadow-sm text-left">
-            <div className="flex items-center gap-2 mb-2 text-[#2C3A29]">
+            <div className="flex items-center gap-2 mb-2 text-[#000080]">
               <MapPin className="w-5 h-5 text-[#B8860B] shrink-0" />
               <h3 className="font-serif text-xl font-bold text-[#181716]">
                 Lokasi Acara
@@ -427,14 +435,14 @@ export default function App() {
             </p>
 
             {/* Stylized Map Viewport Card */}
-            <div className="w-full h-36 rounded-2xl bg-[#F0F3EF] border border-[#8F9E8B]/40 relative overflow-hidden flex flex-col items-center justify-center p-4 text-center mb-4">
+            <div className="w-full h-36 rounded-2xl bg-[#EBF3FA] border border-[#8FA9C4]/40 relative overflow-hidden flex flex-col items-center justify-center p-4 text-center mb-4">
               <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-2">
-                <MapPin className="w-5 h-5 text-[#B87A7A] animate-bounce" />
+                <MapPin className="w-5 h-5 text-[#000080] animate-bounce" />
               </div>
               <p className="font-serif text-base font-bold text-[#181716]">
                 Taipa, Biringere, Sinjai Utara
               </p>
-              <p className="text-xs text-[#2C3A29] font-medium">Kabupaten Sinjai, Sulawesi Selatan</p>
+              <p className="text-xs text-[#000080] font-bold">Kabupaten Sinjai, Sulawesi Selatan</p>
             </div>
 
             {/* Action Buttons: Google Maps & Copy Address */}
@@ -443,16 +451,16 @@ export default function App() {
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#5C6E58] hover:bg-[#4F5F4B] text-white text-xs sm:text-sm font-bold shadow-xs transition-all active:scale-[0.98]"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#000080] hover:bg-[#000066] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#000080]/20 transition-all active:scale-[0.98]"
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-4 h-4 text-[#C5A059]" />
                 <span>Buka di Google Maps</span>
               </a>
 
               <button
                 type="button"
                 onClick={copyAddressToClipboard}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white border border-stone-300 hover:bg-stone-50 text-[#181716] text-xs sm:text-sm font-bold shadow-xs transition-all active:scale-[0.98]"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white border border-stone-300 hover:bg-stone-50 text-[#181716] text-xs sm:text-sm font-bold shadow-xs transition-all active:scale-[0.98] cursor-pointer"
               >
                 {copiedAddress ? (
                   <>
@@ -461,7 +469,7 @@ export default function App() {
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4 text-stone-600" />
+                    <Copy className="w-4 h-4 text-[#000080]" />
                     <span>Salin Alamat</span>
                   </>
                 )}
@@ -470,18 +478,16 @@ export default function App() {
           </ScrollReveal>
         </section>
 
-        {/* Divider Ornament */}
-        <div className="px-6 py-2">
-          <FloralBranchTop />
-        </div>
-
         {/* =========================================================================
-            4. SECTION GALERI & COUNTDOWN
+            4. SECTION COUNTDOWN & 5-PHOTO GALLERY
+            - Foto 1 (Landscape) on top
+            - Foto 2, 3, 4, 5 (Portraits) below in neat grid
+            - w-full h-full object-cover object-center
         ========================================================================= */}
         <section id="galeri" className="px-6 py-12 scroll-mt-6 text-center space-y-10">
           {/* Countdown Area */}
           <ScrollReveal delay={100} className="space-y-3">
-            <span className="text-xs uppercase tracking-[0.25em] font-sans text-[#2C3A29] font-bold">
+            <span className="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
               Menghitung Hari
             </span>
             <h2 className="font-serif text-3xl font-bold text-[#181716]">
@@ -498,10 +504,10 @@ export default function App() {
 
           <GoldDivider />
 
-          {/* Galeri Foto */}
+          {/* Galeri Foto: 5 Photos Layout */}
           <div className="space-y-4">
             <ScrollReveal delay={100}>
-              <span className="text-xs uppercase tracking-[0.25em] font-sans text-[#B87A7A] font-bold">
+              <span className="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
                 Memori Indah
               </span>
               <h2 className="font-serif text-3xl font-bold text-[#181716] mt-1">
@@ -512,23 +518,26 @@ export default function App() {
               </p>
             </ScrollReveal>
 
-            {/* Photo Mosaic Grid */}
-            <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-2">
-              {/* Large Feature Photo */}
-              <ScrollReveal delay={150} className="col-span-2">
+            {/* Susunan 5 Foto Galeri: Foto 1 Landscape (Atas) & Foto 2-5 Portrait (Bawah) */}
+            <div className="max-w-md mx-auto pt-2 space-y-3">
+              {/* Foto 1 (Landscape): Ditempatkan di bagian paling atas bingkai galeri utama */}
+              <ScrollReveal delay={150}>
                 <div
                   onClick={() => setActivePhotoIndex(0)}
-                  className="relative h-64 rounded-3xl overflow-hidden cursor-pointer group shadow-sm border border-[#8F9E8B]/30"
+                  className="relative w-full aspect-[16/10] rounded-3xl overflow-hidden cursor-pointer group shadow-md border-2 border-[#8FA9C4]/40"
                 >
                   <img
-                    src={IMAGES.cover}
+                    src={IMAGES.galeri1}
                     alt={galleryPhotos[0].title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4 text-left">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4 text-left">
                     <div>
-                      <p className="font-serif text-lg font-bold text-white">
+                      <span className="text-[10px] uppercase font-bold tracking-widest text-[#E6D4A5] block">
+                        Foto Utama (Landscape)
+                      </span>
+                      <p className="font-serif text-lg font-bold text-white leading-tight">
                         {galleryPhotos[0].title}
                       </p>
                       <p className="text-xs text-white/90 font-medium">{galleryPhotos[0].caption}</p>
@@ -537,73 +546,99 @@ export default function App() {
                 </div>
               </ScrollReveal>
 
-              {/* Secondary Photos */}
-              <ScrollReveal delay={200} className="relative h-44 rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200">
-                <div
-                  onClick={() => setActivePhotoIndex(1)}
-                  className="w-full h-full"
-                >
-                  <img
-                    src={IMAGES.gallery1}
-                    alt={galleryPhotos[1].title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                </div>
-              </ScrollReveal>
+              {/* Foto 2, 3, 4, 5 (Portrait): Ditempatkan di bawahnya menggunakan susunan grid yang rapi */}
+              <div className="grid grid-cols-2 gap-3">
+                {/* Foto 2 (Portrait) */}
+                <ScrollReveal delay={200}>
+                  <div
+                    onClick={() => setActivePhotoIndex(1)}
+                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200"
+                  >
+                    <img
+                      src={IMAGES.galeri2}
+                      alt={galleryPhotos[1].title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left">
+                      <p className="font-serif text-xs font-bold text-white truncate">
+                        {galleryPhotos[1].title}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
 
-              <ScrollReveal delay={250} className="relative h-44 rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200">
-                <div
-                  onClick={() => setActivePhotoIndex(2)}
-                  className="w-full h-full"
-                >
-                  <img
-                    src={IMAGES.gallery2}
-                    alt={galleryPhotos[2].title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                </div>
-              </ScrollReveal>
+                {/* Foto 3 (Portrait) */}
+                <ScrollReveal delay={250}>
+                  <div
+                    onClick={() => setActivePhotoIndex(2)}
+                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200"
+                  >
+                    <img
+                      src={IMAGES.galeri3}
+                      alt={galleryPhotos[2].title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left">
+                      <p className="font-serif text-xs font-bold text-white truncate">
+                        {galleryPhotos[2].title}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
 
-              <ScrollReveal delay={300} className="relative h-44 rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200">
-                <div
-                  onClick={() => setActivePhotoIndex(3)}
-                  className="w-full h-full"
-                >
-                  <img
-                    src={IMAGES.bride}
-                    alt={galleryPhotos[3].title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                </div>
-              </ScrollReveal>
+                {/* Foto 4 (Portrait) */}
+                <ScrollReveal delay={300}>
+                  <div
+                    onClick={() => setActivePhotoIndex(3)}
+                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200"
+                  >
+                    <img
+                      src={IMAGES.galeri4}
+                      alt={galleryPhotos[3].title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left">
+                      <p className="font-serif text-xs font-bold text-white truncate">
+                        {galleryPhotos[3].title}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
 
-              <ScrollReveal delay={350} className="relative h-44 rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200">
-                <div
-                  onClick={() => setActivePhotoIndex(4)}
-                  className="w-full h-full"
-                >
-                  <img
-                    src={IMAGES.groom}
-                    alt={galleryPhotos[4].title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                </div>
-              </ScrollReveal>
+                {/* Foto 5 (Portrait) */}
+                <ScrollReveal delay={350}>
+                  <div
+                    onClick={() => setActivePhotoIndex(4)}
+                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200"
+                  >
+                    <img
+                      src={IMAGES.galeri5}
+                      alt={galleryPhotos[4].title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left">
+                      <p className="font-serif text-xs font-bold text-white truncate">
+                        {galleryPhotos[4].title}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              </div>
             </div>
           </div>
 
           {/* Love Story Snippet */}
-          <ScrollReveal delay={150} className="max-w-md mx-auto p-6 rounded-3xl bg-white/90 border border-[#8F9E8B]/30 text-left space-y-4 shadow-xs">
+          <ScrollReveal delay={150} className="max-w-md mx-auto p-6 rounded-3xl bg-white/90 border border-[#8FA9C4]/35 text-left space-y-4 shadow-xs">
             <div className="text-center">
-              <span className="text-[11px] uppercase tracking-widest text-[#2C3A29] font-bold">
+              <span className="text-[11px] uppercase tracking-widest text-[#000080] font-extrabold">
                 Kisah Kami
               </span>
               <h3 className="font-serif text-2xl font-bold text-[#181716]">
@@ -611,9 +646,9 @@ export default function App() {
               </h3>
             </div>
 
-            <div className="space-y-4 text-xs text-[#252423] relative pl-4 border-l-2 border-[#5C6E58]/50">
+            <div className="space-y-4 text-xs text-[#252423] relative pl-4 border-l-2 border-[#6387A5]/50">
               <div>
-                <span className="font-bold text-[#2C3A29] block text-xs">2022 · Awal Pertemuan</span>
+                <span className="font-bold text-[#000080] block text-xs">2022 · Awal Pertemuan</span>
                 <p className="mt-0.5 leading-relaxed font-medium">
                   Berawal dari pertemuan sederhana dan silaturahmi yang menumbuhkan rasa saling mengagumi
                   dan menghargai visi hidup satu sama lain.
@@ -621,7 +656,7 @@ export default function App() {
               </div>
 
               <div>
-                <span className="font-bold text-[#2C3A29] block text-xs">2025 · Lamaran &amp; Komitmen</span>
+                <span className="font-bold text-[#000080] block text-xs">2025 · Lamaran &amp; Komitmen</span>
                 <p className="mt-0.5 leading-relaxed font-medium">
                   Dengan niat tulus beribadah menyempurnakan separuh agama, keluarga besar kedua mempelai
                   bertemu untuk merajut ikatan silaturahmi resmi.
@@ -629,7 +664,7 @@ export default function App() {
               </div>
 
               <div>
-                <span className="font-bold text-[#2C3A29] block text-xs">2026 · Menuju Pelaminan</span>
+                <span className="font-bold text-[#000080] block text-xs">2026 · Menuju Pelaminan</span>
                 <p className="mt-0.5 leading-relaxed font-medium">
                   Hari yang kami nanti akhirnya tiba. Memulai babak baru dalam bingkai pernikahan yang
                   penuh berkah dan cinta.
@@ -663,7 +698,7 @@ export default function App() {
           <FloralBranchTop />
 
           <ScrollReveal delay={100} className="max-w-md mx-auto space-y-4">
-            <span className="text-xs uppercase tracking-[0.25em] font-sans text-[#2C3A29] font-bold">
+            <span className="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
               Ungkapan Hormat
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#181716]">
@@ -674,7 +709,7 @@ export default function App() {
             </p>
 
             {/* Structured Clean Family List Card */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-sm border border-[#8F9E8B]/30 shadow-xs text-left space-y-4">
+            <div className="p-5 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-sm border border-[#8FA9C4]/35 shadow-xs text-left space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-xs text-[#181716]">
                 <div className="flex items-start gap-2">
                   <span className="text-[#B8860B] font-bold">•</span>
@@ -718,15 +753,7 @@ export default function App() {
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Drs. A. Dewan Dapi, M.H</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Mustamin</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Muh. Risal Akib, S.Sos</span>
+                  <span className="font-medium">Muh. Amir</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#000080] font-bold">•</span>

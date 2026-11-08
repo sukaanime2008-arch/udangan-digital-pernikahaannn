@@ -89,12 +89,12 @@ export const CountdownTimer: React.FC = () => {
         {timeUnits.map((unit) => (
           <div
             key={unit.label}
-            className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-[#8F9E8B]/25 shadow-sm hover:border-[#C5A059]/40 transition-colors"
+            className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-[#8FA9C4]/35 shadow-sm hover:border-[#C5A059]/50 transition-colors"
           >
-            <span className="font-serif text-2xl sm:text-4xl font-semibold text-[#2F2D2C] tabular-nums">
+            <span className="font-serif text-2xl sm:text-4xl font-bold text-[#000080] tabular-nums">
               {String(unit.value).padStart(2, '0')}
             </span>
-            <span className="text-[11px] sm:text-xs font-sans tracking-wider uppercase text-[#8F9E8B] mt-1 font-medium">
+            <span className="text-[11px] sm:text-xs font-sans tracking-wider uppercase text-[#6387A5] mt-1 font-bold">
               {unit.label}
             </span>
           </div>
@@ -106,9 +106,9 @@ export const CountdownTimer: React.FC = () => {
           href={getGoogleCalendarUrl()}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#8F9E8B] hover:bg-[#7D8C79] text-white text-xs sm:text-sm font-medium shadow-sm transition-all active:scale-[0.98]"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#6387A5] hover:bg-[#4F7391] text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-[0.98]"
         >
-          <Calendar className="w-4 h-4" />
+          <Calendar className="w-4 h-4 text-[#FFF3D6]" />
           <span>Simpan ke Google Calendar</span>
         </a>
 

@@ -117,28 +117,28 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
     switch (st) {
       case 'hadir':
         return (
-          <span className="text-[11px] text-[#4A5847] font-medium flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#8F9E8B]" />
+          <span className="text-[11px] text-[#000080] font-bold flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#000080]" />
             Hadir
           </span>
         );
       case 'hadir_keluarga':
         return (
-          <span className="text-[11px] text-[#4A5847] font-medium flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#8F9E8B]" />
+          <span className="text-[11px] text-[#000080] font-bold flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#6387A5]" />
             Hadir Bersama
           </span>
         );
       case 'ragu':
         return (
-          <span className="text-[11px] text-[#C5A059] font-medium flex items-center gap-1">
+          <span className="text-[11px] text-[#C5A059] font-bold flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
             Masih Ragu
           </span>
         );
       case 'tidak_hadir':
         return (
-          <span className="text-[11px] text-[#D4A5A5] font-medium flex items-center gap-1">
+          <span className="text-[11px] text-[#B87A7A] font-bold flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-[#D4A5A5]" />
             Tidak Hadir
           </span>
@@ -153,9 +153,9 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
   return (
     <div className="w-full max-w-xl mx-auto">
       {/* RSVP Form Card */}
-      <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-[#8F9E8B]/30 shadow-xs mb-8">
+      <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-[#8FA9C4]/35 shadow-xs mb-8">
         <div className="text-center mb-6">
-          <span className="text-xs font-serif uppercase tracking-widest text-[#2C3A29] font-bold">
+          <span className="text-xs font-serif uppercase tracking-widest text-[#000080] font-extrabold">
             Konfirmasi Kehadiran &amp; Doa Restu
           </span>
           <h3 className="font-serif text-2xl sm:text-3xl text-[#181716] mt-1 font-bold">
@@ -167,8 +167,8 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
         </div>
 
         {submitted && (
-          <div className="mb-6 p-4 rounded-2xl bg-[#F0F3EF] border border-[#8F9E8B]/40 text-[#2C3A29] text-xs sm:text-sm flex items-center gap-3 animate-in fade-in font-medium">
-            <CheckCircle2 className="w-5 h-5 text-[#5C6E58] shrink-0" />
+          <div className="mb-6 p-4 rounded-2xl bg-[#EBF3FA] border border-[#8FA9C4]/40 text-[#000080] text-xs sm:text-sm flex items-center gap-3 animate-in fade-in font-semibold">
+            <CheckCircle2 className="w-5 h-5 text-[#000080] shrink-0" />
             <span>Terima kasih banyak atas ucapan doa dan konfirmasi kehadiran Anda!</span>
           </div>
         )}
@@ -184,7 +184,7 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Contoh: Andi Pratama"
-              className="w-full px-4 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#8F9E8B]/40 focus:border-[#B8860B] focus:outline-none text-sm text-[#181716] font-medium placeholder:text-stone-400 transition-colors"
+              className="w-full px-4 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#8FA9C4]/40 focus:border-[#000080] focus:outline-none text-sm text-[#181716] font-medium placeholder:text-stone-400 transition-colors"
             />
           </div>
 
@@ -198,8 +198,8 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
                 onClick={() => setStatus('hadir')}
                 className={`py-2.5 px-3 rounded-xl border text-center font-bold transition-all ${
                   status === 'hadir'
-                    ? 'bg-[#5C6E58] text-white border-[#5C6E58] shadow-xs'
-                    : 'bg-[#FAF9F6] text-[#181716] border-stone-300 hover:border-[#5C6E58]/50'
+                    ? 'bg-[#000080] text-white border-[#000080] shadow-xs'
+                    : 'bg-[#FAF9F6] text-[#181716] border-stone-300 hover:border-[#000080]/50'
                 }`}
               >
                 Hadir Sendiri
@@ -209,8 +209,8 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
                 onClick={() => setStatus('hadir_keluarga')}
                 className={`py-2.5 px-3 rounded-xl border text-center font-bold transition-all ${
                   status === 'hadir_keluarga'
-                    ? 'bg-[#5C6E58] text-white border-[#5C6E58] shadow-xs'
-                    : 'bg-[#FAF9F6] text-[#181716] border-stone-300 hover:border-[#5C6E58]/50'
+                    ? 'bg-[#6387A5] text-white border-[#6387A5] shadow-xs'
+                    : 'bg-[#FAF9F6] text-[#181716] border-stone-300 hover:border-[#6387A5]/50'
                 }`}
               >
                 Hadir Berkeluarga
@@ -250,13 +250,13 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Tuliskan ucapan selamat dan doa terbaik untuk kedua mempelai..."
-              className="w-full px-4 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#8F9E8B]/40 focus:border-[#B8860B] focus:outline-none text-sm text-[#181716] font-medium placeholder:text-stone-400 transition-colors resize-none"
+              className="w-full px-4 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#8FA9C4]/40 focus:border-[#000080] focus:outline-none text-sm text-[#181716] font-medium placeholder:text-stone-400 transition-colors resize-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#B87A7A] hover:bg-[#a66a6a] text-white font-bold text-sm shadow-sm transition-all active:scale-[0.99] cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#6387A5] hover:bg-[#4F7391] text-white font-bold text-sm shadow-md transition-all active:scale-[0.99] cursor-pointer"
           >
             <Send className="w-4 h-4" />
             <span>Kirim Ucapan &amp; Doa Restu</span>
@@ -265,7 +265,7 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
       </div>
 
       {/* Wishes Feed */}
-      <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 border border-[#8F9E8B]/25">
+      <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 border border-[#8FA9C4]/30">
         <div className="flex items-center justify-between pb-4 border-b border-stone-200/80 mb-4">
           <div className="flex items-center gap-2">
             <MessageSquareHeart className="w-5 h-5 text-[#B87A7A]" />
@@ -274,8 +274,8 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
             </h4>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs text-[#2C3A29] bg-[#F0F3EF] px-3 py-1 rounded-full font-bold">
-            <Users className="w-3.5 h-3.5 text-[#5C6E58]" />
+          <div className="flex items-center gap-1.5 text-xs text-[#000080] bg-[#EBF3FA] px-3 py-1 rounded-full font-bold">
+            <Users className="w-3.5 h-3.5 text-[#000080]" />
             <span>{attendingCount} Konfirmasi Hadir</span>
           </div>
         </div>
@@ -284,11 +284,11 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
           {wishes.map((item) => (
             <div
               key={item.id}
-              className="p-4 rounded-2xl bg-[#FAF9F6] border border-stone-200/70 hover:border-[#8F9E8B]/30 transition-all text-left"
+              className="p-4 rounded-2xl bg-[#FAF9F6] border border-stone-200/70 hover:border-[#8FA9C4]/35 transition-all text-left"
             >
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-[#8F9E8B]/20 text-[#2C3A29] font-serif font-bold text-xs flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-[#8FA9C4]/25 text-[#000080] font-serif font-bold text-xs flex items-center justify-center shrink-0">
                     {item.name.charAt(0).toUpperCase()}
                   </div>
                   <div>

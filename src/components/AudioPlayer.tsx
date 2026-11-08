@@ -188,7 +188,7 @@ export const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(
           >
             {/* Spinning Vinyl Record Icon */}
             <div
-              className={`w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-tr from-[#7B8C77] to-[#8F9E8B] text-white shadow-xs ${
+              className={`w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-tr from-[#000080] via-[#6387A5] to-[#8FA9C4] text-white shadow-xs ${
                 isPlaying ? 'animate-spin-slow' : ''
               }`}
             >
@@ -200,15 +200,15 @@ export const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(
               {isPlaying ? (
                 <>
                   <div className="text-left hidden sm:block">
-                    <p className="text-[11px] font-serif font-bold text-[#4A5847] leading-tight">
+                    <p className="text-[11px] font-serif font-bold text-[#000080] leading-tight">
                       Ininnawa Sabbarae
                     </p>
-                    <p className="text-[9px] text-[#8F9E8B] leading-none">Versi Orkestra Bugis</p>
+                    <p className="text-[9px] text-[#6387A5] leading-none">Versi Orkestra Bugis</p>
                   </div>
                   <Volume2 className="w-4 h-4 text-[#C5A059] ml-1" />
                   <span className="flex items-end gap-0.5 h-3.5" aria-hidden="true">
                     <span className="w-0.5 h-2 bg-[#C5A059] animate-pulse" />
-                    <span className="w-0.5 h-3.5 bg-[#8F9E8B] animate-pulse delay-100" />
+                    <span className="w-0.5 h-3.5 bg-[#8FA9C4] animate-pulse delay-100" />
                     <span className="w-0.5 h-1.5 bg-[#D4A5A5] animate-pulse delay-200" />
                   </span>
                 </>
