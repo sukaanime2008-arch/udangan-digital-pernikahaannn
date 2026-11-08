@@ -3,10 +3,12 @@ import { Link2, Copy, Check, Share2, MessageCircle, ExternalLink, Sparkles } fro
 
 interface GuestLinkGeneratorProps {
   baseUrl?: string;
+  onClose?: () => void;
 }
 
 export const GuestLinkGenerator: React.FC<GuestLinkGeneratorProps> = ({
   baseUrl = 'https://undanganpernikahannurudi.vercel.app/',
+  onClose,
 }) => {
   const [guestInput, setGuestInput] = useState('');
   const [copiedLink, setCopiedLink] = useState(false);
@@ -70,18 +72,29 @@ Hormat kami yang berbahagia,
     <div className="w-full max-w-lg mx-auto my-8 px-4 text-left">
       <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border-2 border-[#000080]/20 shadow-xl shadow-[#000080]/5 relative overflow-hidden">
         {/* Navy Header Accent */}
-        <div className="flex items-center gap-2.5 mb-2">
-          <div className="w-8 h-8 rounded-full bg-[#000080] text-white flex items-center justify-center shadow-xs">
-            <Link2 className="w-4 h-4 text-[#C5A059]" />
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-full bg-[#000080] text-white flex items-center justify-center shadow-xs">
+              <Link2 className="w-4 h-4 text-[#C5A059]" />
+            </div>
+            <div>
+              <span className="text-[10px] uppercase tracking-widest font-sans font-bold text-[#000080]">
+                Panel Khusus Pengantin &amp; Panitia
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#000080]">
+                Guest Link Generator
+              </h3>
+            </div>
           </div>
-          <div>
-            <span className="text-[10px] uppercase tracking-widest font-sans font-bold text-[#000080]">
-              Panel Khusus Pengantin &amp; Panitia
-            </span>
-            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#000080]">
-              Guest Link Generator
-            </h3>
-          </div>
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-1.5 px-3 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold text-xs flex items-center gap-1 transition-colors cursor-pointer"
+            >
+              <span>✕ Tutup</span>
+            </button>
+          )}
         </div>
 
         <p className="text-xs text-[#2A2827] leading-relaxed mb-5 font-medium">

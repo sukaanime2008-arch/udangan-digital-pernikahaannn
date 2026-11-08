@@ -39,6 +39,7 @@ export default function App() {
   const [guestName, setGuestName] = useState('Tamu Undangan Yang Berbahagia');
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
   const [copiedAddress, setCopiedAddress] = useState(false);
+  const [showGuestGenerator, setShowGuestGenerator] = useState(false);
   const audioPlayerRef = useRef<AudioPlayerRef>(null);
 
   // Read guest name from URL query parameter (e.g. ?to=Bapak+Ahmad or ?guest=...)
@@ -684,67 +685,67 @@ export default function App() {
                   <span className="font-semibold">Hj. A. Nursiah Djafar, S.Pd / A. Ardah Djafar, S.Pd</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">H.A. Muh. Amin Kasim, S.Ag.,M.Pd</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">H. Iskandar, S.Ag.,M.H</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Drs. Abdul Rasyid</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">A. Abdul Malik, S.Ag.,S.Pd.,M.Pd</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Firman Taha, S.Pd</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Ilyas</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Muh. Amin Tahir, S.Sos</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Abd. Hamid, S.Pd.,SD</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Drs. A. Dewan Dapi, M.H</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Mustamin</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Muh. Risal Akib, S.Sos</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Muh. Hatta Suyuti</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">G.r Amar Ma'ruf, S.Pd</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#5C6E58] font-bold">•</span>
+                  <span className="text-[#000080] font-bold">•</span>
                   <span className="font-medium">Sabaruddin Damang</span>
                 </div>
               </div>
 
               {/* Special Highlighted Big Families */}
               <div className="pt-3 border-t border-stone-200/80 space-y-2 text-xs">
-                <div className="p-3 rounded-xl bg-[#F0F3EF]/90 border border-[#8F9E8B]/35 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#5C6E58]" />
+                <div className="p-3 rounded-xl bg-[#EBF3FA] border border-[#8FA9C4]/40 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#000080]" />
                   <span className="font-serif font-bold text-sm sm:text-base text-[#181716]">
                     Keluarga Besar Andi Mandasini Petta Wawo
                   </span>
@@ -778,7 +779,7 @@ export default function App() {
             </p>
 
             <div className="pt-2">
-              <p className="text-xs font-serif uppercase tracking-widest text-[#2C3A29] font-bold">
+              <p className="text-xs font-serif uppercase tracking-widest text-[#000080] font-bold">
                 Kami yang berbahagia,
               </p>
               <h4 className="font-script text-4xl sm:text-5xl text-[#B8860B] mt-2">
@@ -787,16 +788,38 @@ export default function App() {
             </div>
           </ScrollReveal>
 
-          {/* Guest Link Generator Panel for Bride/Groom & Committee */}
-          <ScrollReveal delay={250} className="pt-4">
-            <GuestLinkGenerator baseUrl="https://undanganpernikahannurudi.vercel.app/" />
-          </ScrollReveal>
+          {/* Guest Link Generator Panel: Hidden by default, toggled via footer */}
+          {showGuestGenerator && (
+            <div id="guest-generator-section" className="pt-4 scroll-mt-10">
+              <GuestLinkGenerator 
+                baseUrl="https://undanganpernikahannurudi.vercel.app/" 
+                onClose={() => setShowGuestGenerator(false)} 
+              />
+            </div>
+          )}
 
-          {/* Simple Clean Footer */}
+          {/* Interactive Footer Trigger to Open/Close Guest Link Generator */}
           <div className="pt-10 pb-4 text-center border-t border-stone-200/80">
-            <p className="text-xs text-stone-500 font-sans tracking-wide font-medium">
-              The Wedding of Nurhidayah &amp; Muh. Saifuddin · Sinjai, 22 Desember 2026
-            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setShowGuestGenerator((prev) => !prev);
+                if (!showGuestGenerator) {
+                  setTimeout(() => {
+                    const el = document.getElementById('guest-generator-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 150);
+                }
+              }}
+              className="group inline-flex flex-col items-center justify-center py-2 px-4 rounded-2xl hover:bg-sky-50 transition-colors cursor-pointer"
+            >
+              <p className="text-xs text-stone-500 group-hover:text-[#000080] font-sans tracking-wide font-medium transition-colors">
+                The Wedding of Nurhidayah &amp; Muh. Saifuddin · Sinjai, 22 Desember 2026
+              </p>
+              <span className="text-[10px] text-stone-400 group-hover:text-[#000080] font-semibold mt-1 flex items-center gap-1 transition-colors">
+                {showGuestGenerator ? '▲ Tutup Panel Generator' : '🔒 Ketuk untuk membuka Panel Generator Link Tamu'}
+              </span>
+            </button>
           </div>
         </section>
       </div>

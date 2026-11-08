@@ -27,15 +27,16 @@
               light: '#F8EFF0',
               dark: '#B87A7A'
             },
+            pastel: {
+              DEFAULT: '#8FA9C4',
+              light: '#EBF3FA',
+              dark: '#547896',
+              border: '#B5CEE3'
+            },
             navy: {
               DEFAULT: '#000080',
               light: '#1A1A9A',
               dark: '#00005C'
-            },
-            sage: {
-              DEFAULT: '#8F9E8B',
-              light: '#F0F3EF',
-              dark: '#4A5847'
             },
             gold: {
               DEFAULT: '#C5A059',
@@ -56,7 +57,6 @@
   </script>
 
   <style>
-    /* Base typography and body styling */
     body {
       background-color: #FAF9F6;
       color: #252423;
@@ -65,13 +65,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Arch frame styling */
     .arch-frame {
       border-top-left-radius: 9999px;
       border-top-right-radius: 9999px;
     }
 
-    /* Smooth 3D perspective */
     .perspective-1000 {
       perspective: 1000px;
     }
@@ -79,7 +77,6 @@
       transform-style: preserve-3d;
     }
 
-    /* Envelope 3D Flap Animations */
     .flap-closed {
       transform: rotateX(0deg);
       z-index: 30;
@@ -91,27 +88,16 @@
       transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Envelope Letter Card Slide */
     @keyframes letterSlideOut {
-      0% {
-        transform: translateY(0) scale(0.95);
-        opacity: 0.8;
-      }
-      50% {
-        transform: translateY(-80px) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-40px) scale(1.02);
-        opacity: 1;
-      }
+      0% { transform: translateY(0) scale(0.95); opacity: 0.8; }
+      50% { transform: translateY(-80px) scale(1); opacity: 1; }
+      100% { transform: translateY(-40px) scale(1.02); opacity: 1; }
     }
     .animate-letter-out {
       animation: letterSlideOut 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       z-index: 25;
     }
 
-    /* Floating Petals Animation */
     @keyframes floatPetal {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-12px) rotate(6deg); }
@@ -120,7 +106,6 @@
       animation: floatPetal 5s ease-in-out infinite;
     }
 
-    /* Smooth Scroll Fade-Up with IntersectionObserver */
     .reveal-fade-up {
       opacity: 0;
       transform: translateY(28px);
@@ -132,14 +117,11 @@
       transform: translateY(0);
     }
 
-    /* Stagger delays */
     .delay-100 { transition-delay: 100ms; }
     .delay-150 { transition-delay: 150ms; }
     .delay-200 { transition-delay: 200ms; }
     .delay-250 { transition-delay: 250ms; }
-    .delay-300 { transition-delay: 300ms; }
 
-    /* Spinning vinyl animation */
     @keyframes spinVinyl {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
@@ -148,7 +130,6 @@
       animation: spinVinyl 6s linear infinite;
     }
 
-    /* Toast Notification */
     #toast-notification {
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
@@ -156,9 +137,7 @@
 </head>
 <body class="bg-[#FAF9F6] text-[#252423] selection:bg-[#D4A5A5]/30 selection:text-[#000080]">
 
-  <!-- =========================================================================
-       AUDIO ELEMENT (Ininnawa Sabbarae / Wedding Nasheed)
-  ========================================================================= -->
+  <!-- AUDIO ELEMENT -->
   <audio id="bg-music" loop preload="auto">
     <source src="assets/aistudio/_Ininnawa_Sabbarae___Doa_Kesabaran_Leluhur_Bugis_Versi_Orkestra__34084c68.mp3" type="audio/mpeg">
     <source src="assets/audio/wedding_bgm.mp3" type="audio/mpeg">
@@ -167,7 +146,7 @@
   </audio>
 
   <!-- =========================================================================
-       INTERACTIVE 3D ENVELOPE MODAL (OVERLAY COVER)
+       3D ENVELOPE MODAL (OVERLAY COVER - PASTEL BLUE THEME)
   ========================================================================= -->
   <div id="envelope-overlay" 
        class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-1000 overflow-y-auto"
@@ -177,7 +156,7 @@
     <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
       <div class="absolute top-[8%] left-[7%] w-10 h-10 rounded-full bg-[#D4A5A5]/35 blur-xs animate-float-slow"></div>
       <div class="absolute top-[20%] right-[10%] w-12 h-12 rounded-full bg-[#D4A5A5]/25 blur-xs animate-float-slow" style="animation-delay: 1.5s;"></div>
-      <div class="absolute bottom-[20%] left-[10%] w-10 h-10 rounded-full bg-[#8F9E8B]/35 blur-xs animate-float-slow" style="animation-delay: 2.5s;"></div>
+      <div class="absolute bottom-[20%] left-[10%] w-10 h-10 rounded-full bg-[#8FA9C4]/35 blur-xs animate-float-slow" style="animation-delay: 2.5s;"></div>
       <div class="absolute bottom-[10%] right-[8%] w-12 h-12 rounded-full bg-[#C5A059]/30 blur-xs animate-float-slow" style="animation-delay: 1s;"></div>
     </div>
 
@@ -200,13 +179,13 @@
         </p>
       </div>
 
-      <!-- 3D SAGE GREEN ENVELOPE -->
-      <div class="relative w-full aspect-[4/3] max-w-[380px] sm:max-w-[430px] perspective-1000 my-2 select-none">
+      <!-- 3D PASTEL BLUE ENVELOPE -->
+      <div class="relative w-full aspect-[4/3] max-w-[390px] sm:max-w-[440px] perspective-1000 my-2 select-none">
         
         <!-- Sliding Letter Inside -->
         <div id="envelope-letter" 
              class="absolute inset-x-4 top-4 bottom-4 bg-[#FAF9F6] rounded-2xl p-4 sm:p-5 border border-[#C5A059]/60 shadow-lg flex flex-col items-center justify-center text-center transition-all duration-700 z-10">
-          <div class="w-9 h-9 rounded-full bg-[#F8EFF0] flex items-center justify-center mb-1 text-[#B87A7A] shadow-xs">
+          <div class="w-9 h-9 rounded-full bg-[#EBF3FA] flex items-center justify-center mb-1 text-[#000080] shadow-xs">
             <svg class="w-5 h-5 fill-[#B87A7A]" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           </div>
           <p class="font-serif text-xs uppercase tracking-widest text-[#000080] font-bold">Walimatul 'Ursy</p>
@@ -216,39 +195,40 @@
           <p class="text-xs text-[#000080] font-bold">Sinjai Utara, Kabupaten Sinjai</p>
         </div>
 
-        <!-- Envelope Body Pocket (Sage Green) -->
-        <div class="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#758771] to-[#5C6E58] shadow-2xl border border-[#C5A059]/50 overflow-hidden z-20">
-          <div class="absolute inset-2 rounded-xl border border-white/20 pointer-events-none"></div>
+        <!-- Envelope Body Pocket (Soft Pastel Blue) -->
+        <div class="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#8FA9C4] via-[#7B9CB9] to-[#6387A5] shadow-2xl border border-[#C5A059]/50 overflow-hidden z-20">
+          <div class="absolute inset-2 rounded-xl border border-white/30 pointer-events-none"></div>
 
-          <!-- Fold triangles -->
+          <!-- Fold triangles in harmonious pastel blue tones -->
           <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 360 270" preserveAspectRatio="none" fill="none">
-            <polygon points="0,0 180,140 0,270" fill="#6E806A" opacity="0.95"/>
-            <polygon points="360,0 180,140 360,270" fill="#677863" opacity="0.95"/>
-            <polygon points="0,270 180,135 360,270" fill="#5E6F5A" opacity="0.98"/>
-            <line x1="0" y1="270" x2="180" y2="135" stroke="#C5A059" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.65"/>
-            <line x1="360" y1="270" x2="180" y2="135" stroke="#C5A059" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.65"/>
+            <polygon points="0,0 180,140 0,270" fill="#84A2BD" opacity="0.95"/>
+            <polygon points="360,0 180,140 360,270" fill="#7897B4" opacity="0.95"/>
+            <polygon points="0,270 180,135 360,270" fill="#6A8CA9" opacity="0.98"/>
+            <line x1="0" y1="270" x2="180" y2="135" stroke="#C5A059" stroke-width="1.3" stroke-dasharray="3 3" opacity="0.75"/>
+            <line x1="360" y1="270" x2="180" y2="135" stroke="#C5A059" stroke-width="1.3" stroke-dasharray="3 3" opacity="0.75"/>
           </svg>
 
-          <!-- Dynamic Guest Badge on Front of Envelope -->
-          <div class="absolute inset-x-5 sm:inset-x-7 bottom-4 sm:bottom-5 z-25 bg-[#FAF9F6]/98 backdrop-blur-xs rounded-xl p-3 sm:p-3.5 border-2 border-[#000080]/30 shadow-md text-center">
-            <span class="text-[10px] sm:text-[11px] uppercase font-sans tracking-widest text-[#000080] font-extrabold block">
+          <!-- Dynamic Guest Badge on Front of Envelope (PROMINENT, BESAR, TEBAL) -->
+          <div class="absolute inset-x-4 sm:inset-x-6 bottom-3.5 sm:bottom-4 z-25 bg-[#FAF9F6]/98 backdrop-blur-xs rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border-2 border-[#C5A059] shadow-lg text-center">
+            <span class="text-[10px] sm:text-xs uppercase font-sans tracking-widest text-[#000080] font-extrabold block">
               Kepada Yth. Bapak/Ibu/Saudara/i:
             </span>
-            <p id="guest-name-envelope" class="font-serif text-lg sm:text-xl font-bold text-[#1A1918] leading-tight my-1 truncate px-1">
+            <!-- Nama tamu besar, tebal (bold), dan menonjol -->
+            <p id="guest-name-envelope" class="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug my-1 px-1 drop-shadow-xs">
               Tamu Undangan
             </p>
-            <p class="text-[10px] text-stone-500 font-medium italic">
+            <p class="text-[10px] sm:text-[11px] text-stone-500 font-medium italic">
               Mohon maaf apabila ada kesalahan penulisan nama/gelar
             </p>
           </div>
         </div>
 
-        <!-- Envelope Top Triangular Flap -->
+        <!-- Envelope Top Triangular Flap (Soft Pastel Blue) -->
         <div id="envelope-flap" class="flap-closed absolute top-0 inset-x-0 h-1/2 origin-top transform-style-3d">
           <svg class="w-full h-full drop-shadow-md" viewBox="0 0 360 140" preserveAspectRatio="none" fill="none">
-            <polygon points="0,0 180,140 360,0" fill="#7E907A"/>
-            <line x1="0" y1="0" x2="180" y2="140" stroke="#C5A059" stroke-width="1.5" opacity="0.7"/>
-            <line x1="360" y1="0" x2="180" y2="140" stroke="#C5A059" stroke-width="1.5" opacity="0.7"/>
+            <polygon points="0,0 180,140 360,0" fill="#93B0CC"/>
+            <line x1="0" y1="0" x2="180" y2="140" stroke="#C5A059" stroke-width="1.5" opacity="0.75"/>
+            <line x1="360" y1="0" x2="180" y2="140" stroke="#C5A059" stroke-width="1.5" opacity="0.75"/>
           </svg>
 
           <!-- Gold Wax Seal Monogram -->
@@ -261,12 +241,12 @@
 
       </div>
 
-      <!-- Action Button "Buka Undangan" -->
+      <!-- Action Button "Buka Undangan" (Soft Pastel Blue Elegance) -->
       <div class="w-full max-w-xs mt-5 text-center space-y-2 z-30">
         <button id="btn-open-envelope" 
                 type="button"
-                class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#000080] hover:bg-[#000066] text-white font-bold text-sm sm:text-base shadow-xl shadow-[#000080]/30 border-2 border-[#C5A059] transition-all duration-300 active:scale-95 cursor-pointer">
-          <svg class="w-5 h-5 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-gradient-to-r from-[#6387A5] to-[#4F7391] hover:from-[#547896] hover:to-[#416480] text-white font-bold text-sm sm:text-base shadow-xl shadow-[#6387A5]/35 border-2 border-[#C5A059] transition-all duration-300 active:scale-95 cursor-pointer">
+          <svg class="w-5 h-5 text-[#E6D4A5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           <span id="btn-open-text">Buka Undangan</span>
         </button>
         <p class="text-xs text-[#252423] font-medium">
@@ -277,15 +257,11 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       FLOATING AUDIO TOGGLE (BOTTOM RIGHT)
-  ========================================================================= -->
+  <!-- FLOATING AUDIO TOGGLE -->
   <div class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40">
     <button id="music-toggle-btn"
             aria-label="Putar atau jeda musik undangan"
             class="flex items-center gap-2 p-1.5 pr-3 bg-white/95 backdrop-blur-md rounded-full border-2 border-[#000080]/30 shadow-lg shadow-black/10 text-[#1A1918] hover:border-[#000080] transition-all active:scale-95 cursor-pointer">
-      
-      <!-- Vinyl Disc Spinning -->
       <div id="vinyl-disc" class="w-9 h-9 rounded-full bg-[#1A1918] flex items-center justify-center relative border border-[#C5A059] shadow-inner">
         <div class="w-7 h-7 rounded-full border border-stone-600 flex items-center justify-center">
           <div class="w-4 h-4 rounded-full bg-[#000080] flex items-center justify-center">
@@ -293,7 +269,6 @@
           </div>
         </div>
       </div>
-
       <div class="flex items-center gap-1">
         <svg id="icon-play" class="w-4 h-4 text-[#000080] hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         <svg id="icon-pause" class="w-4 h-4 text-[#C5A059]" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
@@ -302,9 +277,7 @@
     </button>
   </div>
 
-  <!-- =========================================================================
-       FLOATING BOTTOM NAVIGATION BAR (ENLARGED TOUCH TARGETS)
-  ========================================================================= -->
+  <!-- BOTTOM NAVIGATION BAR -->
   <nav class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#000080]/20 shadow-2xl py-2 px-3 max-w-md mx-auto">
     <div class="flex items-center justify-around">
       <a href="#cover" class="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-[#000080] hover:text-[#00005C] active:scale-95 transition-all">
@@ -330,28 +303,19 @@
     </div>
   </nav>
 
-  <!-- =========================================================================
-       MAIN APP CONTAINER (SMARTPHONE-FIRST PAPER CARD)
-  ========================================================================= -->
+  <!-- MAIN APP CONTAINER -->
   <main class="max-w-md mx-auto min-h-screen bg-[#FAF9F6] shadow-2xl shadow-stone-400/30 border-x border-stone-200/80 relative pb-16">
 
-    <!-- ---------------------------------------------------------------------
-         1. COVER / HERO SECTION
-    ---------------------------------------------------------------------- -->
+    <!-- 1. COVER / HERO SECTION -->
     <section id="cover" class="min-h-screen flex flex-col justify-between items-center text-center px-6 py-10 relative">
-      
-      <!-- Top Floral Accent -->
       <div class="w-full flex justify-center pt-2">
         <svg class="w-24 h-6 text-[#000080]/30" viewBox="0 0 100 24" fill="currentColor">
           <path d="M50 0C53 8 62 10 70 12C62 14 53 16 50 24C47 16 38 14 30 12C38 10 47 8 50 0Z"/>
         </svg>
       </div>
 
-      <!-- Header Teks Save The Date -->
       <div class="space-y-1.5 z-10">
-        <span class="text-xs uppercase tracking-[0.3em] font-sans text-[#000080] font-extrabold block">
-          Save The Date
-        </span>
+        <span class="text-xs uppercase tracking-[0.3em] font-sans text-[#000080] font-extrabold block">Save The Date</span>
         <div class="flex items-center justify-center gap-2 text-xs font-serif tracking-widest text-[#C5A059] font-bold">
           <span class="w-8 h-[1px] bg-[#C5A059]"></span>
           <span>22 DESEMBER 2026</span>
@@ -359,41 +323,32 @@
         </div>
       </div>
 
-      <!-- FRAME FOTO UTAMA LENGKUNG (LEBIH BESAR & PROMINEN: 300px x 420px) -->
+      <!-- ARCH FRAME BESAR -->
       <div class="relative my-4 z-10 w-full flex justify-center">
-        <div class="w-[290px] sm:w-[320px] h-[410px] arch-frame p-2.5 bg-gradient-to-b from-[#C5A059] via-[#D4A5A5] to-[#000080]/40 shadow-xl">
+        <div class="w-[290px] sm:w-[320px] h-[410px] arch-frame p-2.5 bg-gradient-to-b from-[#C5A059] via-[#D4A5A5] to-[#8FA9C4]/50 shadow-xl">
           <div class="w-full h-full arch-frame p-1 bg-[#FAF9F6] border border-[#C5A059]">
             <div class="w-full h-full arch-frame overflow-hidden relative bg-stone-100">
-              <img src="assets/hero.jpg" 
-                   alt="Foto Mempelai Nur & Udi" 
-                   class="w-full h-full object-cover object-center"
-                   onerror="this.src='/src/assets/images/wedding_couple_cover_1794141712367.jpg'">
+              <img src="assets/hero.jpg" alt="Foto Mempelai Nur & Udi" class="w-full h-full object-cover object-center" onerror="this.src='/src/assets/images/wedding_couple_cover_1794141712367.jpg'">
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Judul Nama Mempelai -->
       <div class="space-y-2 z-10 w-full max-w-xs pb-4">
         <div>
           <p class="text-xs font-serif uppercase tracking-widest text-[#000080] font-bold">The Wedding of</p>
           <h1 class="font-serif text-4xl sm:text-5xl font-bold text-[#1A1918] tracking-tight mt-1">
             Nur <span class="font-script text-3xl sm:text-4xl text-[#B87A7A] mx-1">&amp;</span> Udi
           </h1>
-          <p class="text-xs text-[#252423] font-semibold mt-1">
-            Selasa, 22 Desember 2026 · Sinjai, Sulawesi Selatan
-          </p>
+          <p class="text-xs text-[#252423] font-semibold mt-1">Selasa, 22 Desember 2026 · Sinjai, Sulawesi Selatan</p>
         </div>
 
-        <div class="p-3 rounded-2xl bg-white/95 border-2 border-[#000080]/20 shadow-xs">
+        <div class="p-3.5 rounded-2xl bg-white/95 border-2 border-[#8FA9C4]/50 shadow-xs">
           <span class="text-[10px] uppercase tracking-wider text-[#000080] font-bold block">Tamu Undangan Terhormat:</span>
-          <p id="guest-name-hero" class="font-serif text-base font-bold text-[#1A1918]">
-            Tamu Undangan
-          </p>
+          <p id="guest-name-hero" class="font-serif text-lg font-bold text-[#000080] mt-0.5">Tamu Undangan</p>
         </div>
       </div>
-
     </section>
 
     <!-- Pembatas Floral Emas -->
@@ -403,42 +358,34 @@
       <span class="h-[1.5px] w-12 bg-gradient-to-l from-transparent to-[#C5A059]"></span>
     </div>
 
-    <!-- ---------------------------------------------------------------------
-         2. SECTION MEMPELAI (KUTIPAN, BASMALAH, DATA RESMI ORANG TUA)
-    ---------------------------------------------------------------------- -->
+    <!-- 2. SECTION MEMPELAI -->
     <section id="mempelai" class="px-6 py-10 scroll-mt-6 text-center space-y-8">
       
-      <!-- Lafaz Basmalah (Emas, Besar & Berkontras Tinggi) -->
+      <!-- Lafaz Basmalah Emas & Besar -->
       <div class="reveal-fade-up max-w-sm mx-auto space-y-3">
         <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-[#C5A059] tracking-wider drop-shadow-xs">
           Bismillahirrohmanirrohim
         </h2>
-        
         <p class="text-xs sm:text-sm font-semibold text-[#1A1918] leading-relaxed px-2">
           Maha Suci Allah yang telah menciptakan makhluk-Nya berpasangan-pasangan. Ya Allah dengan Ridho-Mu perkenankanlah kami menikahkah putra-putri kami:
         </p>
 
-        <div class="p-4 rounded-2xl bg-[#F0F3EF] border border-[#8F9E8B]/40 text-center shadow-xs">
-          <p class="font-serif text-xs sm:text-sm text-[#4A5847] italic leading-relaxed">
+        <!-- Ar-Rum 21 Box in Soft Pastel Blue -->
+        <div class="p-4 rounded-2xl bg-[#F0F5FA] border border-[#B5CEE3] text-center shadow-xs">
+          <p class="font-serif text-xs sm:text-sm text-[#34597B] italic leading-relaxed">
             "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
           </p>
-          <p class="text-[11px] font-sans font-bold text-[#000080] uppercase tracking-widest mt-2">
-            QS. Ar-Rum: 21
-          </p>
+          <p class="text-[11px] font-sans font-bold text-[#000080] uppercase tracking-widest mt-2">QS. Ar-Rum: 21</p>
         </div>
       </div>
 
-      <!-- Kartu Mempelai Wanita (Nurhidayah, S.Pd) - Arch Frame Besar -->
+      <!-- Mempelai Wanita -->
       <div class="reveal-fade-up delay-100 bg-white rounded-3xl p-6 border-2 border-[#D4A5A5]/40 shadow-md max-w-xs mx-auto">
-        <div class="w-44 h-60 mx-auto arch-frame p-2 bg-gradient-to-b from-[#D4A5A5] via-[#FAF9F6] to-[#000080]/30 mb-4 shadow-sm">
+        <div class="w-44 h-60 mx-auto arch-frame p-2 bg-gradient-to-b from-[#D4A5A5] via-[#FAF9F6] to-[#8FA9C4]/40 mb-4 shadow-sm">
           <div class="w-full h-full arch-frame overflow-hidden bg-stone-100">
-            <img src="assets/wanita.jpg" 
-                 alt="Nurhidayah, S.Pd (Nur)" 
-                 class="w-full h-full object-cover object-center"
-                 onerror="this.src='/src/assets/images/bride_portrait_1794141715689.jpg'">
+            <img src="assets/wanita.jpg" alt="Nurhidayah, S.Pd (Nur)" class="w-full h-full object-cover object-center" onerror="this.src='/src/assets/images/bride_portrait_1794141715689.jpg'">
           </div>
         </div>
-
         <span class="text-[11px] uppercase tracking-widest text-[#B87A7A] font-extrabold">Mempelai Wanita</span>
         <h3 class="font-serif text-2xl font-bold text-[#1A1918] mt-1 mb-2">
           Nurhidayah, S.Pd <br><span class="font-script text-2xl text-[#000080]">(Nur)</span>
@@ -448,24 +395,20 @@
         </p>
       </div>
 
-      <!-- Teks Penyambung: "Dengan" -->
+      <!-- Penyambung "Dengan" -->
       <div class="reveal-fade-up delay-150 flex items-center justify-center gap-3">
         <span class="w-12 h-[1px] bg-[#C5A059]"></span>
         <span class="font-serif italic font-bold text-lg text-[#000080]">Dengan</span>
         <span class="w-12 h-[1px] bg-[#C5A059]"></span>
       </div>
 
-      <!-- Kartu Mempelai Pria (Muh. Saifuddin Assa'diah, S.Hf) - Arch Frame Besar -->
-      <div class="reveal-fade-up delay-200 bg-white rounded-3xl p-6 border-2 border-[#000080]/30 shadow-md max-w-xs mx-auto">
-        <div class="w-44 h-60 mx-auto arch-frame p-2 bg-gradient-to-b from-[#000080] via-[#FAF9F6] to-[#C5A059] mb-4 shadow-sm">
+      <!-- Mempelai Pria -->
+      <div class="reveal-fade-up delay-200 bg-white rounded-3xl p-6 border-2 border-[#8FA9C4]/50 shadow-md max-w-xs mx-auto">
+        <div class="w-44 h-60 mx-auto arch-frame p-2 bg-gradient-to-b from-[#6387A5] via-[#FAF9F6] to-[#C5A059] mb-4 shadow-sm">
           <div class="w-full h-full arch-frame overflow-hidden bg-stone-100">
-            <img src="assets/pria.jpg" 
-                 alt="Muh. Saifuddin Assa'diah, S.Hf (Udi)" 
-                 class="w-full h-full object-cover object-top"
-                 onerror="this.src='/src/assets/images/groom_portrait_1794141714007.jpg'">
+            <img src="assets/pria.jpg" alt="Muh. Saifuddin Assa'diah, S.Hf (Udi)" class="w-full h-full object-cover object-top" onerror="this.src='/src/assets/images/groom_portrait_1794141714007.jpg'">
           </div>
         </div>
-
         <span class="text-[11px] uppercase tracking-widest text-[#000080] font-extrabold">Mempelai Pria</span>
         <h3 class="font-serif text-2xl font-bold text-[#1A1918] mt-1 mb-2">
           Muh. Saifuddin Assa'diah, S.Hf <br><span class="font-script text-2xl text-[#000080]">(Udi)</span>
@@ -474,7 +417,6 @@
           (Putra Pertama dari Bapak As'ad Mustamin BA dan Ibu Dra. Ruhbiah Hasan)
         </p>
       </div>
-
     </section>
 
     <!-- Pembatas Floral Emas -->
@@ -484,38 +426,26 @@
       <span class="h-[1.5px] w-12 bg-gradient-to-l from-transparent to-[#C5A059]"></span>
     </div>
 
-    <!-- ---------------------------------------------------------------------
-         3. SECTION ACARA (AKAD, RESEPSI & LOKASI SINJAI)
-    ---------------------------------------------------------------------- -->
+    <!-- 3. SECTION ACARA (PASTEL BLUE THEME) -->
     <section id="acara" class="px-6 py-10 scroll-mt-6 text-center space-y-6">
-      
       <div class="reveal-fade-up max-w-sm mx-auto space-y-2">
-        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
-          Rangkaian Acara
-        </span>
-        <h3 class="font-serif text-3xl font-bold text-[#1A1918]">
-          Hari Bahagia Kami
-        </h3>
-        <p class="font-serif text-base font-bold text-[#000080]">
-          Assalamu'alaikum Warahmatullahi Wabarakatuh
-        </p>
+        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">Rangkaian Acara</span>
+        <h3 class="font-serif text-3xl font-bold text-[#1A1918]">Hari Bahagia Kami</h3>
+        <p class="font-serif text-base font-bold text-[#000080]">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
         <p class="text-xs text-[#252423] leading-relaxed font-semibold">
           Dengan Memohon Ridho dan Rahmat Allah Swt. kami bermaksud menyelenggarakan resepsi pernikahan putra-putri kami Yang InsyaAllah akan di selenggarakan pada :
         </p>
       </div>
 
-      <!-- Card Akad Nikah -->
-      <div class="reveal-fade-up delay-100 bg-white rounded-3xl p-6 border-2 border-[#8F9E8B]/40 shadow-md text-left space-y-3 relative overflow-hidden">
+      <!-- Akad Nikah (Pastel Blue) -->
+      <div class="reveal-fade-up delay-100 bg-white rounded-3xl p-6 border-2 border-[#8FA9C4]/40 shadow-md text-left space-y-3 relative overflow-hidden">
         <div class="flex items-center justify-between border-b border-stone-200 pb-3">
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-[#8F9E8B]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#6387A5]"></span>
             <h4 class="font-serif text-xl font-bold text-[#1A1918]">Akad Nikah</h4>
           </div>
-          <span class="text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F0F3EF] text-[#4A5847]">
-            Khidmat
-          </span>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF3FA] text-[#3B6285]">Khidmat</span>
         </div>
-
         <div class="space-y-2 text-xs sm:text-sm text-[#252423]">
           <div class="flex items-start gap-2.5">
             <svg class="w-4 h-4 text-[#000080] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -532,18 +462,15 @@
         </div>
       </div>
 
-      <!-- Card Resepsi Pernikahan -->
+      <!-- Resepsi Pernikahan -->
       <div class="reveal-fade-up delay-200 bg-white rounded-3xl p-6 border-2 border-[#D4A5A5]/50 shadow-md text-left space-y-3 relative overflow-hidden">
         <div class="flex items-center justify-between border-b border-stone-200 pb-3">
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-[#B87A7A]"></span>
             <h4 class="font-serif text-xl font-bold text-[#1A1918]">Resepsi Pernikahan</h4>
           </div>
-          <span class="text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F8EFF0] text-[#B87A7A]">
-            Perayaan
-          </span>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F8EFF0] text-[#B87A7A]">Perayaan</span>
         </div>
-
         <div class="space-y-2 text-xs sm:text-sm text-[#252423]">
           <div class="flex items-start gap-2.5">
             <svg class="w-4 h-4 text-[#000080] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -556,20 +483,17 @@
         </div>
       </div>
 
-      <!-- Card Lokasi & Peta -->
-      <div class="reveal-fade-up delay-250 bg-white rounded-3xl p-6 border-2 border-[#000080]/30 shadow-md text-center space-y-4">
-        <div class="w-12 h-12 rounded-full bg-[#000080]/10 text-[#000080] flex items-center justify-center mx-auto">
+      <!-- Lokasi & Peta -->
+      <div class="reveal-fade-up delay-250 bg-white rounded-3xl p-6 border-2 border-[#8FA9C4]/40 shadow-md text-center space-y-4">
+        <div class="w-12 h-12 rounded-full bg-[#EBF3FA] text-[#000080] flex items-center justify-center mx-auto">
           <svg class="w-6 h-6 text-[#000080]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
-
         <div>
           <h4 class="font-serif text-xl font-bold text-[#1A1918]">Lokasi Acara</h4>
           <p id="wedding-address" class="text-xs sm:text-sm text-[#252423] font-semibold leading-relaxed mt-1">
             Jl. Ranggong Dg Romo No. 56 B, Lingk. Taipa Kel. Biringere Kec. Sinjai Utara, Kab. Sinjai (Samping Mesjid Khaerussaadah Kalaka)
           </p>
         </div>
-
-        <!-- Tombol Aksi Lokasi -->
         <div class="flex flex-col sm:flex-row gap-2.5 pt-2">
           <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Ranggong+Dg+Romo+No.+56+B+Sinjai+Mesjid+Khaerussaadah+Kalaka" 
              target="_blank" 
@@ -578,28 +502,18 @@
             <svg class="w-4 h-4 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             <span>Buka Google Maps</span>
           </a>
-
-          <button id="btn-copy-address"
-                  type="button"
-                  class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#FAF9F6] border-2 border-stone-300 hover:border-[#000080] text-[#1A1918] text-xs font-bold transition-all active:scale-95 cursor-pointer">
+          <button id="btn-copy-address" type="button" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#FAF9F6] border-2 border-stone-300 hover:border-[#000080] text-[#1A1918] text-xs font-bold transition-all active:scale-95 cursor-pointer">
             <svg class="w-4 h-4 text-[#000080]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
             <span id="btn-copy-address-text">Salin Alamat</span>
           </button>
         </div>
       </div>
-
     </section>
 
-    <!-- ---------------------------------------------------------------------
-         4. HITUNG MUNDUR (COUNTDOWN TIMER)
-    ---------------------------------------------------------------------- -->
+    <!-- 4. COUNTDOWN TIMER -->
     <section class="px-6 py-6 text-center">
       <div class="reveal-fade-up bg-white rounded-3xl p-6 border-2 border-[#C5A059]/40 shadow-md space-y-4">
-        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold block">
-          Menghitung Hari Bahagia
-        </span>
-
-        <!-- Live Countdown Cards -->
+        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold block">Menghitung Hari Bahagia</span>
         <div class="grid grid-cols-4 gap-2 text-center">
           <div class="bg-[#FAF9F6] border border-stone-200 rounded-2xl p-2.5">
             <span id="cd-days" class="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] block">00</span>
@@ -618,103 +532,59 @@
             <span class="text-[10px] uppercase font-bold text-stone-500">Detik</span>
           </div>
         </div>
-
-        <p class="text-xs text-[#252423] font-semibold">
-          Selasa, 22 Desember 2026 · 09.00 WITA
-        </p>
+        <p class="text-xs text-[#252423] font-semibold">Selasa, 22 Desember 2026 · 09.00 WITA</p>
       </div>
     </section>
 
-    <!-- ---------------------------------------------------------------------
-         5. SECTION GALERI FOTO & CERITA
-    ---------------------------------------------------------------------- -->
+    <!-- 5. GALERI FOTO -->
     <section id="galeri" class="px-6 py-10 scroll-mt-6 text-center space-y-6">
-      
       <div class="reveal-fade-up max-w-sm mx-auto space-y-2">
-        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
-          Momen Indah
-        </span>
-        <h3 class="font-serif text-3xl font-bold text-[#1A1918]">
-          Galeri Kebahagiaan
-        </h3>
-        <p class="text-xs text-[#252423] font-medium">
-          Sentuh foto untuk memperbesar tampilan
-        </p>
+        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">Momen Indah</span>
+        <h3 class="font-serif text-3xl font-bold text-[#1A1918]">Galeri Kebahagiaan</h3>
+        <p class="text-xs text-[#252423] font-medium">Sentuh foto untuk memperbesar tampilan</p>
       </div>
-
-      <!-- Photo Grid -->
       <div class="grid grid-cols-2 gap-3 reveal-fade-up delay-100">
-        <!-- Photo 1 -->
         <div onclick="openLightbox(0)" class="cursor-pointer group relative overflow-hidden rounded-2xl border-2 border-stone-200 shadow-sm aspect-[3/4]">
-          <img src="/src/assets/images/wedding_couple_cover_1794141712367.jpg" 
-               alt="Nur & Udi" 
-               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-               onerror="this.src='assets/hero.jpg'">
+          <img src="/src/assets/images/wedding_couple_cover_1794141712367.jpg" alt="Nur & Udi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='assets/hero.jpg'">
           <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
         </div>
-
-        <!-- Photo 2 -->
         <div onclick="openLightbox(1)" class="cursor-pointer group relative overflow-hidden rounded-2xl border-2 border-stone-200 shadow-sm aspect-[3/4]">
-          <img src="/src/assets/images/gallery_moment_one_1794141714727.jpg" 
-               alt="Langkah Bersama" 
-               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-               onerror="this.src='assets/hero.jpg'">
+          <img src="/src/assets/images/gallery_moment_one_1794141714727.jpg" alt="Langkah Bersama" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='assets/hero.jpg'">
           <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
         </div>
-
-        <!-- Photo 3 -->
         <div onclick="openLightbox(2)" class="cursor-pointer group relative overflow-hidden rounded-2xl border-2 border-stone-200 shadow-sm aspect-[3/4]">
-          <img src="/src/assets/images/gallery_details_rings_1794141717014.jpg" 
-               alt="Ikatan Suci" 
-               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-               onerror="this.src='assets/hero.jpg'">
+          <img src="/src/assets/images/gallery_details_rings_1794141717014.jpg" alt="Ikatan Suci" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='assets/hero.jpg'">
           <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
         </div>
-
-        <!-- Photo 4 -->
         <div onclick="openLightbox(3)" class="cursor-pointer group relative overflow-hidden rounded-2xl border-2 border-stone-200 shadow-sm aspect-[3/4]">
-          <img src="/src/assets/images/bride_portrait_1794141715689.jpg" 
-               alt="Mempelai Wanita" 
-               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-               onerror="this.src='assets/wanita.jpg'">
+          <img src="/src/assets/images/bride_portrait_1794141715689.jpg" alt="Mempelai Wanita" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='assets/wanita.jpg'">
           <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
         </div>
       </div>
-
     </section>
 
-    <!-- ---------------------------------------------------------------------
-         6. SECTION UCAPAN DOA RESTU & RSVP GUESTBOOK
-    ---------------------------------------------------------------------- -->
+    <!-- 6. RSVP & GUESTBOOK -->
     <section id="doa" class="px-6 py-10 scroll-mt-6 text-center space-y-6">
-      
       <div class="reveal-fade-up max-w-sm mx-auto space-y-2">
-        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
-          Doa &amp; Restu
-        </span>
-        <h3 class="font-serif text-3xl font-bold text-[#1A1918]">
-          Buku Tamu &amp; Kehadiran
-        </h3>
-        <p class="text-xs text-[#252423] font-medium">
-          Kirimkan doa dan konfirmasi kehadiran Anda untuk kedua mempelai
-        </p>
+        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">Doa &amp; Restu</span>
+        <h3 class="font-serif text-3xl font-bold text-[#1A1918]">Buku Tamu &amp; Kehadiran</h3>
+        <p class="text-xs text-[#252423] font-medium">Kirimkan doa dan konfirmasi kehadiran Anda untuk kedua mempelai</p>
       </div>
 
-      <div class="reveal-fade-up delay-100 bg-white rounded-3xl p-6 border-2 border-[#000080]/20 shadow-md text-left space-y-4">
+      <div class="reveal-fade-up delay-100 bg-white rounded-3xl p-6 border-2 border-[#8FA9C4]/40 shadow-md text-left space-y-4">
         <form id="rsvp-form" class="space-y-3">
           <div>
             <label class="block text-xs font-bold text-[#000080] mb-1">Nama Lengkap</label>
             <input type="text" id="rsvp-name" required placeholder="Nama Anda" class="w-full px-4 py-2.5 rounded-xl bg-[#FAF9F6] border-2 border-stone-200 focus:border-[#000080] text-sm font-semibold text-[#1A1918] focus:outline-none">
           </div>
-
           <div>
             <label class="block text-xs font-bold text-[#000080] mb-1">Konfirmasi Kehadiran</label>
             <select id="rsvp-status" class="w-full px-4 py-2.5 rounded-xl bg-[#FAF9F6] border-2 border-stone-200 focus:border-[#000080] text-sm font-semibold text-[#1A1918] focus:outline-none">
@@ -723,51 +593,35 @@
               <option value="Masih Ragu">Masih Ragu / Belum Pasti</option>
             </select>
           </div>
-
           <div>
             <label class="block text-xs font-bold text-[#000080] mb-1">Doa &amp; Ucapan Selamat</label>
             <textarea id="rsvp-message" rows="3" required placeholder="Tuliskan ucapan dan doa tulus Anda..." class="w-full px-4 py-2.5 rounded-xl bg-[#FAF9F6] border-2 border-stone-200 focus:border-[#000080] text-sm text-[#1A1918] focus:outline-none"></textarea>
           </div>
-
           <button type="submit" class="w-full py-3 px-6 rounded-xl bg-[#000080] hover:bg-[#000066] text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 cursor-pointer">
             Kirim Ucapan &amp; Konfirmasi
           </button>
         </form>
 
-        <!-- List Ucapan -->
         <div class="pt-4 border-t border-stone-200 space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-[#000080]">Doa Restu Tamu:</span>
-            <span id="wishes-count" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#FAF9F6] text-stone-600 border border-stone-200">
-              3 Ucapan
-            </span>
+            <span id="wishes-count" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#FAF9F6] text-stone-600 border border-stone-200">3 Ucapan</span>
           </div>
-
-          <div id="wishes-container" class="space-y-2.5 max-h-64 overflow-y-auto pr-1">
-            <!-- Filled dynamically by JavaScript -->
-          </div>
+          <div id="wishes-container" class="space-y-2.5 max-h-64 overflow-y-auto pr-1"></div>
         </div>
       </div>
-
     </section>
 
-    <!-- ---------------------------------------------------------------------
-         7. SECTION PENUTUP & KELUARGA YANG MENGUNDANG (DAFTAR LENGKAP 19 NAMA)
-    ---------------------------------------------------------------------- -->
+    <!-- 7. SECTION PENUTUP & DAFTAR KELUARGA LENGKAP -->
     <section class="px-6 pt-8 pb-10 text-center space-y-8 bg-[#FAF9F6]">
-      
       <div class="reveal-fade-up max-w-md mx-auto space-y-4">
-        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
-          Ungkapan Hormat
-        </span>
-        <h3 class="font-serif text-3xl font-bold text-[#1A1918]">
-          Hormat Kami Yang Mengundang
-        </h3>
+        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">Ungkapan Hormat</span>
+        <h3 class="font-serif text-3xl font-bold text-[#1A1918]">Hormat Kami Yang Mengundang</h3>
         <p class="text-xs text-[#252423] font-semibold">
           Beserta segenap keluarga besar yang turut mengundang kehadiran Bapak/Ibu/Saudara/i:
         </p>
 
-        <!-- Daftar Lengkap 19 Nama Keluarga -->
+        <!-- Daftar 19 Nama Keluarga -->
         <div class="bg-white rounded-3xl p-6 border-2 border-stone-200 shadow-md text-left space-y-4">
           <div class="grid grid-cols-1 gap-2 text-xs text-[#252423]">
             <div class="flex items-start gap-2">
@@ -836,19 +690,14 @@
             </div>
           </div>
 
-          <!-- Highlight Keluarga Besar -->
           <div class="pt-3 border-t border-stone-200 space-y-2 text-xs">
-            <div class="p-3 rounded-xl bg-[#F0F3EF] border border-[#8F9E8B]/40 flex items-center gap-2">
+            <div class="p-3 rounded-xl bg-[#EBF3FA] border border-[#8FA9C4]/40 flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-[#000080]"></span>
-              <span class="font-serif font-bold text-sm text-[#1A1918]">
-                Keluarga Besar Andi Mandasini Petta Wawo
-              </span>
+              <span class="font-serif font-bold text-sm text-[#1A1918]">Keluarga Besar Andi Mandasini Petta Wawo</span>
             </div>
             <div class="p-3 rounded-xl bg-[#F8EFF0] border border-[#D4A5A5]/50 flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-[#B87A7A]"></span>
-              <span class="font-serif font-bold text-sm text-[#1A1918]">
-                Keluarga Besar Puang Damang (Alm) / Andi Hasni (Almh)
-              </span>
+              <span class="font-serif font-bold text-sm text-[#1A1918]">Keluarga Besar Puang Damang (Alm) / Andi Hasni (Almh)</span>
             </div>
             <div class="p-3.5 rounded-xl bg-[#FAF9F6] border-2 border-[#C5A059] flex items-center justify-between">
               <span class="font-serif font-bold text-sm sm:text-base text-[#1A1918]">Kedua Mempelai</span>
@@ -862,109 +711,131 @@
         <p class="text-xs sm:text-sm text-[#252423] font-semibold leading-relaxed">
           Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.
         </p>
-        <p class="font-serif text-base sm:text-lg font-bold text-[#000080]">
-          Wassalamu'alaikum Warahmatullahi Wabarakatuh
-        </p>
+        <p class="font-serif text-base sm:text-lg font-bold text-[#000080]">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
         <div class="pt-2">
           <p class="text-xs font-serif uppercase tracking-widest text-stone-500 font-bold">Kami yang berbahagia,</p>
           <h4 class="font-script text-4xl sm:text-5xl text-[#C5A059] mt-1">Nur &amp; Udi</h4>
         </div>
       </div>
 
-      <!-- -------------------------------------------------------------------
-           8. FITUR GUEST LINK GENERATOR (PANEL KHUSUS KLIEN / PENGANTIN)
-      -------------------------------------------------------------------- -->
-      <div class="reveal-fade-up delay-200 max-w-md mx-auto pt-4 text-left">
-        <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-[#000080]/30 shadow-xl relative overflow-hidden">
-          
-          <!-- Header Panel -->
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-9 h-9 rounded-full bg-[#000080] text-white flex items-center justify-center shrink-0 shadow-sm">
-              <svg class="w-5 h-5 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-            </div>
-            <div>
-              <span class="text-[10px] uppercase tracking-widest font-sans font-extrabold text-[#000080] block">
-                Panel Khusus Pengantin &amp; Panitia
-              </span>
-              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#000080]">
-                Guest Link Generator
-              </h3>
-            </div>
-          </div>
-
-          <p class="text-xs text-[#252423] leading-relaxed mb-4 font-medium">
-            Ketik nama tamu di bawah untuk membuat tautan undangan personal otomatis yang siap disalin dan dikirim via WhatsApp.
-          </p>
-
-          <!-- Input Nama Tamu -->
-          <div class="space-y-1.5 mb-3">
-            <label class="block text-xs font-bold text-[#000080]">
-              Nama Tamu Undangan
-            </label>
-            <input type="text" 
-                   id="gen-guest-input" 
-                   placeholder="Contoh: Bapak Budi & Keluarga" 
-                   class="w-full px-4 py-3 rounded-xl bg-[#FAF9F6] border-2 border-stone-200 focus:border-[#000080] text-sm font-semibold text-[#1A1918] placeholder:text-stone-400 focus:outline-none transition-colors">
-          </div>
-
-          <!-- Preview URL Box -->
-          <div class="p-3.5 rounded-xl bg-[#FAF9F6] border border-[#000080]/30 mb-4 space-y-1">
-            <span class="text-[10px] font-bold text-[#000080] uppercase tracking-wider block">
-              Tautan Undangan Khusus Tamu:
-            </span>
-            <p id="gen-url-preview" class="font-mono text-xs text-[#000080] break-all select-all font-semibold bg-white p-2.5 rounded-lg border border-stone-200">
-              https://undanganpernikahannurudi.vercel.app/?to=Tamu+Undangan
-            </p>
-          </div>
-
-          <!-- Tombol Salin & WhatsApp -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-            <button type="button" 
-                    id="btn-copy-guest-link"
-                    class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#000080] hover:bg-[#000066] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#000080]/20 transition-all active:scale-95 cursor-pointer">
-              <svg class="w-4 h-4 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              <span id="btn-copy-guest-text">Salin Link Undangan</span>
-            </button>
-
-            <button type="button" 
-                    id="btn-send-whatsapp"
-                    class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs sm:text-sm font-bold shadow-md shadow-emerald-500/20 transition-all active:scale-95 cursor-pointer">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              <span>Kirim via WhatsApp</span>
-            </button>
-          </div>
-
-          <!-- Format Teks WhatsApp -->
-          <div class="pt-3 border-t border-stone-200">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[11px] font-bold text-[#000080]">Format Pesan Undangan WhatsApp:</span>
-              <button type="button" 
-                      id="btn-copy-full-message"
-                      class="text-[11px] text-[#000080] hover:underline font-bold flex items-center gap-1 cursor-pointer">
-                <span>Salin Seluruh Pesan</span>
-              </button>
-            </div>
-            <div id="wa-preview-text" class="max-h-36 overflow-y-auto text-[11px] font-mono text-[#252423] bg-[#FAF9F6] p-3 rounded-xl border border-stone-200 leading-relaxed whitespace-pre-wrap select-all">
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Footer Bar -->
+      <!-- =====================================================================
+           FOOTER WITH INTERACTIVE TRIGGER FOR GUEST LINK GENERATOR
+      ====================================================================== -->
       <div class="pt-8 pb-4 text-center border-t border-stone-200">
-        <p class="text-xs text-stone-500 font-sans tracking-wide font-medium">
-          The Wedding of Nurhidayah &amp; Muh. Saifuddin · Sinjai, 22 Desember 2026
-        </p>
+        <button id="footer-generator-trigger" 
+                type="button" 
+                class="group inline-flex flex-col items-center justify-center p-3 rounded-2xl hover:bg-sky-50 transition-all cursor-pointer select-none">
+          <p class="text-xs text-stone-500 group-hover:text-[#000080] font-sans tracking-wide font-medium transition-colors">
+            The Wedding of Nurhidayah &amp; Muh. Saifuddin · Sinjai, 22 Desember 2026
+          </p>
+          <span class="text-[10px] text-stone-400 group-hover:text-[#000080] font-semibold mt-1 flex items-center gap-1 transition-colors">
+            <span>🔒 Ketuk untuk membuka Panel Generator Link Tamu</span>
+          </span>
+        </button>
       </div>
-
     </section>
 
   </main>
 
   <!-- =========================================================================
-       LIGHTBOX MODAL FOR GALLERY PHOTOS
+       GUEST LINK GENERATOR MODAL (TERSEMBUNYI SECARA DEFAULT)
+       Hanya muncul saat teks footer di-klik oleh pengantin/panitia
   ========================================================================= -->
+  <div id="generator-modal" 
+       class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+    
+    <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-[#000080]/30 shadow-2xl w-full max-w-md relative my-8 text-left animate-fade-in">
+      
+      <!-- Top Close Button -->
+      <button type="button" 
+              onclick="toggleGeneratorModal(false)" 
+              class="absolute top-4 right-4 p-2 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold text-xs flex items-center gap-1 transition-colors cursor-pointer">
+        <span>✕ Tutup</span>
+      </button>
+
+      <!-- Header Panel -->
+      <div class="flex items-center gap-3 mb-2 pr-16">
+        <div class="w-9 h-9 rounded-full bg-[#000080] text-white flex items-center justify-center shrink-0 shadow-sm">
+          <svg class="w-5 h-5 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase tracking-widest font-sans font-extrabold text-[#000080] block">
+            Panel Khusus Pengantin &amp; Panitia
+          </span>
+          <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#000080]">
+            Guest Link Generator
+          </h3>
+        </div>
+      </div>
+
+      <p class="text-xs text-[#252423] leading-relaxed mb-4 font-medium">
+        Ketik nama tamu di bawah untuk membuat tautan undangan personal otomatis yang siap disalin dan dikirim via WhatsApp.
+      </p>
+
+      <!-- Input Nama Tamu -->
+      <div class="space-y-1.5 mb-3">
+        <label class="block text-xs font-bold text-[#000080]">
+          Nama Tamu Undangan
+        </label>
+        <input type="text" 
+               id="gen-guest-input" 
+               placeholder="Contoh: Bapak Budi & Keluarga" 
+               class="w-full px-4 py-3 rounded-xl bg-[#FAF9F6] border-2 border-stone-200 focus:border-[#000080] text-sm font-semibold text-[#1A1918] placeholder:text-stone-400 focus:outline-none transition-colors">
+      </div>
+
+      <!-- Preview URL Box -->
+      <div class="p-3.5 rounded-xl bg-[#FAF9F6] border border-[#000080]/30 mb-4 space-y-1">
+        <span class="text-[10px] font-bold text-[#000080] uppercase tracking-wider block">
+          Tautan Undangan Khusus Tamu:
+        </span>
+        <p id="gen-url-preview" class="font-mono text-xs text-[#000080] break-all select-all font-semibold bg-white p-2.5 rounded-lg border border-stone-200">
+          https://undanganpernikahannurudi.vercel.app/?to=Tamu+Undangan
+        </p>
+      </div>
+
+      <!-- Tombol Salin & WhatsApp -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+        <button type="button" 
+                id="btn-copy-guest-link" 
+                class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#000080] hover:bg-[#000066] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#000080]/20 transition-all active:scale-95 cursor-pointer">
+          <svg class="w-4 h-4 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span id="btn-copy-guest-text">Salin Link Undangan</span>
+        </button>
+
+        <button type="button" 
+                id="btn-send-whatsapp" 
+                class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs sm:text-sm font-bold shadow-md shadow-emerald-500/20 transition-all active:scale-95 cursor-pointer">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Kirim via WhatsApp</span>
+        </button>
+      </div>
+
+      <!-- Format Teks WhatsApp -->
+      <div class="pt-3 border-t border-stone-200">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-bold text-[#000080]">Format Pesan Undangan WhatsApp:</span>
+          <button type="button" 
+                  id="btn-copy-full-message" 
+                  class="text-[11px] text-[#000080] hover:underline font-bold flex items-center gap-1 cursor-pointer">
+            <span>Salin Seluruh Pesan</span>
+          </button>
+        </div>
+        <div id="wa-preview-text" class="max-h-36 overflow-y-auto text-[11px] font-mono text-[#252423] bg-[#FAF9F6] p-3 rounded-xl border border-stone-200 leading-relaxed whitespace-pre-wrap select-all"></div>
+      </div>
+
+      <!-- Bottom Close Button -->
+      <div class="pt-4 border-t border-stone-200 mt-4 text-center">
+        <button type="button" 
+                onclick="toggleGeneratorModal(false)"
+                class="w-full py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold transition-colors cursor-pointer">
+          Tutup &amp; Kembali ke Halaman Undangan
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
   <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex-col items-center justify-center p-4">
     <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white/80 hover:text-white p-2 text-2xl font-bold cursor-pointer">✕</button>
     <div class="max-w-md w-full text-center space-y-3">
@@ -973,25 +844,17 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       TOAST NOTIFICATION COMPONENT
-  ========================================================================= -->
+  <!-- TOAST NOTIFICATION -->
   <div id="toast-notification" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-[#000080] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-xl border border-[#C5A059] opacity-0 pointer-events-none transform -translate-y-4">
     <span id="toast-text">Tautan Berhasil Disalin!</span>
   </div>
 
-  <!-- =========================================================================
-       VANILLA JAVASCRIPT LOGIC
-  ========================================================================= -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
-    // -------------------------------------------------------------------------
-    // 1. DYNAMIC GUEST NAME FROM URL (?to=Nama+Tamu or ?guest=...)
-    // -------------------------------------------------------------------------
     const BASE_URL = 'https://undanganpernikahannurudi.vercel.app/';
     const urlParams = new URLSearchParams(window.location.search);
     const rawToParam = urlParams.get('to') || urlParams.get('guest') || urlParams.get('u');
     
-    // Safely decode guest name with fallback
     let currentGuestName = 'Tamu Undangan';
     if (rawToParam) {
       try {
@@ -1001,7 +864,6 @@
       }
     }
 
-    // Set guest name in DOM
     const guestEnvelopeEl = document.getElementById('guest-name-envelope');
     const guestHeroEl = document.getElementById('guest-name-hero');
     const rsvpNameInput = document.getElementById('rsvp-name');
@@ -1012,9 +874,6 @@
       rsvpNameInput.value = currentGuestName;
     }
 
-    // -------------------------------------------------------------------------
-    // 2. AUDIO & ENVELOPE OPENING ANIMATION
-    // -------------------------------------------------------------------------
     const bgMusic = document.getElementById('bg-music');
     const vinylDisc = document.getElementById('vinyl-disc');
     const iconPlay = document.getElementById('icon-play');
@@ -1051,41 +910,31 @@
 
     if (musicBtn) {
       musicBtn.addEventListener('click', () => {
-        if (isMusicPlaying) {
-          pauseMusic();
-        } else {
-          playMusic();
-        }
+        if (isMusicPlaying) pauseMusic();
+        else playMusic();
       });
     }
 
-    // Envelope Opening Trigger
     if (btnOpenEnvelope) {
       btnOpenEnvelope.addEventListener('click', () => {
         btnOpenEnvelope.disabled = true;
         btnOpenText.textContent = 'Membuka Undangan...';
-
-        // 1. Immediately start music playback on user gesture
         playMusic();
 
-        // 2. Open 3D Envelope Flap
         if (envelopeFlap) {
           envelopeFlap.classList.remove('flap-closed');
           envelopeFlap.classList.add('flap-open');
         }
 
-        // 3. Slide letter card out
         setTimeout(() => {
           if (envelopeLetter) envelopeLetter.classList.add('animate-letter-out');
         }, 400);
 
-        // 4. Fade out overlay and reveal invitation
         setTimeout(() => {
           if (envelopeOverlay) {
             envelopeOverlay.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
             setTimeout(() => {
               envelopeOverlay.style.display = 'none';
-              // Scroll smoothly to cover
               const coverSection = document.getElementById('cover');
               if (coverSection) coverSection.scrollIntoView({ behavior: 'smooth' });
             }, 900);
@@ -1094,9 +943,6 @@
       });
     }
 
-    // -------------------------------------------------------------------------
-    // 3. SCROLL REVEAL (INTERSECTION OBSERVER)
-    // -------------------------------------------------------------------------
     const revealElements = document.querySelectorAll('.reveal-fade-up');
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
@@ -1106,21 +952,13 @@
             observer.unobserve(entry.target);
           }
         });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      });
-
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       revealElements.forEach(el => observer.observe(el));
     } else {
       revealElements.forEach(el => el.classList.add('active'));
     }
 
-    // -------------------------------------------------------------------------
-    // 4. LIVE COUNTDOWN TIMER (22 DESEMBER 2026 09:00:00 WITA = UTC+8)
-    // -------------------------------------------------------------------------
     const targetDate = new Date('2026-12-22T09:00:00+08:00').getTime();
-
     function updateCountdown() {
       const now = new Date().getTime();
       const difference = targetDate - now;
@@ -1143,31 +981,22 @@
       document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
       document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // -------------------------------------------------------------------------
-    // 5. TOAST NOTIFICATION HELPER
-    // -------------------------------------------------------------------------
     function showToast(message) {
       const toast = document.getElementById('toast-notification');
       const toastText = document.getElementById('toast-text');
       if (!toast) return;
-
       if (toastText) toastText.textContent = message;
       toast.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
       toast.classList.add('opacity-100', 'translate-y-0');
-
       setTimeout(() => {
         toast.classList.remove('opacity-100', 'translate-y-0');
         toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
       }, 2500);
     }
 
-    // -------------------------------------------------------------------------
-    // 6. COPY WEDDING ADDRESS
-    // -------------------------------------------------------------------------
     const btnCopyAddress = document.getElementById('btn-copy-address');
     const weddingAddressText = document.getElementById('wedding-address');
     if (btnCopyAddress && weddingAddressText) {
@@ -1179,8 +1008,39 @@
     }
 
     // -------------------------------------------------------------------------
-    // 7. GUEST LINK GENERATOR FOR CLIENT/COMMITTEE
+    // GUEST LINK GENERATOR MODAL LOGIC (TERSEMBUNYI, DIBUKA DARI FOOTER)
     // -------------------------------------------------------------------------
+    const generatorModal = document.getElementById('generator-modal');
+    const footerTrigger = document.getElementById('footer-generator-trigger');
+
+    function toggleGeneratorModal(show) {
+      if (!generatorModal) return;
+      if (show) {
+        generatorModal.classList.remove('hidden');
+        generatorModal.classList.add('flex');
+        const input = document.getElementById('gen-guest-input');
+        if (input) input.focus();
+      } else {
+        generatorModal.classList.add('hidden');
+        generatorModal.classList.remove('flex');
+      }
+    }
+
+    if (footerTrigger) {
+      footerTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleGeneratorModal(true);
+      });
+    }
+
+    if (generatorModal) {
+      generatorModal.addEventListener('click', (e) => {
+        if (e.target === generatorModal) {
+          toggleGeneratorModal(false);
+        }
+      });
+    }
+
     const genInput = document.getElementById('gen-guest-input');
     const genUrlPreview = document.getElementById('gen-url-preview');
     const waPreviewText = document.getElementById('wa-preview-text');
@@ -1221,7 +1081,7 @@ Hormat kami yang berbahagia,
     }
 
     function updateGenerator() {
-      const name = genInput.value.trim();
+      const name = genInput ? genInput.value.trim() : '';
       const displayName = name || 'Tamu Undangan';
       const encoded = name ? encodeURIComponent(name).replace(/%20/g, '+') : 'Tamu+Undangan';
       const fullUrl = `${BASE_URL}?to=${encoded}`;
@@ -1231,9 +1091,7 @@ Hormat kami yang berbahagia,
       if (waPreviewText) waPreviewText.textContent = message;
     }
 
-    if (genInput) {
-      genInput.addEventListener('input', updateGenerator);
-    }
+    if (genInput) genInput.addEventListener('input', updateGenerator);
     updateGenerator();
 
     if (btnCopyGuestLink) {
@@ -1266,9 +1124,6 @@ Hormat kami yang berbahagia,
       });
     }
 
-    // -------------------------------------------------------------------------
-    // 8. LIGHTBOX MODAL
-    // -------------------------------------------------------------------------
     const galleryItems = [
       { src: '/src/assets/images/wedding_couple_cover_1794141712367.jpg', caption: 'Nur & Udi - Harmoni cinta dalam keindahan' },
       { src: '/src/assets/images/gallery_moment_one_1794141714727.jpg', caption: 'Langkah Bersama menuju babak baru yang penuh berkah' },
@@ -1296,9 +1151,6 @@ Hormat kami yang berbahagia,
       }
     }
 
-    // -------------------------------------------------------------------------
-    // 9. RSVP & GUESTBOOK PERSISTENCE (LOCALSTORAGE)
-    // -------------------------------------------------------------------------
     const initialWishes = [
       { name: "Hj. Rosdiana", status: "Hadir", message: "Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fii khair. Selamat untuk ananda Nur & Udi!", time: "2 jam yang lalu" },
       { name: "Keluarga Besar Dr. Basri", status: "Hadir", message: "Selamat menempuh hidup baru Nur & Udi, semoga sakinah mawaddah warahmah hingga akhir hayat.", time: "5 jam yang lalu" },
@@ -1312,7 +1164,6 @@ Hormat kami yang berbahagia,
       const container = document.getElementById('wishes-container');
       const countEl = document.getElementById('wishes-count');
       if (!container) return;
-
       container.innerHTML = '';
       if (countEl) countEl.textContent = `${storedWishes.length} Ucapan`;
 
@@ -1322,7 +1173,7 @@ Hormat kami yang berbahagia,
         div.innerHTML = `
           <div class="flex items-center justify-between">
             <span class="font-bold text-[#1A1918]">${item.name}</span>
-            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Hadir' ? 'bg-[#F0F3EF] text-[#4A5847]' : 'bg-[#FAF9F6] text-stone-500'} border border-stone-200">
+            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Hadir' ? 'bg-[#EBF3FA] text-[#3B6285]' : 'bg-[#FAF9F6] text-stone-500'} border border-stone-200">
               ${item.status}
             </span>
           </div>
@@ -1340,16 +1191,9 @@ Hormat kami yang berbahagia,
         const nameVal = document.getElementById('rsvp-name').value.trim();
         const statusVal = document.getElementById('rsvp-status').value;
         const msgVal = document.getElementById('rsvp-message').value.trim();
-
         if (!nameVal || !msgVal) return;
 
-        const newWish = {
-          name: nameVal,
-          status: statusVal,
-          message: msgVal,
-          time: 'Baru saja'
-        };
-
+        const newWish = { name: nameVal, status: statusVal, message: msgVal, time: 'Baru saja' };
         storedWishes.unshift(newWish);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(storedWishes));
         renderWishes();
