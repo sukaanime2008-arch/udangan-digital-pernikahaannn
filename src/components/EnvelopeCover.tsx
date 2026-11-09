@@ -146,75 +146,62 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
             </div>
           </div>
 
+          {/* Top Left & Right Corner Floral Accents from user's blue floral asset */}
+          <div className="absolute -top-3 -left-3 w-16 sm:w-20 pointer-events-none select-none opacity-90 -rotate-25 z-25 drop-shadow-xs">
+            <img src="/assets/bunga-cluster.png" alt="" className="w-full h-full object-contain" />
+          </div>
+          <div className="absolute -top-3 -right-3 w-16 sm:w-20 pointer-events-none select-none opacity-90 rotate-25 scale-x-[-1] z-25 drop-shadow-xs">
+            <img src="/assets/bunga-cluster.png" alt="" className="w-full h-full object-contain" />
+          </div>
+
           {/* Envelope Top Triangular Flap (Folds Open in 3D) */}
           <div
-            className={`absolute top-0 inset-x-0 h-1/2 origin-top transform-style-3d ${
+            className={`absolute top-0 inset-x-0 h-[56%] origin-top transform-style-3d ${
               isFlapOpen ? 'flap-open' : 'flap-closed'
             }`}
           >
             {/* Flap Outer Face */}
             <svg
               className="w-full h-full drop-shadow-lg"
-              viewBox="0 0 360 140"
+              viewBox="0 0 360 148"
               preserveAspectRatio="none"
               fill="none"
             >
-              <polygon points="0,0 180,140 360,0" fill="#93B0CC" />
-              <line x1="0" y1="0" x2="180" y2="140" stroke="#C5A059" strokeWidth="1.5" opacity="0.75" />
-              <line x1="360" y1="0" x2="180" y2="140" stroke="#C5A059" strokeWidth="1.5" opacity="0.75" />
+              <polygon points="0,0 180,148 360,0" fill="#93B0CC" />
+              <line x1="0" y1="0" x2="180" y2="148" stroke="#C5A059" strokeWidth="1.5" opacity="0.75" />
+              <line x1="360" y1="0" x2="180" y2="148" stroke="#C5A059" strokeWidth="1.5" opacity="0.75" />
             </svg>
 
-            {/* Circular Photo Frame on Envelope Flap with Floral Wreath Accent */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-[10px] sm:top-[14px] flex items-center justify-center pointer-events-none select-none z-20">
-              {/* Watercolor Floral Wreath SVG in Pastel Blue & Navy */}
-              <div className="absolute w-[116px] h-[116px] sm:w-[136px] sm:h-[136px] pointer-events-none -z-0">
-                <svg viewBox="0 0 160 160" className="w-full h-full drop-shadow-sm" fill="none">
-                  {/* Delicate Gold Vine Arc */}
-                  <circle cx="80" cy="80" r="54" stroke="#C5A059" strokeWidth="1.2" strokeDasharray="3 3" opacity="0.8" />
-                  
-                  {/* Top floral cluster */}
-                  <g transform="translate(80, 26)">
-                    <circle cx="0" cy="0" r="5" fill="#8FA9C4" />
-                    <circle cx="-5" cy="-2" r="3.5" fill="#BAE6FD" />
-                    <circle cx="5" cy="-2" r="3.5" fill="#A3BED8" />
-                    <circle cx="0" cy="-6" r="3.5" fill="#000080" />
-                    <circle cx="0" cy="0" r="2" fill="#C5A059" />
-                  </g>
-                  {/* Left floral cluster */}
-                  <g transform="translate(26, 80) rotate(-45)">
-                    <ellipse cx="-4" cy="-3" rx="6" ry="3.5" fill="#8FA9C4" transform="rotate(-30)" />
-                    <ellipse cx="-2" cy="4" rx="5" ry="3" fill="#000080" transform="rotate(20)" />
-                    <circle cx="4" cy="0" r="4.5" fill="#BAE6FD" />
-                    <circle cx="4" cy="0" r="1.8" fill="#C5A059" />
-                    <path d="M-8,-8 Q-4,-12 0,-10" stroke="#C5A059" strokeWidth="1" fill="none" />
-                  </g>
-                  {/* Right floral cluster */}
-                  <g transform="translate(134, 80) rotate(45)">
-                    <ellipse cx="4" cy="-3" rx="6" ry="3.5" fill="#8FA9C4" transform="rotate(30)" />
-                    <ellipse cx="2" cy="4" rx="5" ry="3" fill="#000080" transform="rotate(-20)" />
-                    <circle cx="-4" cy="0" r="4.5" fill="#BAE6FD" />
-                    <circle cx="-4" cy="0" r="1.8" fill="#C5A059" />
-                    <path d="M8,-8 Q4,-12 0,-10" stroke="#C5A059" strokeWidth="1" fill="none" />
-                  </g>
-                  {/* Bottom leaf accents */}
-                  <g transform="translate(50, 128) rotate(35)">
-                    <ellipse cx="0" cy="0" rx="6" ry="2.5" fill="#8FA9C4" />
-                    <ellipse cx="4" cy="-4" rx="5" ry="2" fill="#000080" opacity="0.85" />
-                  </g>
-                  <g transform="translate(110, 128) rotate(-35)">
-                    <ellipse cx="0" cy="0" rx="6" ry="2.5" fill="#8FA9C4" />
-                    <ellipse cx="-4" cy="-4" rx="5" ry="2" fill="#000080" opacity="0.85" />
-                  </g>
-                </svg>
+            {/* Circular Photo Frame on Envelope Flap with Blue Floral Artwork Accent */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-[6px] sm:top-[8px] flex items-center justify-center pointer-events-none select-none z-20">
+              {/* Left Blue Floral Cluster (Hugging Circle) */}
+              <div className="absolute -left-10 sm:-left-14 -top-3 sm:-top-5 w-20 sm:w-26 md:w-28 h-26 sm:h-34 pointer-events-none select-none z-15 -rotate-12 drop-shadow-md">
+                <img
+                  src="/assets/bunga-cluster.png"
+                  alt="Hiasan Bunga Biru"
+                  className="w-full h-full object-contain"
+                />
               </div>
 
-              {/* Circular Gold Border Photo Frame */}
-              <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full p-[2.5px] bg-gradient-to-tr from-[#C5A059] via-[#FFF3D6] to-[#9E7E3E] shadow-md z-10">
-                <div className="w-full h-full rounded-full overflow-hidden border border-white/70 bg-[#FAF9F6]">
+              {/* Right Blue Floral Cluster (Hugging Circle - Mirrored) */}
+              <div className="absolute -right-10 sm:-right-14 -top-3 sm:-top-5 w-20 sm:w-26 md:w-28 h-26 sm:h-34 pointer-events-none select-none z-15 rotate-12 scale-x-[-1] drop-shadow-md">
+                <img
+                  src="/assets/bunga-cluster.png"
+                  alt="Hiasan Bunga Biru"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+
+              {/* Delicate Gold Ring Halo Accent */}
+              <div className="absolute -inset-2 sm:-inset-2.5 rounded-full border border-[#C5A059]/60 border-dashed pointer-events-none -z-0" />
+
+              {/* Enlarged Prominent Circular Gold Border Photo Frame */}
+              <div className="relative w-28 h-28 sm:w-34 sm:h-34 md:w-38 md:h-38 rounded-full p-1 sm:p-1.5 bg-gradient-to-tr from-[#C5A059] via-[#FFF3D6] to-[#9E7E3E] shadow-2xl z-10 ring-2 ring-white/70">
+                <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/90 bg-[#FAF9F6] shadow-inner">
                   <img
                     src="/assets/foto-pasangan.jpg"
                     alt="Foto Pasangan Nur & Udi"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-[center_18%] scale-105"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = '/assets/hero.jpg';
                     }}

@@ -31,8 +31,8 @@ import { GuestLinkGenerator } from './components/GuestLinkGenerator';
 // Image assets stored cleanly in assets/
 const IMAGES = {
   cover: '/assets/foto-pasangan.jpg',
-  groom: '/assets/foto-pasangan.jpg',
-  bride: '/assets/foto-pasangan.jpg',
+  groom: '/assets/aistudio/kkl_5cb94ce9.png', // Foto Mempelai Pria (Muh. Saifuddin Assa'diah)
+  bride: '/assets/aistudio/pere_4537ba05.png', // Foto Mempelai Wanita (Nurhidayah)
   galeri1: '/assets/galeri-1.jpg', // Landscape (Seated on grass)
   galeri2: '/assets/galeri-2.jpg', // Portrait 1 (Standing under tree)
   galeri3: '/assets/galeri-3.jpg', // Portrait 2 (Side angle gentle smile)
@@ -314,7 +314,7 @@ export default function App() {
                   <img
                     src={IMAGES.bride}
                     alt="Nurhidayah, S.Pd (Nur)"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent pointer-events-none" />
@@ -355,7 +355,7 @@ export default function App() {
                   <img
                     src={IMAGES.groom}
                     alt="Muh. Saifuddin Assa'diah, S.Hf (Udi)"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent pointer-events-none" />

@@ -10,42 +10,9 @@ export interface WishItem {
   likes: number;
 }
 
-const DEFAULT_WISHES: WishItem[] = [
-  {
-    id: '1',
-    name: 'Andi Fatimah Azzahra & Keluarga',
-    status: 'hadir',
-    message: 'Barakallahu lakuma wa baraka alaikuma wa jama\'a bainakuma fii khoir. Selamat menempuh hidup baru Nur & Udi, semoga menjadi keluarga yang sakinah, mawaddah, warahmah hingga akhir hayat.',
-    timestamp: '2 jam yang lalu',
-    likes: 12,
-  },
-  {
-    id: '2',
-    name: 'Ahmad Ridwan, S.Kom',
-    status: 'hadir',
-    message: 'Selamat Udi & Nur! Ikut bahagia melihat perjalanan kalian berdua sampai ke pelaminan. Semoga dilancarkan semua rangkaian acaranya di Sinjai nanti. Aamiin ya Rabbal alamin.',
-    timestamp: '5 jam yang lalu',
-    likes: 8,
-  },
-  {
-    id: '3',
-    name: 'Dra. Hj. Wahidah & Rekan Guru',
-    status: 'hadir_keluarga',
-    message: 'Selamat berbahagia ananda Nurhidayah, S.Pd & suami. Semoga keberkahan senantiasa melimpah dalam rumah tangga kalian.',
-    timestamp: '1 hari yang lalu',
-    likes: 15,
-  },
-  {
-    id: '4',
-    name: 'Fauzan Saputra (Sahabat Kampus)',
-    status: 'hadir',
-    message: 'MasyaAllah Tabarakallah bro Udi! Akhirnya berlabuh ke pelaminan dengan pujaan hati. Selamat bro, insyaAllah kami hadir meramaikan hari bahagia kalian!',
-    timestamp: '1 hari yang lalu',
-    likes: 9,
-  },
-];
+const DEFAULT_WISHES: WishItem[] = [];
 
-const STORAGE_KEY = 'wedding_nur_udi_wishes_v1';
+const STORAGE_KEY = 'wedding_nur_udi_wishes_v3';
 
 export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
   initialGuestName = '',
@@ -281,7 +248,18 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
         </div>
 
         <div className="max-h-[380px] overflow-y-auto space-y-3.5 pr-1 custom-scrollbar">
-          {wishes.map((item) => (
+          {wishes.length === 0 ? (
+            <div className="py-10 text-center text-stone-400 space-y-2.5">
+              <div className="w-12 h-12 rounded-full bg-[#EBF3FA] text-[#000080] flex items-center justify-center mx-auto shadow-xs">
+                <MessageSquareHeart className="w-6 h-6 text-[#000080]" />
+              </div>
+              <p className="text-xs font-bold text-[#181716]">Belum ada untaian doa.</p>
+              <p className="text-[11px] text-stone-500 max-w-xs mx-auto">
+                Jadilah yang pertama mengirimkan ucapan selamat dan doa restu untuk Nur &amp; Udi!
+              </p>
+            </div>
+          ) : (
+            wishes.map((item) => (
             <div
               key={item.id}
               className="p-4 rounded-2xl bg-[#FAF9F6] border border-stone-200/70 hover:border-[#8FA9C4]/35 transition-all text-left"
@@ -324,7 +302,7 @@ export const GuestbookRSVP: React.FC<{ initialGuestName?: string }> = ({
                 </button>
               </div>
             </div>
-          ))}
+          )))}
         </div>
       </div>
     </div>
