@@ -146,3 +146,61 @@
 .animate-letter-out {
   animation: letterSlideOut 1s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Moving Smooth Gold & Soft Blue Gradient Border */
+@keyframes movingGradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-border {
+  background: linear-gradient(
+    135deg,
+    #C5A059 0%,
+    #8FA9C4 22%,
+    #FFF2D6 45%,
+    #6387A5 68%,
+    #D4A5A5 85%,
+    #C5A059 100%
+  );
+  background-size: 300% 300%;
+  animation: movingGradientBorder 6s ease-in-out infinite;
+}
+
+/* Luxurious Floating Halo Glow for Hero Arch Frame */
+@keyframes grandHaloGlow {
+  0%, 100% {
+    box-shadow: 0 10px 32px -4px rgba(197, 160, 89, 0.38), 0 0 20px rgba(143, 169, 196, 0.28);
+  }
+  50% {
+    box-shadow: 0 14px 42px -4px rgba(143, 169, 196, 0.48), 0 0 28px rgba(197, 160, 89, 0.42);
+  }
+}
+
+.animated-halo-glow {
+  animation: grandHaloGlow 5s ease-in-out infinite;
+}
+
+/* Main Content Smooth Zoom-in & Fade Entry after Envelope Opens */
+@keyframes mainContentZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-main-reveal {
+  animation: mainContentZoomIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

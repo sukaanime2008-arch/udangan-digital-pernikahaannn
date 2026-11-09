@@ -131,8 +131,24 @@
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-    .animate-spin-vinyl {
-      animation: spinVinyl 6s linear infinite;
+    /* Moving Gradient Border Keyframes */
+    @keyframes movingGradientBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-gradient-border {
+      background: linear-gradient(
+        135deg,
+        #C5A059 0%,
+        #8FA9C4 22%,
+        #FFF2D6 45%,
+        #6387A5 68%,
+        #D4A5A5 85%,
+        #C5A059 100%
+      );
+      background-size: 300% 300%;
+      animation: movingGradientBorder 6s ease-in-out infinite;
     }
   </style>
 </head>
@@ -205,16 +221,16 @@
       </div>
 
       <!-- FRAME FOTO UTAMA LENGKUNG (LEBIH BESAR & MENONJOL: 380px - 420px) -->
-      <div class="relative my-4 z-10 w-full flex justify-center">
-        <!-- Outer Gold & Sage Halo -->
-        <div class="w-[280px] sm:w-[310px] h-[400px] arch-frame p-2.5 bg-gradient-to-b from-[#C5A059]/30 via-[#D4A5A5]/25 to-[#8F9E8B]/25 shadow-lg">
+      <div class="relative my-2 sm:my-3 z-10 w-full flex justify-center">
+        <!-- Outer Moving Gradient Border (Gold & Soft Blue) -->
+        <div class="w-[295px] sm:w-[325px] h-[415px] arch-frame p-[3px] animated-gradient-border shadow-2xl">
           <!-- Inner White Border Frame -->
-          <div class="w-full h-full arch-frame p-1 bg-[#FAF9F6] border border-[#C5A059]/50">
+          <div class="w-full h-full arch-frame p-1 bg-[#FAF9F6] border border-[#C5A059]/40">
             <!-- Foto Utama Lengkung -->
             <div class="w-full h-full arch-frame overflow-hidden relative bg-stone-100">
               <img src="assets/hero.jpg" 
                    alt="Foto Mempelai Nur & Udi" 
-                   class="w-full h-full object-cover object-center"
+                   class="w-full h-full object-cover object-[center_18%]"
                    onerror="this.src='/src/assets/images/wedding_couple_cover_1794141712367.jpg'">
               <!-- Bottom gradient vignette -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none"></div>
@@ -223,14 +239,14 @@
         </div>
       </div>
 
-      <!-- Judul Nama Mempelai & Tombol Buka Undangan -->
-      <div class="space-y-3 z-10 w-full max-w-xs pb-2">
+      <!-- Judul Nama Mempelai & Tombol Buka Undangan - Rapat ke atas -->
+      <div class="space-y-2 z-10 w-full max-w-xs pb-2 mt-1">
         <div>
-          <p class="text-xs font-serif uppercase tracking-widest text-[#6B6664]">The Wedding of</p>
-          <h1 class="font-serif text-4xl sm:text-5xl font-semibold text-[#2F2D2C] tracking-tight mt-1">
-            Nur <span class="font-script text-3xl sm:text-4xl text-[#D4A5A5] mx-1">&</span> Udi
+          <p class="text-[11px] font-serif uppercase tracking-[0.25em] text-[#6B6664]">The Wedding of</p>
+          <h1 class="font-serif text-3xl sm:text-4xl font-semibold text-[#2F2D2C] tracking-tight mt-0.5 leading-none">
+            Nur <span class="font-script text-2xl sm:text-3xl text-[#D4A5A5] mx-1">&amp;</span> Udi
           </h1>
-          <p class="text-xs text-[#8F9E8B] mt-1 font-sans">Selasa, 22 Desember 2026 · Sinjai</p>
+          <p class="text-[11px] text-[#8F9E8B] mt-0.5 font-sans">Selasa, 22 Desember 2026 · Sinjai</p>
         </div>
 
         <!-- Box Nama Tamu & Tombol Buka Undangan -->

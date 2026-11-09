@@ -118,7 +118,7 @@ export const CountdownTimer: React.FC = () => {
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#FAF9F6] text-[#2F2D2C] border border-[#C5A059]/40 text-xs sm:text-sm font-medium shadow-sm transition-all active:scale-[0.98]"
         >
           <Download className="w-4 h-4 text-[#C5A059]" />
-          <span>Unduh Pengingat (.ics)</span>
+          <span>Unduh Pengingat</span>
         </button>
       </div>
     </div>

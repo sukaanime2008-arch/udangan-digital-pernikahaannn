@@ -186,38 +186,38 @@ export default function App() {
       {/* Floating bottom navigation bar (visible after opening invitation) */}
       <FloatingNav isVisible={isUnlocked} />
 
-      {/* Main Single-Column Luxury Wedding Paper Container */}
-      <div className="max-w-xl mx-auto min-h-screen bg-[#FAF9F6] shadow-xl shadow-stone-200/50 border-x border-[#8FA9C4]/25 relative">
+      {/* Main Single-Column Luxury Wedding Paper Container with smooth zoom-in entry */}
+      <div className={`max-w-xl mx-auto min-h-screen bg-[#FAF9F6] shadow-xl shadow-stone-200/50 border-x border-[#8FA9C4]/25 relative ${isUnlocked ? 'animate-main-reveal' : ''}`}>
         
         {/* =========================================================================
             1. COVER SECTION
         ========================================================================= */}
         <section
           id="cover"
-          className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-start px-4 sm:px-6 pt-3 sm:pt-6 pb-8 text-center overflow-hidden"
+          className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-start px-4 sm:px-6 pt-2 sm:pt-4 pb-6 text-center overflow-hidden"
         >
           {/* Subtle floral watercolor corners */}
           <BotanicalCorner position="top-left" className="absolute top-2 left-2" />
           <BotanicalCorner position="top-right" className="absolute top-2 right-2" />
 
           {/* Top Header */}
-          <ScrollReveal delay={50} className="w-full pt-1 space-y-1 z-10">
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.3em] font-sans text-[#000080] font-extrabold">
+          <ScrollReveal delay={50} className="w-full pt-0.5 space-y-0.5 z-10">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] font-sans text-[#000080] font-extrabold">
               Save The Date
             </span>
-            <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs font-serif tracking-widest text-[#B8860B] font-semibold">
+            <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs font-serif tracking-widest text-[#B8860B] font-semibold">
               <span className="w-6 sm:w-8 h-[1px] bg-[#B8860B]/50" />
               <span>22 Desember 2026</span>
               <span className="w-6 sm:w-8 h-[1px] bg-[#B8860B]/50" />
             </div>
           </ScrollReveal>
 
-          {/* Center Arch Frame Image (Photo of the Couple) */}
-          <ScrollReveal delay={150} className="relative my-2 sm:my-3 z-10">
-            {/* Outer Decorative Gold Halo Border - Proportionate for mobile first frame */}
-            <div className="w-[76vw] max-w-[280px] sm:max-w-[340px] md:max-w-[380px] h-[330px] sm:h-[420px] md:h-[460px] arch-frame p-2.5 sm:p-3.5 bg-gradient-to-b from-[#C5A059]/40 via-[#D4A5A5]/30 to-[#8FA9C4]/35 shadow-xl transition-all duration-500">
-              {/* Inner Matte with Double Border */}
-              <div className="w-full h-full arch-frame p-2 sm:p-2.5 bg-[#FAF9F6] border border-[#C5A059]/50 shadow-inner">
+          {/* Center Arch Frame Image (Photo of the Couple) with Moving Gradient Border */}
+          <ScrollReveal delay={150} className="relative mt-1.5 mb-2 sm:mt-2 sm:mb-2.5 z-10">
+            {/* Outer Moving Gradient Border (Gold & Soft Blue) with Halo Glow */}
+            <div className="w-[82vw] max-w-[310px] sm:max-w-[365px] md:max-w-[400px] h-[365px] sm:h-[445px] md:h-[485px] arch-frame p-[3px] sm:p-1 animated-gradient-border animated-halo-glow shadow-2xl transition-all duration-500">
+              {/* Inner Matte with Delicate Gold Border */}
+              <div className="w-full h-full arch-frame p-1.5 sm:p-2 bg-[#FAF9F6] border border-[#C5A059]/40 shadow-inner">
                 {/* Photo Arch Frame - object-cover with face focus */}
                 <div className="w-full h-full arch-frame overflow-hidden relative group shadow-sm">
                   <img
@@ -232,22 +232,22 @@ export default function App() {
               </div>
             </div>
 
-            {/* Floating floral accent badge */}
-            <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#FAF9F6] border border-[#C5A059]/70 shadow-md flex items-center gap-1.5 text-[#181716] text-[11px] sm:text-xs font-serif tracking-wider whitespace-nowrap">
-              <Sparkles className="w-3 h-3 text-[#B8860B]" />
-              <span className="font-bold">Walimatul 'Ursy</span>
+            {/* Petite floating floral accent badge for Walimatul 'Ursy */}
+            <div className="absolute -bottom-2.5 sm:-bottom-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#FAF9F6]/95 backdrop-blur-xs border border-[#C5A059]/60 shadow-xs flex items-center gap-1 text-[#181716] text-[9.5px] sm:text-[10px] font-serif tracking-widest uppercase whitespace-nowrap z-20">
+              <Sparkles className="w-2.5 h-2.5 text-[#B8860B]" />
+              <span className="font-semibold">Walimatul 'Ursy</span>
             </div>
           </ScrollReveal>
 
-          {/* Title & Couple Names - Prominent in first frame of mobile screens */}
-          <ScrollReveal delay={200} className="space-y-1.5 z-10 mt-1 mb-2">
-            <p className="text-[11px] sm:text-xs font-serif tracking-widest text-[#000080] uppercase font-bold">
+          {/* Title & Couple Names - Tightly pulled upward under arch frame */}
+          <ScrollReveal delay={200} className="space-y-0.5 sm:space-y-1 z-10 mt-1 mb-1">
+            <p className="text-[10.5px] sm:text-xs font-serif tracking-[0.25em] text-[#000080] uppercase font-bold">
               The Wedding of
             </p>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#181716] tracking-tight leading-tight">
-              Nur <span className="font-script text-2xl sm:text-3xl text-[#B87A7A] mx-0.5">&</span> Udi
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#181716] tracking-tight leading-none my-0.5">
+              Nur <span className="font-script text-2xl sm:text-3xl text-[#B87A7A] mx-0.5">&amp;</span> Udi
             </h1>
-            <p className="text-[11px] sm:text-xs text-[#000080] tracking-wide font-sans font-bold">
+            <p className="text-[10.5px] sm:text-xs text-[#000080] tracking-wide font-sans font-bold">
               Selasa, 22 Desember 2026 · Sinjai, Sulawesi Selatan
             </p>
           </ScrollReveal>
@@ -597,13 +597,10 @@ export default function App() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4 text-left">
                     <div>
-                      <span className="text-[10px] uppercase font-bold tracking-widest text-[#E6D4A5] block">
-                        Foto Utama (Landscape)
-                      </span>
                       <p className="font-serif text-lg font-bold text-white leading-tight">
                         {galleryPhotos[0].title}
                       </p>
-                      <p className="text-xs text-white/90 font-medium">{galleryPhotos[0].caption}</p>
+                      <p className="text-xs text-white/90 font-medium mt-0.5">{galleryPhotos[0].caption}</p>
                     </div>
                   </div>
                 </div>

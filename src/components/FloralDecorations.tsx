@@ -6,33 +6,97 @@ import React from 'react';
  * Completely free of green/sage tones.
  */
 
-export const FloralBranchTop: React.FC<{ className?: string }> = ({ className = '' }) => (
-  <div className={`flex items-center justify-center gap-3 my-3 ${className}`} aria-hidden="true">
-    <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60" />
-    <div className="w-7 h-7 sm:w-8 sm:h-8 pointer-events-none select-none opacity-85 drop-shadow-2xs">
-      <img
-        src="/assets/bunga-cluster.png"
-        alt=""
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60" />
-  </div>
-);
+export const FloralBranchTop: React.FC<{ className?: string }> = ({ className = '' }) => {
+  const [bloomed, setBloomed] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
 
-export const GoldDivider: React.FC<{ className?: string }> = ({ className = '' }) => (
-  <div className={`flex items-center justify-center gap-2.5 my-3 ${className}`} aria-hidden="true">
-    <div className="h-[1px] w-10 sm:w-16 bg-gradient-to-r from-transparent to-[#C5A059]/60" />
-    <div className="w-5 h-5 pointer-events-none select-none opacity-80">
-      <img
-        src="/assets/bunga-cluster.png"
-        alt=""
-        className="w-full h-full object-contain"
-      />
+  React.useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (!('IntersectionObserver' in window)) {
+      setBloomed(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBloomed(true);
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -20px 0px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`flex items-center justify-center gap-3 my-3 ${className}`} aria-hidden="true">
+      <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60" />
+      <div
+        className="w-7 h-7 sm:w-8 sm:h-8 pointer-events-none select-none drop-shadow-2xs transition-all duration-700"
+        style={{
+          transform: bloomed ? 'scale(1) rotate(0deg)' : 'scale(0.35) rotate(-10deg)',
+          opacity: bloomed ? 0.9 : 0,
+          transition: 'transform 0.8s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.6s ease-out',
+        }}
+      >
+        <img
+          src="/assets/bunga-cluster.png"
+          alt=""
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60" />
     </div>
-    <div className="h-[1px] w-10 sm:w-16 bg-gradient-to-l from-transparent to-[#C5A059]/60" />
-  </div>
-);
+  );
+};
+
+export const GoldDivider: React.FC<{ className?: string }> = ({ className = '' }) => {
+  const [bloomed, setBloomed] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (!('IntersectionObserver' in window)) {
+      setBloomed(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBloomed(true);
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -20px 0px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`flex items-center justify-center gap-2.5 my-3 ${className}`} aria-hidden="true">
+      <div className="h-[1px] w-10 sm:w-16 bg-gradient-to-r from-transparent to-[#C5A059]/60" />
+      <div
+        className="w-5 h-5 pointer-events-none select-none transition-all duration-700"
+        style={{
+          transform: bloomed ? 'scale(1) rotate(0deg)' : 'scale(0.3) rotate(-15deg)',
+          opacity: bloomed ? 0.85 : 0,
+          transition: 'transform 0.8s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.6s ease-out',
+        }}
+      >
+        <img
+          src="/assets/bunga-cluster.png"
+          alt=""
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="h-[1px] w-10 sm:w-16 bg-gradient-to-l from-transparent to-[#C5A059]/60" />
+    </div>
+  );
+};
 
 export const BotanicalCorner: React.FC<{
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
