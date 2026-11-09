@@ -13,7 +13,6 @@ import {
   Copy,
   Check,
   MailOpen,
-  Sparkles,
   Lock,
   X,
   AlertCircle,
@@ -32,6 +31,7 @@ import { FloatingNav } from './components/FloatingNav';
 import { EnvelopeCover } from './components/EnvelopeCover';
 import { ScrollReveal } from './components/ScrollReveal';
 import { GuestLinkGenerator } from './components/GuestLinkGenerator';
+import { CoupleSilhouetteIcon } from './components/CoupleSilhouetteIcon';
 
 // Image assets stored cleanly in assets/
 const IMAGES = {
@@ -233,8 +233,8 @@ export default function App() {
             </div>
 
             {/* Petite floating floral accent badge for Walimatul 'Ursy */}
-            <div className="absolute -bottom-2.5 sm:-bottom-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#FAF9F6]/95 backdrop-blur-xs border border-[#C5A059]/60 shadow-xs flex items-center gap-1 text-[#181716] text-[9.5px] sm:text-[10px] font-serif tracking-widest uppercase whitespace-nowrap z-20">
-              <Sparkles className="w-2.5 h-2.5 text-[#B8860B]" />
+            <div className="absolute -bottom-2.5 sm:-bottom-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#FAF9F6]/95 backdrop-blur-xs border border-[#C5A059]/60 shadow-xs flex items-center gap-1.5 text-[#181716] text-[9.5px] sm:text-[10px] font-serif tracking-widest uppercase whitespace-nowrap z-20">
+              <Heart className="w-2.5 h-2.5 text-[#B8860B] fill-[#B8860B]/20" />
               <span className="font-semibold">Walimatul 'Ursy</span>
             </div>
           </ScrollReveal>
@@ -426,8 +426,8 @@ export default function App() {
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {/* Card Akad Nikah (fade-right) */}
             <ScrollReveal delay={150} direction="fade-right" className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#8FA9C4]/40 shadow-sm relative">
-              <div className="w-12 h-12 rounded-full bg-[#EBF3FA] text-[#000080] flex items-center justify-center mx-auto mb-3 shadow-xs">
-                <Heart className="w-6 h-6 text-[#000080]" />
+              <div className="w-13 h-13 rounded-full bg-[#EBF3FA] text-[#000080] flex items-center justify-center mx-auto mb-3 shadow-xs border border-[#8FA9C4]/30">
+                <CoupleSilhouetteIcon className="w-7 h-7 text-[#000080]" />
               </div>
 
               <h3 className="font-serif text-2xl font-bold text-[#181716]">
@@ -454,8 +454,8 @@ export default function App() {
 
             {/* Card Resepsi (fade-left) */}
             <ScrollReveal delay={200} direction="fade-left" className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#D4A5A5]/40 shadow-sm relative">
-              <div className="w-12 h-12 rounded-full bg-[#F7EFEF] text-[#B87A7A] flex items-center justify-center mx-auto mb-3 shadow-xs">
-                <Sparkles className="w-6 h-6 text-[#B87A7A]" />
+              <div className="w-13 h-13 rounded-full bg-[#F7EFEF] text-[#B87A7A] flex items-center justify-center mx-auto mb-3 shadow-xs border border-[#D4A5A5]/30">
+                <CoupleSilhouetteIcon className="w-7 h-7 text-[#B87A7A]" />
               </div>
 
               <h3 className="font-serif text-2xl font-bold text-[#181716]">
@@ -708,26 +708,23 @@ export default function App() {
 
             <div className="space-y-4 text-xs text-[#252423] relative pl-4 border-l-2 border-[#6387A5]/50">
               <div>
-                <span className="font-bold text-[#000080] block text-xs">2022 · Awal Pertemuan</span>
+                <span className="font-bold text-[#000080] block text-xs">2026 Oktober · Awal Pertemuan</span>
                 <p className="mt-0.5 leading-relaxed font-medium">
-                  Berawal dari pertemuan sederhana dan silaturahmi yang menumbuhkan rasa saling mengagumi
-                  dan menghargai visi hidup satu sama lain.
+                  Berawal dari pertemuan sederhana dan silaturahmi yang menumbuhkan rasa saling mengagumi serta menghargai visi hidup satu sama lain.
                 </p>
               </div>
 
               <div>
-                <span className="font-bold text-[#000080] block text-xs">2025 · Lamaran &amp; Komitmen</span>
+                <span className="font-bold text-[#000080] block text-xs">2026 Oktober · Lamaran &amp; Komitmen</span>
                 <p className="mt-0.5 leading-relaxed font-medium">
-                  Dengan niat tulus beribadah menyempurnakan separuh agama, keluarga besar kedua mempelai
-                  bertemu untuk merajut ikatan silaturahmi resmi.
+                  Dengan niat tulus beribadah menyempurnakan separuh agama, keluarga besar kedua mempelai bertemu untuk merajut ikatan silaturahmi resmi.
                 </p>
               </div>
 
               <div>
-                <span className="font-bold text-[#000080] block text-xs">2026 · Menuju Pelaminan</span>
+                <span className="font-bold text-[#000080] block text-xs">2026 Desember · Menuju Pelaminan</span>
                 <p className="mt-0.5 leading-relaxed font-medium">
-                  Hari yang kami nanti akhirnya tiba. Memulai babak baru dalam bingkai pernikahan yang
-                  penuh berkah dan cinta.
+                  Hari yang kami nanti akhirnya tiba. Memulai babak baru dalam bingkai pernikahan yang penuh berkah dan cinta.
                 </p>
               </div>
             </div>
@@ -917,93 +914,31 @@ export default function App() {
               Hormat Kami Yang Mengundang
             </h3>
             <p className="text-xs text-[#252423] font-medium">
-              Keluarga Besar &amp; Segenap Handai Taulan:
+              Keluarga Besar &amp; Kedua Mempelai:
             </p>
 
             {/* Structured Clean Family List Card */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-sm border border-[#8FA9C4]/35 shadow-xs text-left space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-xs text-[#181716]">
-                <div className="flex items-start gap-2">
-                  <span className="text-[#B8860B] font-bold">•</span>
-                  <span className="font-semibold">A. Muh. Taslim Djafar / Darniati Damang</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#B8860B] font-bold">•</span>
-                  <span className="font-semibold">Hj. A. Nursiah Djafar, S.Pd / A. Ardah Djafar, S.Pd</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">H.A. Muh. Amin Kasim, S.Ag.,M.Pd</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">H. Iskandar, S.Ag.,M.H</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Drs. Abdul Rasyid</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">A. Abdul Malik, S.Ag.,S.Pd.,M.Pd</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Firman Taha, S.Pd</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Ilyas</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Muh. Amin Tahir, S.Sos</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Abd. Hamid, S.Pd.,SD</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Muh. Amir</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Muh. Hatta Suyuti</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">G.r Amar Ma'ruf, S.Pd</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#000080] font-bold">•</span>
-                  <span className="font-medium">Sabaruddin Damang</span>
-                </div>
+            <div className="p-5 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-sm border border-[#8FA9C4]/35 shadow-xs text-left space-y-3">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#EBF3FA] border border-[#8FA9C4]/40 flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#000080] shrink-0" />
+                <span className="font-serif font-bold text-sm sm:text-base text-[#181716] leading-snug">
+                  Keluarga Besar Andi Mandasini Petta Wawo
+                </span>
               </div>
-
-              {/* Special Highlighted Big Families */}
-              <div className="pt-3 border-t border-stone-200/80 space-y-2 text-xs">
-                <div className="p-3 rounded-xl bg-[#EBF3FA] border border-[#8FA9C4]/40 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#000080]" />
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#F7EFEF]/90 border border-[#D4A5A5]/40 flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#B87A7A] shrink-0" />
+                <span className="font-serif font-bold text-sm sm:text-base text-[#181716] leading-snug">
+                  Keluarga Besar Puang Damang (Alm) / Andi Hasni (Almh)
+                </span>
+              </div>
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#C5A059]/60 shadow-xs flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#B8860B] shrink-0" />
                   <span className="font-serif font-bold text-sm sm:text-base text-[#181716]">
-                    Keluarga Besar Andi Mandasini Petta Wawo
+                    Kedua Mempelai:
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-[#F7EFEF]/90 border border-[#D4A5A5]/40 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#B87A7A]" />
-                  <span className="font-serif font-bold text-sm sm:text-base text-[#181716]">
-                    Keluarga Besar Puang Damang (Alm) / Andi Hasni (Almh)
-                  </span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-white border border-[#C5A059]/60 shadow-xs flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#B8860B]" />
-                    <span className="font-serif font-bold text-base text-[#181716]">
-                      Kedua Mempelai
-                    </span>
-                  </div>
-                  <span className="font-script text-2xl text-[#B8860B] font-bold">Nur &amp; Udi</span>
-                </div>
+                <span className="font-script text-2xl sm:text-3xl text-[#B8860B] font-bold">Nur &amp; Udi</span>
               </div>
             </div>
           </ScrollReveal>

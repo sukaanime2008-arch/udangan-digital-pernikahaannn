@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MailOpen, Sparkles, Heart } from 'lucide-react';
+import { MailOpen, Heart } from 'lucide-react';
 
 interface EnvelopeCoverProps {
   guestName: string;
@@ -229,7 +229,6 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
           >
             <MailOpen className="w-5 h-5 text-[#E6D4A5] transition-transform group-hover:rotate-12" />
             <span>{isAnimating ? 'Membuka Undangan...' : 'Buka Undangan'}</span>
-            <Sparkles className="w-4 h-4 text-[#E6D4A5] animate-pulse" />
           </button>
 
           <p className="text-xs text-[#252423] font-medium flex items-center justify-center gap-1">

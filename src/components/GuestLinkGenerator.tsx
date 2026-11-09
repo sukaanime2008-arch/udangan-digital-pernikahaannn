@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link2, Copy, Check, Share2, MessageCircle, ExternalLink, Sparkles } from 'lucide-react';
+import { Link2, Copy, Check, Share2, MessageCircle, ExternalLink } from 'lucide-react';
 
 interface GuestLinkGeneratorProps {
   baseUrl?: string;
