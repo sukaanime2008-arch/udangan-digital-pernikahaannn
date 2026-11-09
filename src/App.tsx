@@ -17,6 +17,9 @@ import {
   Lock,
   X,
   AlertCircle,
+  CreditCard,
+  Gift,
+  Wallet,
 } from 'lucide-react';
 import { FloralBranchTop, GoldDivider, BotanicalCorner } from './components/FloralDecorations';
 import { AudioPlayer, AudioPlayerRef } from './components/AudioPlayer';
@@ -45,11 +48,25 @@ export default function App() {
   const [guestName, setGuestName] = useState('Tamu Undangan Yang Berbahagia');
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
   const [copiedAddress, setCopiedAddress] = useState(false);
+  const [copiedDana, setCopiedDana] = useState(false);
+  const [copiedBri, setCopiedBri] = useState(false);
   const [showGuestGenerator, setShowGuestGenerator] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const audioPlayerRef = useRef<AudioPlayerRef>(null);
+
+  const copyDana = () => {
+    navigator.clipboard.writeText('081524482262');
+    setCopiedDana(true);
+    setTimeout(() => setCopiedDana(false), 2500);
+  };
+
+  const copyBri = () => {
+    navigator.clipboard.writeText('025801031111530');
+    setCopiedBri(true);
+    setTimeout(() => setCopiedBri(false), 2500);
+  };
 
   const handleTriggerFooterGenerator = () => {
     if (showGuestGenerator) {
@@ -174,36 +191,36 @@ export default function App() {
         ========================================================================= */}
         <section
           id="cover"
-          className="relative min-h-screen flex flex-col items-center justify-between px-4 sm:px-6 py-12 text-center overflow-hidden"
+          className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-start px-4 sm:px-6 pt-3 sm:pt-6 pb-8 text-center overflow-hidden"
         >
           {/* Subtle floral watercolor corners */}
           <BotanicalCorner position="top-left" className="absolute top-2 left-2" />
           <BotanicalCorner position="top-right" className="absolute top-2 right-2" />
 
           {/* Top Header */}
-          <ScrollReveal delay={50} className="w-full pt-2 space-y-2 z-10">
-            <span className="text-xs uppercase tracking-[0.3em] font-sans text-[#000080] font-extrabold">
+          <ScrollReveal delay={50} className="w-full pt-1 space-y-1 z-10">
+            <span className="text-[11px] sm:text-xs uppercase tracking-[0.3em] font-sans text-[#000080] font-extrabold">
               Save The Date
             </span>
-            <div className="flex items-center justify-center gap-2 text-xs font-serif tracking-widest text-[#B8860B] font-semibold">
-              <span className="w-8 h-[1px] bg-[#B8860B]/50" />
+            <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs font-serif tracking-widest text-[#B8860B] font-semibold">
+              <span className="w-6 sm:w-8 h-[1px] bg-[#B8860B]/50" />
               <span>22 Desember 2026</span>
-              <span className="w-8 h-[1px] bg-[#B8860B]/50" />
+              <span className="w-6 sm:w-8 h-[1px] bg-[#B8860B]/50" />
             </div>
           </ScrollReveal>
 
-          {/* Center Large Arch Frame Image (Photo of the Couple) */}
-          <ScrollReveal delay={150} className="relative my-6 z-10">
-            {/* Outer Decorative Gold Halo Border - Grand Size */}
-            <div className="w-[88vw] max-w-[360px] sm:max-w-[420px] md:max-w-[460px] h-[500px] sm:h-[580px] md:h-[620px] arch-frame p-3 sm:p-4 bg-gradient-to-b from-[#C5A059]/40 via-[#D4A5A5]/30 to-[#8FA9C4]/35 shadow-2xl transition-all duration-500">
+          {/* Center Arch Frame Image (Photo of the Couple) */}
+          <ScrollReveal delay={150} className="relative my-2 sm:my-3 z-10">
+            {/* Outer Decorative Gold Halo Border - Proportionate for mobile first frame */}
+            <div className="w-[76vw] max-w-[280px] sm:max-w-[340px] md:max-w-[380px] h-[330px] sm:h-[420px] md:h-[460px] arch-frame p-2.5 sm:p-3.5 bg-gradient-to-b from-[#C5A059]/40 via-[#D4A5A5]/30 to-[#8FA9C4]/35 shadow-xl transition-all duration-500">
               {/* Inner Matte with Double Border */}
               <div className="w-full h-full arch-frame p-2 sm:p-2.5 bg-[#FAF9F6] border border-[#C5A059]/50 shadow-inner">
-                {/* Photo Arch Frame - object-cover object-center */}
+                {/* Photo Arch Frame - object-cover with face focus */}
                 <div className="w-full h-full arch-frame overflow-hidden relative group shadow-sm">
                   <img
                     src={IMAGES.cover}
                     alt="The Wedding of Nur & Udi"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-[center_18%] group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
@@ -213,21 +230,21 @@ export default function App() {
             </div>
 
             {/* Floating floral accent badge */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full bg-[#FAF9F6] border border-[#C5A059]/70 shadow-md flex items-center gap-1.5 text-[#181716] text-xs font-serif tracking-wider whitespace-nowrap">
-              <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
+            <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#FAF9F6] border border-[#C5A059]/70 shadow-md flex items-center gap-1.5 text-[#181716] text-[11px] sm:text-xs font-serif tracking-wider whitespace-nowrap">
+              <Sparkles className="w-3 h-3 text-[#B8860B]" />
               <span className="font-bold">Walimatul 'Ursy</span>
             </div>
           </ScrollReveal>
 
-          {/* Title & Couple Names */}
-          <ScrollReveal delay={200} className="space-y-3 z-10 mt-3 mb-2">
-            <p className="text-xs font-serif tracking-widest text-[#000080] uppercase font-bold">
+          {/* Title & Couple Names - Prominent in first frame of mobile screens */}
+          <ScrollReveal delay={200} className="space-y-1.5 z-10 mt-1 mb-2">
+            <p className="text-[11px] sm:text-xs font-serif tracking-widest text-[#000080] uppercase font-bold">
               The Wedding of
             </p>
-            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-[#181716] tracking-tight">
-              Nur <span className="font-script text-3xl sm:text-4xl text-[#B87A7A] mx-1">&</span> Udi
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#181716] tracking-tight leading-tight">
+              Nur <span className="font-script text-2xl sm:text-3xl text-[#B87A7A] mx-0.5">&</span> Udi
             </h1>
-            <p className="text-xs text-[#000080] tracking-wide font-sans font-bold">
+            <p className="text-[11px] sm:text-xs text-[#000080] tracking-wide font-sans font-bold">
               Selasa, 22 Desember 2026 · Sinjai, Sulawesi Selatan
             </p>
           </ScrollReveal>
@@ -716,6 +733,120 @@ export default function App() {
           onClose={() => setActivePhotoIndex(null)}
           onSelectIndex={(index) => setActivePhotoIndex(index)}
         />
+
+        {/* =========================================================================
+            TANDA KASIH / DOMPET DIGITAL & REKENING (WEDDING GIFT)
+        ========================================================================= */}
+        <section id="tanda-kasih" className="px-6 py-10 scroll-mt-6 text-center space-y-6">
+          <FloralBranchTop />
+
+          <ScrollReveal delay={50} className="space-y-2">
+            <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-[#8FA9C4]/15 border border-[#8FA9C4]/30 text-[#000080] text-xs font-bold uppercase tracking-widest">
+              <Gift className="w-3.5 h-3.5 text-[#000080]" />
+              <span>Tanda Kasih</span>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#181716] tracking-tight">
+              Kirim Hadiah &amp; Doa Restu
+            </h2>
+            <p className="text-xs text-[#252423] font-medium max-w-md mx-auto leading-relaxed">
+              Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda berkenan memberikan tanda kasih, Anda dapat menyalurkannya melalui dompet digital atau rekening berikut:
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto pt-2">
+            {/* DANA Card */}
+            <ScrollReveal delay={100} className="relative rounded-2xl p-5 bg-gradient-to-br from-[#118EEA]/10 via-white to-[#118EEA]/5 border-2 border-[#118EEA]/30 shadow-md text-left flex flex-col justify-between overflow-hidden">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-xl bg-[#118EEA] text-white flex items-center justify-center font-bold text-sm shadow-xs">
+                    <Wallet className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-extrabold text-[#118EEA] tracking-wider uppercase block">Dompet Digital</span>
+                    <span className="font-bold text-sm text-[#181716]">DANA</span>
+                  </div>
+                </div>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#118EEA]/10 text-[#118EEA] border border-[#118EEA]/20">
+                  Online
+                </span>
+              </div>
+
+              <div className="space-y-1 my-2">
+                <span className="text-[11px] text-[#4A5568] block">Nomor Telepon / Akun:</span>
+                <p className="font-mono text-lg sm:text-xl font-extrabold text-[#181716] tracking-wider">
+                  081524482262
+                </p>
+                <p className="text-xs text-[#000080] font-bold">
+                  a.n. Nurhidayah
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={copyDana}
+                className="mt-3 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#118EEA] hover:bg-[#0c72be] text-white text-xs font-bold shadow-xs transition-all active:scale-[0.98] cursor-pointer"
+              >
+                {copiedDana ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-300" />
+                    <span>Nomor DANA Berhasil Disalin!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    <span>Salin Nomor DANA</span>
+                  </>
+                )}
+              </button>
+            </ScrollReveal>
+
+            {/* BRI Card */}
+            <ScrollReveal delay={150} className="relative rounded-2xl p-5 bg-gradient-to-br from-[#00529C]/10 via-white to-[#00529C]/5 border-2 border-[#00529C]/30 shadow-md text-left flex flex-col justify-between overflow-hidden">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-xl bg-[#00529C] text-white flex items-center justify-center font-bold text-sm shadow-xs">
+                    <CreditCard className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-extrabold text-[#00529C] tracking-wider uppercase block">Bank Transfer</span>
+                    <span className="font-bold text-sm text-[#181716]">Bank BRI</span>
+                  </div>
+                </div>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#00529C]/10 text-[#00529C] border border-[#00529C]/20">
+                  ATM / Mobile
+                </span>
+              </div>
+
+              <div className="space-y-1 my-2">
+                <span className="text-[11px] text-[#4A5568] block">Nomor Rekening:</span>
+                <p className="font-mono text-lg sm:text-xl font-extrabold text-[#181716] tracking-wider">
+                  0258 01 031111 53 0
+                </p>
+                <p className="text-xs text-[#000080] font-bold">
+                  a.n. Nurhidayah
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={copyBri}
+                className="mt-3 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#00529C] hover:bg-[#003d75] text-white text-xs font-bold shadow-xs transition-all active:scale-[0.98] cursor-pointer"
+              >
+                {copiedBri ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-300" />
+                    <span>Nomor Rekening Berhasil Disalin!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    <span>Salin Nomor Rekening</span>
+                  </>
+                )}
+              </button>
+            </ScrollReveal>
+          </div>
+        </section>
 
         {/* =========================================================================
             5. GUESTBOOK & RSVP (DOA RESTU)

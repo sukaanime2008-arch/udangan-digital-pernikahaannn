@@ -146,14 +146,6 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
             </div>
           </div>
 
-          {/* Top Left & Right Corner Floral Accents from user's blue floral asset */}
-          <div className="absolute -top-3 -left-3 w-16 sm:w-20 pointer-events-none select-none opacity-90 -rotate-25 z-25 drop-shadow-xs">
-            <img src="/assets/bunga-cluster.png" alt="" className="w-full h-full object-contain" />
-          </div>
-          <div className="absolute -top-3 -right-3 w-16 sm:w-20 pointer-events-none select-none opacity-90 rotate-25 scale-x-[-1] z-25 drop-shadow-xs">
-            <img src="/assets/bunga-cluster.png" alt="" className="w-full h-full object-contain" />
-          </div>
-
           {/* Envelope Top Triangular Flap (Folds Open in 3D) */}
           <div
             className={`absolute top-0 inset-x-0 h-[56%] origin-top transform-style-3d ${
@@ -172,28 +164,28 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
               <line x1="360" y1="0" x2="180" y2="148" stroke="#C5A059" strokeWidth="1.5" opacity="0.75" />
             </svg>
 
-            {/* Circular Photo Frame on Envelope Flap with Blue Floral Artwork Accent */}
+            {/* Circular Photo Frame on Envelope Flap with Refined Blue Floral Accents */}
             <div className="absolute left-1/2 -translate-x-1/2 top-[6px] sm:top-[8px] flex items-center justify-center pointer-events-none select-none z-20">
-              {/* Left Blue Floral Cluster (Hugging Circle) */}
-              <div className="absolute -left-10 sm:-left-14 -top-3 sm:-top-5 w-20 sm:w-26 md:w-28 h-26 sm:h-34 pointer-events-none select-none z-15 -rotate-12 drop-shadow-md">
+              {/* Left Blue Floral Ornament (Neatly Flanking Left Side Only) */}
+              <div className="absolute -left-6 sm:-left-8 top-1/2 -translate-y-1/2 w-12 sm:w-14 h-16 sm:h-20 pointer-events-none select-none z-15 drop-shadow-xs">
                 <img
                   src="/assets/bunga-cluster.png"
-                  alt="Hiasan Bunga Biru"
+                  alt=""
                   className="w-full h-full object-contain"
                 />
               </div>
 
-              {/* Right Blue Floral Cluster (Hugging Circle - Mirrored) */}
-              <div className="absolute -right-10 sm:-right-14 -top-3 sm:-top-5 w-20 sm:w-26 md:w-28 h-26 sm:h-34 pointer-events-none select-none z-15 rotate-12 scale-x-[-1] drop-shadow-md">
+              {/* Right Blue Floral Ornament (Neatly Flanking Right Side Only - Mirrored) */}
+              <div className="absolute -right-6 sm:-right-8 top-1/2 -translate-y-1/2 w-12 sm:w-14 h-16 sm:h-20 pointer-events-none select-none z-15 scale-x-[-1] drop-shadow-xs">
                 <img
                   src="/assets/bunga-cluster.png"
-                  alt="Hiasan Bunga Biru"
+                  alt=""
                   className="w-full h-full object-contain"
                 />
               </div>
 
               {/* Delicate Gold Ring Halo Accent */}
-              <div className="absolute -inset-2 sm:-inset-2.5 rounded-full border border-[#C5A059]/60 border-dashed pointer-events-none -z-0" />
+              <div className="absolute -inset-1.5 sm:-inset-2 rounded-full border border-[#C5A059]/60 border-dashed pointer-events-none -z-0" />
 
               {/* Enlarged Prominent Circular Gold Border Photo Frame */}
               <div className="relative w-28 h-28 sm:w-34 sm:h-34 md:w-38 md:h-38 rounded-full p-1 sm:p-1.5 bg-gradient-to-tr from-[#C5A059] via-[#FFF3D6] to-[#9E7E3E] shadow-2xl z-10 ring-2 ring-white/70">
