@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+export type ScrollRevealDirection = 'up' | 'fade-right' | 'fade-left' | 'zoom-in' | 'none';
+
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number; // Delay in milliseconds
   threshold?: number;
-  direction?: 'up' | 'none';
+  direction?: ScrollRevealDirection;
 }
 
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -45,19 +47,29 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     return () => observer.disconnect();
   }, [threshold]);
 
-  const transformStyle =
-    direction === 'up'
-      ? isVisible
-        ? 'translateY(0px) scale(1)'
-        : 'translateY(36px) scale(0.97)'
-      : 'none';
+  const getTransform = () => {
+    if (isVisible) return 'translate3d(0, 0, 0) scale(1)';
+    switch (direction) {
+      case 'fade-right':
+        return 'translate3d(-48px, 0, 0)';
+      case 'fade-left':
+        return 'translate3d(48px, 0, 0)';
+      case 'zoom-in':
+        return 'scale(0.82)';
+      case 'up':
+        return 'translate3d(0, 36px, 0) scale(0.98)';
+      case 'none':
+      default:
+        return 'none';
+    }
+  };
 
   return (
     <div
       ref={elementRef}
       className={`transition-all duration-800 ${className}`}
       style={{
-        transform: transformStyle,
+        transform: getTransform(),
         opacity: isVisible ? 1 : 0,
         transitionProperty: 'transform, opacity',
         transitionDuration: '850ms',

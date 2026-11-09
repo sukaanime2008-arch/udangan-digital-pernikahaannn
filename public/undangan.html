@@ -76,17 +76,49 @@
       border-top-right-radius: 9999px;
     }
 
-    /* Scroll Fade Up Animation: Translate Y from 30px to 0 with opacity */
+    /* Scroll Animations: Fade Up, Fade Right, Fade Left, and Flower Bloom */
     .reveal-fade-up {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
-
     .reveal-fade-up.active {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .reveal-fade-right {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-fade-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-fade-left {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-fade-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-bloom {
+      opacity: 0;
+      transform: scale(0.3);
+      transition: opacity 0.6s ease-out, transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-bloom.active {
+      opacity: 0.8;
+      transform: scale(1);
     }
 
     /* Delay utilities for staggered cards */
@@ -396,95 +428,70 @@
          TANDA KASIH / DOMPET DIGITAL & REKENING
     ----------------------------------------- -->
     <section id="tanda-kasih" class="relative px-6 py-8 scroll-mt-6 text-center space-y-6 overflow-hidden">
-      <!-- Corner floral accents opacity-80 -->
-      <div class="absolute top-2 left-2 w-12 h-16 pointer-events-none select-none opacity-80">
-        <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-80" onerror="this.src='/assets/bunga-cluster.png'">
+      <!-- Corner floral accents with bloom mekar animation and opacity-80 -->
+      <div class="absolute top-2 left-2 w-12 h-16 pointer-events-none select-none reveal-bloom">
+        <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='/assets/bunga-cluster.png'">
       </div>
-      <div class="absolute top-2 right-2 w-12 h-16 pointer-events-none select-none opacity-80 scale-x-[-1]">
-        <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-80" onerror="this.src='/assets/bunga-cluster.png'">
+      <div class="absolute top-2 right-2 w-12 h-16 pointer-events-none select-none reveal-bloom scale-x-[-1]">
+        <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='/assets/bunga-cluster.png'">
       </div>
 
       <div class="reveal-fade-up space-y-2">
         <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#8FA9C4] font-bold">Tanda Kasih</span>
         <h2 class="font-serif text-3xl font-semibold text-[#2F2D2C]">Kirim Hadiah &amp; Doa Restu</h2>
         <p class="text-xs text-[#5C5856] max-w-sm mx-auto leading-relaxed">
-          Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda berkenan memberikan tanda kasih, silakan pilih opsi di bawah ini:
+          Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda berkenan memberikan tanda kasih, silakan tekan tombol di bawah ini:
         </p>
       </div>
 
-      <div class="space-y-3.5 max-w-sm mx-auto">
-        <!-- OPSI 1: TOMBOL BUKA REKENING BRI -->
-        <div class="reveal-fade-up delay-100 space-y-2">
-          <button id="btn-toggle-bri" type="button" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border-2 border-[#8FA9C4]/40 hover:border-[#00529C]/50 hover:bg-[#F2F7FC] shadow-sm transition-all text-left">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#00529C] flex items-center justify-center font-bold">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-              </div>
-              <div>
-                <span class="text-[10px] font-extrabold text-[#00529C] uppercase tracking-wider block">Bank Transfer</span>
-                <span class="font-serif text-base font-bold text-[#2F2D2C]">Buka Rekening BRI</span>
-              </div>
-            </div>
-            <span id="bri-toggle-label" class="text-xs font-bold text-[#00529C] bg-[#EBF3FA] px-2.5 py-1 rounded-full">Buka</span>
-          </button>
+      <!-- SINGLE MAIN BUTTON: "🎁 Kirim Tanda Kasih" -->
+      <div class="max-w-sm mx-auto reveal-fade-up delay-100">
+        <button id="btn-main-gift-toggle" type="button" class="w-full flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#6387A5] to-[#4F7391] hover:from-[#547896] hover:to-[#416480] text-white font-bold text-sm shadow-md shadow-[#6387A5]/30 border-2 border-[#C5A059] transition-all active:scale-98">
+          <span class="text-base">🎁</span>
+          <span id="main-gift-toggle-text">Kirim Tanda Kasih</span>
+          <svg id="gift-chevron-icon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+      </div>
 
-          <!-- BRI Card Dropdown (Hidden by default) -->
-          <div id="bri-details-card" class="hidden p-5 rounded-2xl bg-gradient-to-br from-[#00529C]/10 via-white to-[#00529C]/5 border-2 border-[#00529C]/30 shadow-md text-left space-y-2.5">
-            <div class="flex items-center justify-between border-b border-stone-200/80 pb-2">
-              <span class="text-[11px] font-bold text-[#00529C] uppercase tracking-wider">Bank Transfer BRI</span>
-              <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#00529C]/10 text-[#00529C] font-semibold">ATM / Mobile</span>
-            </div>
-            <div class="py-1">
-              <span class="text-[11px] text-stone-500 block">Nomor Rekening:</span>
-              <p class="font-mono text-xl font-bold text-[#2F2D2C] tracking-wider select-all">0258 01 031111 53 0</p>
-              <p class="text-xs font-semibold text-[#000080]">a.n. Nurhidayah</p>
-            </div>
-            <div class="flex gap-2">
-              <button id="btn-copy-bri" type="button" class="flex-1 py-2.5 px-4 rounded-xl bg-[#00529C] hover:bg-[#003d75] text-white text-xs font-bold transition-all active:scale-98">
-                <span id="copy-bri-text">Salin Nomor Rekening</span>
-              </button>
-              <button id="btn-close-bri" type="button" class="py-2.5 px-3 rounded-xl border border-stone-300 text-stone-600 text-xs font-semibold hover:bg-stone-100">
-                Tutup
-              </button>
-            </div>
+      <!-- CARDS CONTAINER (Hidden by default, smooth slide-down when toggled) -->
+      <div id="gift-cards-container" class="hidden space-y-4 max-w-sm mx-auto pt-1">
+        <!-- DANA Card (reveal-fade-right) -->
+        <div class="reveal-fade-right p-5 rounded-2xl bg-gradient-to-br from-[#118EEA]/10 via-white to-[#118EEA]/5 border-2 border-[#118EEA]/30 shadow-md text-left space-y-2.5">
+          <div class="flex items-center justify-between border-b border-stone-200/80 pb-2">
+            <span class="text-[11px] font-bold text-[#118EEA] uppercase tracking-wider">Dompet Digital DANA</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#118EEA]/10 text-[#118EEA] font-semibold">Online</span>
           </div>
+          <div class="py-1">
+            <span class="text-[11px] text-stone-500 block font-medium">Nomor Akun / HP:</span>
+            <p class="font-mono text-xl font-bold text-[#2F2D2C] tracking-wider select-all">081524482262</p>
+            <p class="text-xs font-semibold text-[#000080]">a.n. Nurhidayah</p>
+          </div>
+          <button id="btn-copy-dana" type="button" class="w-full py-2.5 px-4 rounded-xl bg-[#118EEA] hover:bg-[#0c72be] text-white text-xs font-bold transition-all active:scale-98">
+            <span id="copy-dana-text">Salin Nomor DANA</span>
+          </button>
         </div>
 
-        <!-- OPSI 2: TOMBOL BUKA DOMPET DANA -->
-        <div class="reveal-fade-up delay-150 space-y-2">
-          <button id="btn-toggle-dana" type="button" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border-2 border-[#8FA9C4]/40 hover:border-[#118EEA]/50 hover:bg-[#F0F8FF] shadow-sm transition-all text-left">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-[#EBF6FE] text-[#118EEA] flex items-center justify-center font-bold">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-              </div>
-              <div>
-                <span class="text-[10px] font-extrabold text-[#118EEA] uppercase tracking-wider block">Dompet Digital</span>
-                <span class="font-serif text-base font-bold text-[#2F2D2C]">Buka Dompet DANA</span>
-              </div>
-            </div>
-            <span id="dana-toggle-label" class="text-xs font-bold text-[#118EEA] bg-[#EBF6FE] px-2.5 py-1 rounded-full">Buka</span>
-          </button>
-
-          <!-- DANA Card Dropdown (Hidden by default) -->
-          <div id="dana-details-card" class="hidden p-5 rounded-2xl bg-gradient-to-br from-[#118EEA]/10 via-white to-[#118EEA]/5 border-2 border-[#118EEA]/30 shadow-md text-left space-y-2.5">
-            <div class="flex items-center justify-between border-b border-stone-200/80 pb-2">
-              <span class="text-[11px] font-bold text-[#118EEA] uppercase tracking-wider">Dompet Digital DANA</span>
-              <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#118EEA]/10 text-[#118EEA] font-semibold">Online</span>
-            </div>
-            <div class="py-1">
-              <span class="text-[11px] text-stone-500 block">Nomor Akun / HP:</span>
-              <p class="font-mono text-xl font-bold text-[#2F2D2C] tracking-wider select-all">081524482262</p>
-              <p class="text-xs font-semibold text-[#000080]">a.n. Nurhidayah</p>
-            </div>
-            <div class="flex gap-2">
-              <button id="btn-copy-dana" type="button" class="flex-1 py-2.5 px-4 rounded-xl bg-[#118EEA] hover:bg-[#0c72be] text-white text-xs font-bold transition-all active:scale-98">
-                <span id="copy-dana-text">Salin Nomor DANA</span>
-              </button>
-              <button id="btn-close-dana" type="button" class="py-2.5 px-3 rounded-xl border border-stone-300 text-stone-600 text-xs font-semibold hover:bg-stone-100">
-                Tutup
-              </button>
-            </div>
+        <!-- BRI Card (reveal-fade-left) -->
+        <div class="reveal-fade-left p-5 rounded-2xl bg-gradient-to-br from-[#00529C]/10 via-white to-[#00529C]/5 border-2 border-[#00529C]/30 shadow-md text-left space-y-2.5">
+          <div class="flex items-center justify-between border-b border-stone-200/80 pb-2">
+            <span class="text-[11px] font-bold text-[#00529C] uppercase tracking-wider">Bank Transfer BRI</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#00529C]/10 text-[#00529C] font-semibold">ATM / Mobile</span>
           </div>
+          <div class="py-1">
+            <span class="text-[11px] text-stone-500 block font-medium">Nomor Rekening:</span>
+            <p class="font-mono text-xl font-bold text-[#2F2D2C] tracking-wider select-all">0258 01 031111 53 0</p>
+            <p class="text-xs font-semibold text-[#000080]">a.n. Nurhidayah</p>
+          </div>
+          <button id="btn-copy-bri" type="button" class="w-full py-2.5 px-4 rounded-xl bg-[#00529C] hover:bg-[#003d75] text-white text-xs font-bold transition-all active:scale-98">
+            <span id="copy-bri-text">Salin Nomor Rekening</span>
+          </button>
+        </div>
+
+        <!-- Tutup button -->
+        <div class="text-center pt-1">
+          <button id="btn-close-gift-container" type="button" class="inline-flex items-center justify-center gap-1.5 py-2 px-5 rounded-full border border-stone-300 hover:bg-stone-100 text-stone-600 text-xs font-semibold">
+            Tutup Informasi Rekening
+          </button>
         </div>
       </div>
     </section>
@@ -636,7 +643,7 @@
         });
       }, observerOptions);
 
-      document.querySelectorAll('.reveal-fade-up').forEach(el => {
+      document.querySelectorAll('.reveal-fade-up, .reveal-fade-right, .reveal-fade-left, .reveal-bloom').forEach(el => {
         scrollObserver.observe(el);
       });
 
@@ -730,38 +737,45 @@
             briDetailsCard.classList.add('hidden');
             if (briToggleLabel) briToggleLabel.textContent = 'Buka';
           }
+      // 7. Toggle Buka/Tutup Informasi Tanda Kasih (Rekening BRI & Dompet DANA)
+      const btnMainGiftToggle = document.getElementById('btn-main-gift-toggle');
+      const giftCardsContainer = document.getElementById('gift-cards-container');
+      const mainGiftToggleText = document.getElementById('main-gift-toggle-text');
+      const giftChevronIcon = document.getElementById('gift-chevron-icon');
+      const btnCloseGiftContainer = document.getElementById('btn-close-gift-container');
+
+      function openGiftContainer() {
+        if (!giftCardsContainer) return;
+        giftCardsContainer.classList.remove('hidden');
+        if (mainGiftToggleText) mainGiftToggleText.textContent = 'Tutup Informasi Rekening / Hadiah';
+        if (giftChevronIcon) giftChevronIcon.classList.add('rotate-180');
+        // trigger animation for inner cards if needed
+        giftCardsContainer.querySelectorAll('.reveal-fade-right, .reveal-fade-left').forEach(el => {
+          el.classList.add('active');
         });
       }
 
-      if (btnCloseBri && briDetailsCard) {
-        btnCloseBri.addEventListener('click', () => {
-          briDetailsCard.classList.add('hidden');
-          if (briToggleLabel) briToggleLabel.textContent = 'Buka';
-        });
+      function closeGiftContainer() {
+        if (!giftCardsContainer) return;
+        giftCardsContainer.classList.add('hidden');
+        if (mainGiftToggleText) mainGiftToggleText.textContent = 'Kirim Tanda Kasih';
+        if (giftChevronIcon) giftChevronIcon.classList.remove('rotate-180');
       }
 
-      const btnToggleDana = document.getElementById('btn-toggle-dana');
-      const danaDetailsCard = document.getElementById('dana-details-card');
-      const danaToggleLabel = document.getElementById('dana-toggle-label');
-      const btnCloseDana = document.getElementById('btn-close-dana');
-
-      if (btnToggleDana && danaDetailsCard) {
-        btnToggleDana.addEventListener('click', () => {
-          const isHidden = danaDetailsCard.classList.contains('hidden');
+      if (btnMainGiftToggle && giftCardsContainer) {
+        btnMainGiftToggle.addEventListener('click', () => {
+          const isHidden = giftCardsContainer.classList.contains('hidden');
           if (isHidden) {
-            danaDetailsCard.classList.remove('hidden');
-            if (danaToggleLabel) danaToggleLabel.textContent = 'Tutup';
+            openGiftContainer();
           } else {
-            danaDetailsCard.classList.add('hidden');
-            if (danaToggleLabel) danaToggleLabel.textContent = 'Buka';
+            closeGiftContainer();
           }
         });
       }
 
-      if (btnCloseDana && danaDetailsCard) {
-        btnCloseDana.addEventListener('click', () => {
-          danaDetailsCard.classList.add('hidden');
-          if (danaToggleLabel) danaToggleLabel.textContent = 'Buka';
+      if (btnCloseGiftContainer) {
+        btnCloseGiftContainer.addEventListener('click', () => {
+          closeGiftContainer();
         });
       }
     });

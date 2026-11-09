@@ -38,6 +38,29 @@ export const BotanicalCorner: React.FC<{
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   className?: string;
 }> = ({ position = 'top-left', className = '' }) => {
+  const [bloomed, setBloomed] = React.useState(false);
+  const cornerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const node = cornerRef.current;
+    if (!node) return;
+    if (!('IntersectionObserver' in window)) {
+      setBloomed(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBloomed(true);
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -20px 0px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   const transformClass = {
     'top-left': 'rotate-0',
     'top-right': 'scale-x-[-1]',
@@ -47,14 +70,24 @@ export const BotanicalCorner: React.FC<{
 
   return (
     <div
-      className={`w-12 h-16 sm:w-16 sm:h-22 md:w-20 md:h-26 pointer-events-none select-none opacity-80 drop-shadow-xs ${transformClass} ${className}`}
+      ref={cornerRef}
+      className={`w-12 h-16 sm:w-16 sm:h-22 md:w-20 md:h-26 pointer-events-none select-none drop-shadow-xs ${transformClass} ${className}`}
       aria-hidden="true"
     >
-      <img
-        src="/assets/bunga-cluster.png"
-        alt=""
-        className="w-full h-full object-contain opacity-80"
-      />
+      <div
+        className="w-full h-full origin-center"
+        style={{
+          transform: bloomed ? 'scale(1)' : 'scale(0.3)',
+          opacity: bloomed ? 0.8 : 0,
+          transition: 'transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.65s ease-out',
+        }}
+      >
+        <img
+          src="/assets/bunga-cluster.png"
+          alt=""
+          className="w-full h-full object-contain"
+        />
+      </div>
     </div>
   );
 };

@@ -166,21 +166,21 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
 
             {/* Circular Photo Frame on Envelope Flap with Refined Blue Floral Accents (Grand Size Harmonious with Main Page) */}
             <div className="absolute left-1/2 -translate-x-1/2 top-[-6px] sm:top-[-10px] flex items-center justify-center pointer-events-none select-none z-20">
-              {/* Left Blue Floral Ornament (Neatly Flanking Left Side Only) */}
-              <div className="absolute -left-8 sm:-left-10 top-1/2 -translate-y-1/2 w-14 sm:w-16 h-20 sm:h-24 pointer-events-none select-none z-15 drop-shadow-xs">
+              {/* Left Blue Floral Ornament (Enlarged for Mobile - Flanking Left Side) */}
+              <div className="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-18 sm:w-20 md:w-22 h-26 sm:h-28 md:h-32 pointer-events-none select-none z-15 drop-shadow-sm">
                 <img
                   src="/assets/bunga-cluster.png"
                   alt=""
-                  className="w-full h-full object-contain opacity-90"
+                  className="w-full h-full object-contain opacity-95"
                 />
               </div>
 
-              {/* Right Blue Floral Ornament (Neatly Flanking Right Side Only - Mirrored) */}
-              <div className="absolute -right-8 sm:-right-10 top-1/2 -translate-y-1/2 w-14 sm:w-16 h-20 sm:h-24 pointer-events-none select-none z-15 scale-x-[-1] drop-shadow-xs">
+              {/* Right Blue Floral Ornament (Enlarged for Mobile - Flanking Right Side Mirrored) */}
+              <div className="absolute -right-10 sm:-right-12 top-1/2 -translate-y-1/2 w-18 sm:w-20 md:w-22 h-26 sm:h-28 md:h-32 pointer-events-none select-none z-15 scale-x-[-1] drop-shadow-sm">
                 <img
                   src="/assets/bunga-cluster.png"
                   alt=""
-                  className="w-full h-full object-contain opacity-90"
+                  className="w-full h-full object-contain opacity-95"
                 />
               </div>
 

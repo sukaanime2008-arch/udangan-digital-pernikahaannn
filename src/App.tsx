@@ -52,8 +52,7 @@ export default function App() {
   const [copiedAddress, setCopiedAddress] = useState(false);
   const [copiedDana, setCopiedDana] = useState(false);
   const [copiedBri, setCopiedBri] = useState(false);
-  const [showBriDetails, setShowBriDetails] = useState(false);
-  const [showDanaDetails, setShowDanaDetails] = useState(false);
+  const [showGiftDetails, setShowGiftDetails] = useState(false);
   const [showGuestGenerator, setShowGuestGenerator] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
@@ -330,8 +329,8 @@ export default function App() {
 
           <GoldDivider />
 
-          {/* Mempelai Wanita (Bride) - First */}
-          <ScrollReveal delay={150} className="w-full max-w-md mx-auto flex flex-col items-center">
+          {/* Mempelai Wanita (Bride) - First (fade-right) */}
+          <ScrollReveal delay={150} direction="fade-right" className="w-full max-w-md mx-auto flex flex-col items-center">
             {/* Grand Arch Frame seukuran bingkai gambar paling atas */}
             <div className="w-[88vw] max-w-[360px] sm:max-w-[420px] md:max-w-[460px] h-[500px] sm:h-[580px] md:h-[620px] arch-frame p-3 sm:p-4 bg-gradient-to-b from-[#D4A5A5]/45 via-[#C5A059]/30 to-[#FAF9F6] shadow-2xl mb-6 relative">
               <div className="w-full h-full arch-frame p-2 sm:p-2.5 bg-[#FAF9F6] border border-[#D4A5A5]/50 shadow-inner">
@@ -363,7 +362,7 @@ export default function App() {
           </ScrollReveal>
 
           {/* "Dengan" Floral Transition Badge */}
-          <ScrollReveal delay={100} className="flex items-center justify-center my-6">
+          <ScrollReveal delay={100} direction="zoom-in" className="flex items-center justify-center my-6">
             <div className="px-6 py-2 rounded-full bg-[#FAF9F6] border border-[#C5A059]/60 shadow-xs flex items-center justify-center">
               <span className="font-serif italic text-lg sm:text-xl text-[#000080] font-bold tracking-wider">
                 Dengan
@@ -371,8 +370,8 @@ export default function App() {
             </div>
           </ScrollReveal>
 
-          {/* Mempelai Pria (Groom) - Second */}
-          <ScrollReveal delay={150} className="w-full max-w-md mx-auto flex flex-col items-center">
+          {/* Mempelai Pria (Groom) - Second (fade-left) */}
+          <ScrollReveal delay={150} direction="fade-left" className="w-full max-w-md mx-auto flex flex-col items-center">
             {/* Grand Arch Frame seukuran bingkai gambar paling atas */}
             <div className="w-[88vw] max-w-[360px] sm:max-w-[420px] md:max-w-[460px] h-[500px] sm:h-[580px] md:h-[620px] arch-frame p-3 sm:p-4 bg-gradient-to-b from-[#6387A5]/45 via-[#C5A059]/30 to-[#FAF9F6] shadow-2xl mb-6 relative">
               <div className="w-full h-full arch-frame p-2 sm:p-2.5 bg-[#FAF9F6] border border-[#8FA9C4]/50 shadow-inner">
@@ -425,8 +424,8 @@ export default function App() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
-            {/* Card Akad Nikah */}
-            <ScrollReveal delay={150} className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#8FA9C4]/40 shadow-sm relative">
+            {/* Card Akad Nikah (fade-right) */}
+            <ScrollReveal delay={150} direction="fade-right" className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#8FA9C4]/40 shadow-sm relative">
               <div className="w-12 h-12 rounded-full bg-[#EBF3FA] text-[#000080] flex items-center justify-center mx-auto mb-3 shadow-xs">
                 <Heart className="w-6 h-6 text-[#000080]" />
               </div>
@@ -453,8 +452,8 @@ export default function App() {
               </div>
             </ScrollReveal>
 
-            {/* Card Resepsi */}
-            <ScrollReveal delay={200} className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#D4A5A5]/40 shadow-sm relative">
+            {/* Card Resepsi (fade-left) */}
+            <ScrollReveal delay={200} direction="fade-left" className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#D4A5A5]/40 shadow-sm relative">
               <div className="w-12 h-12 rounded-full bg-[#F7EFEF] text-[#B87A7A] flex items-center justify-center mx-auto mb-3 shadow-xs">
                 <Sparkles className="w-6 h-6 text-[#B87A7A]" />
               </div>
@@ -482,8 +481,8 @@ export default function App() {
             </ScrollReveal>
           </div>
 
-          {/* Location Details Card */}
-          <ScrollReveal delay={250} className="max-w-md mx-auto bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#C5A059]/40 shadow-sm text-left">
+          {/* Location Details Card (fade-right) */}
+          <ScrollReveal delay={250} direction="fade-right" className="max-w-md mx-auto bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#C5A059]/40 shadow-sm text-left">
             <div className="flex items-center gap-2 mb-2 text-[#000080]">
               <MapPin className="w-5 h-5 text-[#B8860B] shrink-0" />
               <h3 className="font-serif text-xl font-bold text-[#181716]">
@@ -749,17 +748,14 @@ export default function App() {
         {/* =========================================================================
             TANDA KASIH / DOMPET DIGITAL & REKENING (WEDDING GIFT)
         ========================================================================= */}
-        {/* =========================================================================
-            TANDA KASIH / DOMPET DIGITAL & REKENING (WEDDING GIFT)
-        ========================================================================= */}
         <section id="tanda-kasih" className="relative px-6 py-10 scroll-mt-6 text-center space-y-6 overflow-hidden">
-          {/* Subtle floral watercolor corners (Enlarged & Opacity-80) */}
+          {/* Subtle floral watercolor corners (Enlarged & Opacity-80 with mekar scroll animation) */}
           <BotanicalCorner position="top-left" className="absolute top-2 left-2" />
           <BotanicalCorner position="top-right" className="absolute top-2 right-2" />
 
           <FloralBranchTop />
 
-          <ScrollReveal delay={50} className="space-y-2">
+          <ScrollReveal delay={50} direction="up" className="space-y-2">
             <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full bg-[#8FA9C4]/15 border border-[#8FA9C4]/35 text-[#000080] text-xs font-bold uppercase tracking-widest shadow-2xs">
               <Gift className="w-3.5 h-3.5 text-[#000080]" />
               <span>Tanda Kasih</span>
@@ -768,150 +764,45 @@ export default function App() {
               Kirim Hadiah &amp; Doa Restu
             </h2>
             <p className="text-xs text-[#252423] font-medium max-w-md mx-auto leading-relaxed">
-              Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda berkenan memberikan tanda kasih, silakan pilih salah satu opsi pembayaran di bawah ini:
+              Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda berkenan memberikan tanda kasih, silakan tekan tombol di bawah ini:
             </p>
           </ScrollReveal>
 
-          {/* Action Buttons: "Buka Rekening BRI" & "Buka Dompet DANA" (Soft Blue Elegance) */}
-          <div className="max-w-md mx-auto space-y-4 pt-1 text-left">
-            {/* OPSI 1: BANK BRI */}
-            <ScrollReveal delay={100} className="space-y-2.5">
-              <button
-                type="button"
-                onClick={() => setShowBriDetails(!showBriDetails)}
-                className={`w-full group flex items-center justify-between p-4 rounded-2xl border-2 transition-all duration-300 shadow-sm cursor-pointer ${
-                  showBriDetails
-                    ? 'bg-[#EBF3FA] border-[#00529C] shadow-md ring-2 ring-[#00529C]/20'
-                    : 'bg-white/95 hover:bg-[#F2F7FC] border-[#8FA9C4]/40 hover:border-[#00529C]/50'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors ${
-                    showBriDetails ? 'bg-[#00529C] text-white' : 'bg-[#EBF3FA] text-[#00529C]'
-                  }`}>
-                    <CreditCard className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#00529C] block">
-                      Bank Transfer
-                    </span>
-                    <span className="font-serif text-base sm:text-lg font-bold text-[#181716] block leading-tight">
-                      Buka Rekening BRI
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#00529C] bg-[#EBF3FA] px-3 py-1.5 rounded-full border border-[#00529C]/20">
-                  <span>{showBriDetails ? 'Tutup' : 'Buka'}</span>
-                  {showBriDetails ? (
-                    <ChevronUp className="w-4 h-4 transition-transform" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
-                  )}
-                </div>
-              </button>
+          {/* SINGLE MAIN ELEGANT SOFT BLUE BUTTON: "🎁 Kirim Tanda Kasih" */}
+          <ScrollReveal delay={100} direction="up" className="max-w-md mx-auto">
+            <button
+              type="button"
+              onClick={() => setShowGiftDetails(!showGiftDetails)}
+              className="w-full group flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-gradient-to-r from-[#6387A5] to-[#4F7391] hover:from-[#547896] hover:to-[#416480] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#6387A5]/35 border-2 border-[#C5A059] transition-all duration-300 active:scale-[0.98] cursor-pointer"
+            >
+              <span className="text-lg">🎁</span>
+              <span>{showGiftDetails ? 'Tutup Informasi Rekening / Hadiah' : 'Kirim Tanda Kasih'}</span>
+              <ChevronDown className={`w-4 h-4 text-[#FFF3D6] transition-transform duration-300 ${showGiftDetails ? 'rotate-180' : ''}`} />
+            </button>
+          </ScrollReveal>
 
-              {/* BRI Details Dropdown / Expanded Card */}
-              {showBriDetails && (
-                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#00529C]/10 via-white to-[#00529C]/5 border-2 border-[#00529C]/40 shadow-lg space-y-3.5 transition-all">
+          {/* REVEALABLE REKENING & DANA CARDS (Hidden by default, smooth slide-down when toggled) */}
+          {showGiftDetails && (
+            <div className="max-w-md mx-auto space-y-4 pt-2 text-left animate-fadeIn">
+              {/* Card DANA (fade-right) */}
+              <ScrollReveal delay={50} direction="fade-right">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#118EEA]/10 via-white to-[#118EEA]/5 border-2 border-[#118EEA]/40 shadow-md space-y-3">
                   <div className="flex items-center justify-between border-b border-stone-200/80 pb-2">
-                    <span className="text-xs font-extrabold text-[#00529C] uppercase tracking-wider">
-                      Informasi Rekening Bank BRI
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#00529C]/10 text-[#00529C] border border-[#00529C]/20">
-                      ATM / Mobile
-                    </span>
-                  </div>
-
-                  <div className="space-y-1">
-                    <span className="text-[11px] text-[#4A5568] block">Nomor Rekening:</span>
-                    <p className="font-mono text-xl sm:text-2xl font-extrabold text-[#181716] tracking-wider select-all">
-                      0258 01 031111 53 0
-                    </p>
-                    <p className="text-xs text-[#000080] font-bold">
-                      Atas Nama: Nurhidayah
-                    </p>
-                  </div>
-
-                  <div className="pt-1 flex gap-2">
-                    <button
-                      type="button"
-                      onClick={copyBri}
-                      className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#00529C] hover:bg-[#003d75] text-white text-xs font-bold shadow-xs transition-all active:scale-[0.98] cursor-pointer"
-                    >
-                      {copiedBri ? (
-                        <>
-                          <Check className="w-4 h-4 text-emerald-300" />
-                          <span>Nomor Rekening Berhasil Disalin!</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-4 h-4" />
-                          <span>Salin Nomor Rekening</span>
-                        </>
-                      )}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setShowBriDetails(false)}
-                      className="px-3.5 py-2.5 rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-600 text-xs font-semibold cursor-pointer"
-                    >
-                      Tutup
-                    </button>
-                  </div>
-                </div>
-              )}
-            </ScrollReveal>
-
-            {/* OPSI 2: DOMPET DANA */}
-            <ScrollReveal delay={150} className="space-y-2.5">
-              <button
-                type="button"
-                onClick={() => setShowDanaDetails(!showDanaDetails)}
-                className={`w-full group flex items-center justify-between p-4 rounded-2xl border-2 transition-all duration-300 shadow-sm cursor-pointer ${
-                  showDanaDetails
-                    ? 'bg-[#EBF6FE] border-[#118EEA] shadow-md ring-2 ring-[#118EEA]/20'
-                    : 'bg-white/95 hover:bg-[#F0F8FF] border-[#8FA9C4]/40 hover:border-[#118EEA]/50'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors ${
-                    showDanaDetails ? 'bg-[#118EEA] text-white' : 'bg-[#EBF6FE] text-[#118EEA]'
-                  }`}>
-                    <Wallet className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#118EEA] block">
-                      Dompet Digital
-                    </span>
-                    <span className="font-serif text-base sm:text-lg font-bold text-[#181716] block leading-tight">
-                      Buka Dompet DANA
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#118EEA] bg-[#EBF6FE] px-3 py-1.5 rounded-full border border-[#118EEA]/20">
-                  <span>{showDanaDetails ? 'Tutup' : 'Buka'}</span>
-                  {showDanaDetails ? (
-                    <ChevronUp className="w-4 h-4 transition-transform" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
-                  )}
-                </div>
-              </button>
-
-              {/* DANA Details Dropdown / Expanded Card */}
-              {showDanaDetails && (
-                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#118EEA]/10 via-white to-[#118EEA]/5 border-2 border-[#118EEA]/40 shadow-lg space-y-3.5 transition-all">
-                  <div className="flex items-center justify-between border-b border-stone-200/80 pb-2">
-                    <span className="text-xs font-extrabold text-[#118EEA] uppercase tracking-wider">
-                      Informasi Dompet Digital DANA
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-[#118EEA] text-white flex items-center justify-center shadow-xs">
+                        <Wallet className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-extrabold text-[#118EEA] uppercase tracking-wider">
+                        Dompet Digital DANA
+                      </span>
+                    </div>
                     <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#118EEA]/10 text-[#118EEA] border border-[#118EEA]/20">
                       Online
                     </span>
                   </div>
 
                   <div className="space-y-1">
-                    <span className="text-[11px] text-[#4A5568] block">Nomor Telepon / Akun:</span>
+                    <span className="text-[11px] text-[#4A5568] block font-medium">Nomor Akun / HP:</span>
                     <p className="font-mono text-xl sm:text-2xl font-extrabold text-[#181716] tracking-wider select-all">
                       081524482262
                     </p>
@@ -920,36 +811,86 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="pt-1 flex gap-2">
-                    <button
-                      type="button"
-                      onClick={copyDana}
-                      className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#118EEA] hover:bg-[#0c72be] text-white text-xs font-bold shadow-xs transition-all active:scale-[0.98] cursor-pointer"
-                    >
-                      {copiedDana ? (
-                        <>
-                          <Check className="w-4 h-4 text-emerald-300" />
-                          <span>Nomor DANA Berhasil Disalin!</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-4 h-4" />
-                          <span>Salin Nomor DANA</span>
-                        </>
-                      )}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setShowDanaDetails(false)}
-                      className="px-3.5 py-2.5 rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-600 text-xs font-semibold cursor-pointer"
-                    >
-                      Tutup
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={copyDana}
+                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#118EEA] hover:bg-[#0c72be] text-white text-xs font-bold shadow-xs transition-all active:scale-[0.98] cursor-pointer"
+                  >
+                    {copiedDana ? (
+                      <>
+                        <Check className="w-4 h-4 text-emerald-300" />
+                        <span>Nomor DANA Berhasil Disalin!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        <span>Salin Nomor DANA</span>
+                      </>
+                    )}
+                  </button>
                 </div>
-              )}
-            </ScrollReveal>
-          </div>
+              </ScrollReveal>
+
+              {/* Card BRI (fade-left) */}
+              <ScrollReveal delay={100} direction="fade-left">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#00529C]/10 via-white to-[#00529C]/5 border-2 border-[#00529C]/40 shadow-md space-y-3">
+                  <div className="flex items-center justify-between border-b border-stone-200/80 pb-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-[#00529C] text-white flex items-center justify-center shadow-xs">
+                        <CreditCard className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-extrabold text-[#00529C] uppercase tracking-wider">
+                        Bank Transfer BRI
+                      </span>
+                    </div>
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#00529C]/10 text-[#00529C] border border-[#00529C]/20">
+                      ATM / Mobile
+                    </span>
+                  </div>
+
+                  <div className="space-y-1">
+                    <span className="text-[11px] text-[#4A5568] block font-medium">Nomor Rekening:</span>
+                    <p className="font-mono text-xl sm:text-2xl font-extrabold text-[#181716] tracking-wider select-all">
+                      0258 01 031111 53 0
+                    </p>
+                    <p className="text-xs text-[#000080] font-bold">
+                      Atas Nama: Nurhidayah
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={copyBri}
+                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#00529C] hover:bg-[#003d75] text-white text-xs font-bold shadow-xs transition-all active:scale-[0.98] cursor-pointer"
+                  >
+                    {copiedBri ? (
+                      <>
+                        <Check className="w-4 h-4 text-emerald-300" />
+                        <span>Nomor Rekening Berhasil Disalin!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        <span>Salin Nomor Rekening</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </ScrollReveal>
+
+              {/* Close Button at bottom */}
+              <div className="text-center pt-1">
+                <button
+                  type="button"
+                  onClick={() => setShowGiftDetails(false)}
+                  className="inline-flex items-center justify-center gap-1.5 py-2 px-5 rounded-full border border-stone-300 hover:bg-stone-100 text-stone-600 text-xs font-semibold transition-colors cursor-pointer"
+                >
+                  <X className="w-3.5 h-3.5" />
+                  <span>Tutup Informasi Rekening</span>
+                </button>
+              </div>
+            </div>
+          )}
         </section>
 
         {/* =========================================================================
