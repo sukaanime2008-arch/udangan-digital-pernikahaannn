@@ -47,13 +47,13 @@ export const BotanicalCorner: React.FC<{
 
   return (
     <div
-      className={`w-7 h-9 sm:w-9 sm:h-11 pointer-events-none select-none opacity-80 drop-shadow-2xs ${transformClass} ${className}`}
+      className={`w-12 h-16 sm:w-16 sm:h-22 md:w-20 md:h-26 pointer-events-none select-none opacity-80 drop-shadow-xs ${transformClass} ${className}`}
       aria-hidden="true"
     >
       <img
         src="/assets/bunga-cluster.png"
         alt=""
-        className="w-full h-full object-contain"
+        className="w-full h-full object-contain opacity-80"
       />
     </div>
   );

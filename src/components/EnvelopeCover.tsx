@@ -164,36 +164,36 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
               <line x1="360" y1="0" x2="180" y2="148" stroke="#C5A059" strokeWidth="1.5" opacity="0.75" />
             </svg>
 
-            {/* Circular Photo Frame on Envelope Flap with Refined Blue Floral Accents */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-[6px] sm:top-[8px] flex items-center justify-center pointer-events-none select-none z-20">
+            {/* Circular Photo Frame on Envelope Flap with Refined Blue Floral Accents (Grand Size Harmonious with Main Page) */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-[-6px] sm:top-[-10px] flex items-center justify-center pointer-events-none select-none z-20">
               {/* Left Blue Floral Ornament (Neatly Flanking Left Side Only) */}
-              <div className="absolute -left-6 sm:-left-8 top-1/2 -translate-y-1/2 w-12 sm:w-14 h-16 sm:h-20 pointer-events-none select-none z-15 drop-shadow-xs">
+              <div className="absolute -left-8 sm:-left-10 top-1/2 -translate-y-1/2 w-14 sm:w-16 h-20 sm:h-24 pointer-events-none select-none z-15 drop-shadow-xs">
                 <img
                   src="/assets/bunga-cluster.png"
                   alt=""
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain opacity-90"
                 />
               </div>
 
               {/* Right Blue Floral Ornament (Neatly Flanking Right Side Only - Mirrored) */}
-              <div className="absolute -right-6 sm:-right-8 top-1/2 -translate-y-1/2 w-12 sm:w-14 h-16 sm:h-20 pointer-events-none select-none z-15 scale-x-[-1] drop-shadow-xs">
+              <div className="absolute -right-8 sm:-right-10 top-1/2 -translate-y-1/2 w-14 sm:w-16 h-20 sm:h-24 pointer-events-none select-none z-15 scale-x-[-1] drop-shadow-xs">
                 <img
                   src="/assets/bunga-cluster.png"
                   alt=""
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain opacity-90"
                 />
               </div>
 
               {/* Delicate Gold Ring Halo Accent */}
-              <div className="absolute -inset-1.5 sm:-inset-2 rounded-full border border-[#C5A059]/60 border-dashed pointer-events-none -z-0" />
+              <div className="absolute -inset-2 sm:-inset-2.5 rounded-full border border-[#C5A059]/60 border-dashed pointer-events-none -z-0" />
 
-              {/* Enlarged Prominent Circular Gold Border Photo Frame */}
-              <div className="relative w-28 h-28 sm:w-34 sm:h-34 md:w-38 md:h-38 rounded-full p-1 sm:p-1.5 bg-gradient-to-tr from-[#C5A059] via-[#FFF3D6] to-[#9E7E3E] shadow-2xl z-10 ring-2 ring-white/70">
-                <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/90 bg-[#FAF9F6] shadow-inner">
+              {/* Enlarged Prominent Circular Gold Border Photo Frame - Harmonious with Main Page Frame */}
+              <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full p-1.5 sm:p-2 bg-gradient-to-tr from-[#C5A059] via-[#FFF3D6] to-[#9E7E3E] shadow-2xl z-10 ring-2 ring-white/80">
+                <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/95 bg-[#FAF9F6] shadow-inner">
                   <img
                     src="/assets/foto-pasangan.jpg"
                     alt="Foto Pasangan Nur & Udi"
-                    className="w-full h-full object-cover object-[center_18%] scale-105"
+                    className="w-full h-full object-cover object-center"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = '/assets/hero.jpg';
                     }}
