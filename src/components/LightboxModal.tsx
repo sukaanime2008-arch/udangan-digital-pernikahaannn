@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface GalleryPhoto {
@@ -52,11 +53,11 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
   // Early return only after all hooks are unconditionally declared
   if (!isOpen || !currentPhoto) return null;
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 transition-all duration-300 select-none"
+      className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 transition-all duration-300 select-none cursor-pointer"
       onClick={onClose}
     >
       {/* Prominent, easily clickable Close "X" Button in the top right corner */}
@@ -103,17 +104,14 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
       {/* Main Image Container - Centered and constrained without vertical dead space */}
       <div
-        className="relative w-full max-w-4xl flex flex-col items-center justify-center my-auto"
+        className="relative flex flex-col items-center justify-center my-auto max-w-full cursor-default"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative flex items-center justify-center max-w-full max-h-[85vh]">
-          <img
-            src={currentPhoto.src}
-            alt={currentPhoto.title}
-            className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/15"
-            style={{ objectFit: 'contain' }}
-          />
-        </div>
+        <img
+          src={currentPhoto.src}
+          alt={currentPhoto.title}
+          className="max-w-[90vw] max-h-[80vh] w-auto h-auto object-contain mx-auto my-auto rounded-2xl shadow-2xl border border-white/15"
+        />
 
         {/* Compact, clean photo caption & counter */}
         {(currentPhoto.title || currentPhoto.caption) && (
@@ -134,6 +132,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

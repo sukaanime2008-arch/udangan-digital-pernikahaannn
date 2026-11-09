@@ -586,8 +586,17 @@ export default function App() {
               {/* Foto 1 (Landscape): Ditempatkan di bagian paling atas bingkai galeri utama */}
               <ScrollReveal delay={150}>
                 <div
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Buka ${galleryPhotos[0].title}`}
                   onClick={() => setActivePhotoIndex(0)}
-                  className="relative w-full aspect-[16/10] rounded-3xl overflow-hidden cursor-pointer group shadow-md border-2 border-[#8FA9C4]/40"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setActivePhotoIndex(0);
+                    }
+                  }}
+                  className="relative w-full aspect-[16/10] rounded-3xl overflow-hidden cursor-pointer group shadow-md border-2 border-[#8FA9C4]/40 active:scale-[0.98] transition-transform select-none"
                 >
                   <img
                     src={IMAGES.galeri1}
@@ -595,7 +604,7 @@ export default function App() {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4 text-left">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4 text-left pointer-events-none">
                     <div>
                       <p className="font-serif text-lg font-bold text-white leading-tight">
                         {galleryPhotos[0].title}
@@ -611,8 +620,17 @@ export default function App() {
                 {/* Foto 2 (Portrait) */}
                 <ScrollReveal delay={200}>
                   <div
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Buka ${galleryPhotos[1].title}`}
                     onClick={() => setActivePhotoIndex(1)}
-                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActivePhotoIndex(1);
+                      }
+                    }}
+                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200 active:scale-[0.98] transition-transform select-none"
                   >
                     <img
                       src={IMAGES.galeri2}
@@ -620,8 +638,8 @@ export default function App() {
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors pointer-events-none" />
+                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left pointer-events-none">
                       <p className="font-serif text-xs font-bold text-white truncate">
                         {galleryPhotos[1].title}
                       </p>
@@ -632,8 +650,17 @@ export default function App() {
                 {/* Foto 3 (Portrait) */}
                 <ScrollReveal delay={250}>
                   <div
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Buka ${galleryPhotos[2].title}`}
                     onClick={() => setActivePhotoIndex(2)}
-                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActivePhotoIndex(2);
+                      }
+                    }}
+                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200 active:scale-[0.98] transition-transform select-none"
                   >
                     <img
                       src={IMAGES.galeri3}
@@ -641,8 +668,8 @@ export default function App() {
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors pointer-events-none" />
+                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left pointer-events-none">
                       <p className="font-serif text-xs font-bold text-white truncate">
                         {galleryPhotos[2].title}
                       </p>
@@ -653,8 +680,17 @@ export default function App() {
                 {/* Foto 4 (Portrait) */}
                 <ScrollReveal delay={300}>
                   <div
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Buka ${galleryPhotos[3].title}`}
                     onClick={() => setActivePhotoIndex(3)}
-                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActivePhotoIndex(3);
+                      }
+                    }}
+                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200 active:scale-[0.98] transition-transform select-none"
                   >
                     <img
                       src={IMAGES.galeri4}
@@ -662,8 +698,8 @@ export default function App() {
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors pointer-events-none" />
+                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left pointer-events-none">
                       <p className="font-serif text-xs font-bold text-white truncate">
                         {galleryPhotos[3].title}
                       </p>
@@ -674,8 +710,17 @@ export default function App() {
                 {/* Foto 5 (Portrait) */}
                 <ScrollReveal delay={350}>
                   <div
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Buka ${galleryPhotos[4].title}`}
                     onClick={() => setActivePhotoIndex(4)}
-                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActivePhotoIndex(4);
+                      }
+                    }}
+                    className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer group shadow-xs border border-stone-200 active:scale-[0.98] transition-transform select-none"
                   >
                     <img
                       src={IMAGES.galeri5}
@@ -683,8 +728,8 @@ export default function App() {
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors pointer-events-none" />
+                    <div className="absolute bottom-2 inset-x-2 p-2 rounded-xl bg-black/40 backdrop-blur-xs text-left pointer-events-none">
                       <p className="font-serif text-xs font-bold text-white truncate">
                         {galleryPhotos[4].title}
                       </p>
