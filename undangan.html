@@ -452,6 +452,82 @@
 
     </section>
 
+    <!-- Pembatas Floral Emas -->
+    <div class="flex items-center justify-center gap-3 my-4 text-[#C5A059]">
+      <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
+      <span class="w-2 h-2 rotate-45 border border-[#C5A059] bg-[#FAF9F6]"></span>
+      <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+    </div>
+
+    <!-- ----------------------------------------
+         GALERI FOTO
+    ----------------------------------------- -->
+    <section id="galeri" class="px-6 py-10 scroll-mt-6 text-center space-y-6">
+      <div class="reveal-fade-up">
+        <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#8F9E8B] font-semibold block">
+          Dokumentasi Bahagia
+        </span>
+        <h2 class="font-serif text-3xl font-semibold text-[#2F2D2C] mt-1">Galeri Foto</h2>
+        <p class="text-xs text-[#6B6664] mt-0.5">Ketuk foto untuk melihat dalam resolusi penuh</p>
+      </div>
+
+      <div class="max-w-xs mx-auto space-y-3">
+        <!-- Foto 1 (Landscape Utama) -->
+        <div class="reveal-fade-up cursor-pointer group rounded-3xl overflow-hidden border-2 border-[#8FA9C4]/40 shadow-md relative aspect-[16/10] gallery-item"
+             data-src="assets/galeri-1.jpg" data-title="Kebersamaan &amp; Kehangatan" data-caption="Duduk berdampingan merajut mimpi di hamparan rasa syukur">
+          <img src="assets/galeri-1.jpg" alt="Foto Galeri 1" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4 text-left">
+            <div>
+              <p class="font-serif text-lg font-bold text-white leading-tight">Kebersamaan &amp; Kehangatan</p>
+              <p class="text-xs text-white/90 font-medium mt-0.5">Duduk berdampingan merajut mimpi di hamparan rasa syukur</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 4 Foto Portrait -->
+        <div class="grid grid-cols-2 gap-2.5">
+          <div class="reveal-fade-right cursor-pointer group rounded-2xl overflow-hidden border border-stone-200 shadow-xs relative aspect-[3/4] gallery-item"
+               data-src="assets/galeri-2.jpg" data-title="Langkah Bersama" data-caption="Menatap masa depan penuh berkah di bawah rindangnya doa">
+            <img src="assets/galeri-2.jpg" alt="Foto Galeri 2" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-2 inset-x-2 p-1.5 rounded-lg bg-black/40 backdrop-blur-xs text-left">
+              <p class="font-serif text-xs font-bold text-white truncate">Langkah Bersama</p>
+            </div>
+          </div>
+
+          <div class="reveal-fade-left cursor-pointer group rounded-2xl overflow-hidden border border-stone-200 shadow-xs relative aspect-[3/4] gallery-item"
+               data-src="assets/galeri-3.jpg" data-title="Senyuman Kasih" data-caption="Kelembutan hati yang menyinari setiap detik penantian">
+            <img src="assets/galeri-3.jpg" alt="Foto Galeri 3" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-2 inset-x-2 p-1.5 rounded-lg bg-black/40 backdrop-blur-xs text-left">
+              <p class="font-serif text-xs font-bold text-white truncate">Senyuman Kasih</p>
+            </div>
+          </div>
+
+          <div class="reveal-fade-right cursor-pointer group rounded-2xl overflow-hidden border border-stone-200 shadow-xs relative aspect-[3/4] gallery-item"
+               data-src="assets/galeri-4.jpg" data-title="Keteguhan Hati" data-caption="Sandaran cinta yang kokoh dalam ikrar suci pernikahan">
+            <img src="assets/galeri-4.jpg" alt="Foto Galeri 4" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-2 inset-x-2 p-1.5 rounded-lg bg-black/40 backdrop-blur-xs text-left">
+              <p class="font-serif text-xs font-bold text-white truncate">Keteguhan Hati</p>
+            </div>
+          </div>
+
+          <div class="reveal-fade-left cursor-pointer group rounded-2xl overflow-hidden border border-stone-200 shadow-xs relative aspect-[3/4] gallery-item"
+               data-src="assets/galeri-5.jpg" data-title="Dua Jiwa Satu Tujuan" data-caption="Menyempurnakan separuh agama dalam ikatan sakinah mawaddah warahmah">
+            <img src="assets/galeri-5.jpg" alt="Foto Galeri 5" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-2 inset-x-2 p-1.5 rounded-lg bg-black/40 backdrop-blur-xs text-left">
+              <p class="font-serif text-xs font-bold text-white truncate">Dua Jiwa Satu Tujuan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pembatas Floral Emas -->
+    <div class="flex items-center justify-center gap-3 my-4 text-[#C5A059]">
+      <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
+      <span class="w-2 h-2 rotate-45 border border-[#C5A059] bg-[#FAF9F6]"></span>
+      <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+    </div>
+
     <!-- ----------------------------------------
          TANDA KASIH / DOMPET DIGITAL & REKENING
     ----------------------------------------- -->
@@ -749,22 +825,6 @@
         });
       }
 
-      // 7. Toggle Buka/Tutup Kartu Rekening BRI & DANA
-      const btnToggleBri = document.getElementById('btn-toggle-bri');
-      const briDetailsCard = document.getElementById('bri-details-card');
-      const briToggleLabel = document.getElementById('bri-toggle-label');
-      const btnCloseBri = document.getElementById('btn-close-bri');
-
-      if (btnToggleBri && briDetailsCard) {
-        btnToggleBri.addEventListener('click', () => {
-          const isHidden = briDetailsCard.classList.contains('hidden');
-          if (isHidden) {
-            briDetailsCard.classList.remove('hidden');
-            if (briToggleLabel) briToggleLabel.textContent = 'Tutup';
-          } else {
-            briDetailsCard.classList.add('hidden');
-            if (briToggleLabel) briToggleLabel.textContent = 'Buka';
-          }
       // 7. Toggle Buka/Tutup Informasi Tanda Kasih (Rekening BRI & Dompet DANA)
       const btnMainGiftToggle = document.getElementById('btn-main-gift-toggle');
       const giftCardsContainer = document.getElementById('gift-cards-container');
@@ -806,7 +866,136 @@
           closeGiftContainer();
         });
       }
+
+      // 8. Gallery Lightbox Modal
+      const modal = document.getElementById('gallery-lightbox-modal');
+      const modalImg = document.getElementById('lightbox-image');
+      const modalTitle = document.getElementById('lightbox-title');
+      const modalCaption = document.getElementById('lightbox-caption');
+      const modalCounter = document.getElementById('lightbox-counter');
+      const btnCloseLightbox = document.getElementById('btn-close-lightbox');
+      const btnPrevLightbox = document.getElementById('btn-prev-lightbox');
+      const btnNextLightbox = document.getElementById('btn-next-lightbox');
+      const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+      let currentGalleryIndex = 0;
+
+      function showGalleryPhoto(index) {
+        if (!galleryItems.length || !modalImg) return;
+        currentGalleryIndex = (index + galleryItems.length) % galleryItems.length;
+        const item = galleryItems[currentGalleryIndex];
+        const src = item.getAttribute('data-src');
+        const title = item.getAttribute('data-title') || '';
+        const caption = item.getAttribute('data-caption') || '';
+
+        modalImg.src = src;
+        if (modalTitle) modalTitle.textContent = title;
+        if (modalCaption) modalCaption.textContent = caption;
+        if (modalCounter) modalCounter.textContent = `${currentGalleryIndex + 1} / ${galleryItems.length}`;
+      }
+
+      function openGalleryLightbox(index) {
+        if (!modal) return;
+        showGalleryPhoto(index);
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeGalleryLightbox() {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      galleryItems.forEach((item, idx) => {
+        item.addEventListener('click', () => openGalleryLightbox(idx));
+      });
+
+      if (btnCloseLightbox) {
+        btnCloseLightbox.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeGalleryLightbox();
+        });
+      }
+
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal || e.target.id === 'lightbox-content-box') {
+            closeGalleryLightbox();
+          }
+        });
+      }
+
+      if (btnPrevLightbox) {
+        btnPrevLightbox.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showGalleryPhoto(currentGalleryIndex - 1);
+        });
+      }
+
+      if (btnNextLightbox) {
+        btnNextLightbox.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showGalleryPhoto(currentGalleryIndex + 1);
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (!modal || modal.classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeGalleryLightbox();
+        if (e.key === 'ArrowLeft') showGalleryPhoto(currentGalleryIndex - 1);
+        if (e.key === 'ArrowRight') showGalleryPhoto(currentGalleryIndex + 1);
+      });
     });
   </script>
+
+  <!-- MODAL LIGHTBOX PREVIEW FOTO GALERI -->
+  <div id="gallery-lightbox-modal"
+       class="fixed inset-0 z-50 hidden flex-col items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 transition-all duration-300 select-none">
+    <!-- Tombol Tutup X -->
+    <button id="btn-close-lightbox"
+            type="button"
+            aria-label="Tutup preview foto"
+            class="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/60 hover:bg-black/85 border border-white/30 text-white shadow-xl transition-transform active:scale-90 cursor-pointer">
+      <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <!-- Tombol Prev & Next -->
+    <button id="btn-prev-lightbox"
+            type="button"
+            aria-label="Foto sebelumnya"
+            class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/80 border border-white/25 text-white shadow-lg transition-transform active:scale-90 cursor-pointer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    <button id="btn-next-lightbox"
+            type="button"
+            aria-label="Foto berikutnya"
+            class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/80 border border-white/25 text-white shadow-lg transition-transform active:scale-90 cursor-pointer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+
+    <!-- Kontainer Gambar & Keterangan -->
+    <div id="lightbox-content-box" class="relative w-full max-w-4xl flex flex-col items-center justify-center my-auto">
+      <div class="relative flex items-center justify-center max-w-full max-h-[85vh]">
+        <img id="lightbox-image"
+             src=""
+             alt=""
+             class="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/15"
+             style="object-fit: contain;">
+      </div>
+      <div class="text-center mt-2.5 px-4 text-white max-w-md">
+        <p id="lightbox-title" class="font-serif text-base sm:text-lg text-[#EFE4CA] font-medium leading-snug drop-shadow-xs"></p>
+        <p id="lightbox-caption" class="text-xs text-white/80 font-sans tracking-wide mt-0.5 leading-relaxed drop-shadow-xs"></p>
+        <p id="lightbox-counter" class="text-[11px] text-white/45 mt-1 font-mono"></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
