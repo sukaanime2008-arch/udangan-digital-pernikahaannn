@@ -133,23 +133,23 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
               <line x1="360" y1="270" x2="180" y2="135" stroke="#C5A059" strokeWidth="1.3" strokeDasharray="3 3" opacity="0.75" />
             </svg>
 
-            {/* Recipient Badge on Front of Envelope (Enlarged prominent font) */}
-            <div className="absolute inset-x-5 sm:inset-x-7 bottom-4 sm:bottom-5 z-25 bg-[#FAF9F6]/98 backdrop-blur-xs rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border-2 border-[#C5A059] shadow-lg text-center">
-              {guestName && guestName !== 'Tamu Undangan Yang Berbahagia' && guestName !== 'Tamu Undangan' && guestName !== 'Kepada Yth Bapak/Ibu/Saudara' ? (
+            {/* Recipient Badge on Front of Envelope (Ukuran Teks Diperkecil Lebih Pas & Rapi) */}
+            <div className="absolute inset-x-5 sm:inset-x-7 bottom-4 sm:bottom-5 z-25 bg-[#FAF9F6]/98 backdrop-blur-xs rounded-xl sm:rounded-2xl py-2.5 px-3.5 sm:py-3 sm:px-4 border-2 border-[#C5A059] shadow-lg text-center">
+              {guestName && guestName !== 'Tamu Undangan Yang Berbahagia' && guestName !== 'Tamu Undangan' && !guestName.startsWith('Kepada Yth Bapak/Ibu/Saudara') ? (
                 <>
                   <span className="text-[10px] sm:text-xs uppercase font-sans tracking-widest text-[#000080] font-extrabold block">
-                    Kepada Yth Bapak/Ibu/Saudara
+                    Kepada Yth Bapak/Ibu/Saudara (i)
                   </span>
-                  <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug my-1 px-1 drop-shadow-xs">
+                  <p className="font-serif text-base sm:text-lg md:text-xl font-bold text-[#000080] leading-snug my-1 px-1 drop-shadow-xs">
                     {guestName}
                   </p>
                 </>
               ) : (
-                <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug my-1 px-1 drop-shadow-xs">
-                  Kepada Yth Bapak/Ibu/Saudara
+                <p className="font-serif text-base sm:text-lg md:text-xl font-bold text-[#000080] leading-snug my-1 px-1 drop-shadow-xs">
+                  Kepada Yth Bapak/Ibu/Saudara (i)
                 </p>
               )}
-              <p className="text-[10px] sm:text-[11px] text-[#4A5568] font-medium italic">
+              <p className="text-[9px] sm:text-[10px] text-[#4A5568] font-medium italic">
                 Mohon maaf apabila ada kesalahan penulisan nama/gelar
               </p>
             </div>

@@ -249,7 +249,15 @@
     }
   </style>
 </head>
-<body class="bg-[#FAF9F6] text-[#181716] selection:bg-[#D4A5A5]/30 overflow-hidden">
+<body class="bg-[#FAF9F6] text-[#181716] selection:bg-[#D4A5A5]/30 overflow-hidden relative">
+
+  <!-- Latar Belakang Bunga Biru Besar Melintang (Fixed, Opacity 10%, Diam Saat Di-scroll - Mendukung Mobile & Desktop) -->
+  <div class="fixed inset-0 pointer-events-none -z-50 overflow-hidden flex items-center justify-center select-none" aria-hidden="true">
+    <img src="assets/bunga-hiasan.png"
+         alt=""
+         class="w-[140vw] sm:w-[110vw] max-w-[900px] h-auto max-h-[92vh] object-contain opacity-10 select-none rotate-12 filter drop-shadow-sm"
+         onerror="this.src='assets/bunga-biru.png'">
+  </div>
 
   <!-- ==========================================
        TAG AUDIO HTML5 (BGM PERNIKAHAN)
@@ -308,6 +316,14 @@
     <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/85 pointer-events-none -z-10"></div>
     <div class="absolute inset-0 bg-radial from-transparent via-black/30 to-black/80 pointer-events-none -z-10"></div>
 
+    <!-- Ornamen Bunga Biru Sudut Cover (Aksen Elegan & Bersih) -->
+    <div class="absolute -top-4 -left-4 w-28 h-40 sm:w-36 sm:h-52 pointer-events-none select-none z-10 opacity-70 drop-shadow-lg">
+      <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain -rotate-6" onerror="this.src='assets/bunga-biru.png'">
+    </div>
+    <div class="absolute -top-4 -right-4 w-28 h-40 sm:w-36 sm:h-52 pointer-events-none select-none z-10 opacity-70 drop-shadow-lg -scale-x-100">
+      <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain -rotate-6" onerror="this.src='assets/bunga-biru.png'">
+    </div>
+
     <!-- Kilau Emas Halus (Golden Shimmer Sweep) saat Tombol Ditekan -->
     <div id="cover-shimmer" class="golden-shimmer-sweep"></div>
 
@@ -338,15 +354,15 @@
       
       <!-- Teks Di Bagian Atas Shape Nama Tamu (Muncul hanya jika ada nama tamu khusus) -->
       <p id="cover-guest-intro" class="hidden text-xs sm:text-sm text-[#EBF3FA] font-serif italic tracking-wide drop-shadow-md text-center px-2">
-        Kepada Yth Bapak/Ibu/Saudara
+        Kepada Yth Bapak/Ibu/Saudara (i)
       </p>
 
-      <!-- Kotak Nama Tamu Elegan -->
-      <div class="p-3.5 sm:p-4 rounded-2xl sm:rounded-3xl bg-[#FAF9F6]/95 backdrop-blur-md border-2 border-[#C5A059] shadow-2xl text-center space-y-1">
-        <h2 id="guest-name-cover" class="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug px-1 drop-shadow-xs">
-          Kepada Yth Bapak/Ibu/Saudara
+      <!-- Kotak Nama Tamu Elegan (Ukuran Teks Diperkecil Lebih Pas & Rapi) -->
+      <div class="py-2.5 px-4 sm:py-3 sm:px-5 rounded-2xl sm:rounded-3xl bg-[#FAF9F6]/95 backdrop-blur-md border-2 border-[#C5A059] shadow-2xl text-center space-y-1">
+        <h2 id="guest-name-cover" class="font-serif text-base sm:text-lg md:text-xl font-bold text-[#000080] leading-snug px-1 drop-shadow-xs">
+          Kepada Yth Bapak/Ibu/Saudara (i)
         </h2>
-        <p class="text-[10px] sm:text-[11px] text-stone-500 italic font-medium">
+        <p class="text-[9px] sm:text-[10px] text-stone-500 italic font-medium">
           Mohon maaf apabila ada kesalahan penulisan nama/gelar
         </p>
       </div>
@@ -373,6 +389,14 @@
        - Dilanjutkan ke bawah untuk section-section berikutnya (Mempelai, Acara, Countdown, Galeri, Tanda Kasih, Penutup)
   ========================================================================== -->
   <main id="isi-undangan" class="w-full relative">
+
+    <!-- Latar Belakang Bunga Biru Besar Melintang (Fixed, Opacity 10%, Diam Saat Di-scroll) -->
+    <div class="fixed inset-0 pointer-events-none -z-30 overflow-hidden flex items-center justify-center" aria-hidden="true">
+      <img src="assets/bunga-hiasan.png"
+           alt=""
+           class="w-[125vw] max-w-[850px] min-h-[90vh] object-contain opacity-10 select-none rotate-12 filter drop-shadow-sm"
+           onerror="this.src='assets/bunga-biru.png'">
+    </div>
 
     <!-- ------------------------------------------------------------------------
          BAGIAN PALING ATAS ISI UNDANGAN: FULL-SCREEN PHOTO BACKGROUND SECTION
@@ -449,13 +473,21 @@
     <!-- ------------------------------------------------------------------------
          KONTEN DETAIL UNDANGAN (CONTAINER LUXURY PAPER BERBINGKAI ELEGAN)
     ------------------------------------------------------------------------- -->
-    <div class="max-w-xl mx-auto min-h-screen bg-[#FAF9F6] shadow-2xl shadow-stone-300/40 border-x border-[#8FA9C4]/25 relative">
+    <div class="max-w-xl mx-auto min-h-screen bg-[#FAF9F6]/90 backdrop-blur-xs shadow-2xl shadow-stone-300/40 border-x border-[#8FA9C4]/25 relative">
 
       <!-- ----------------------------------------
            SECTION MEMPELAI (THE COUPLE & AYAT SUCI)
       ----------------------------------------- -->
       <section id="mempelai" class="relative px-6 py-12 scroll-mt-6 text-center space-y-10 overflow-hidden">
-        <!-- Ornamen Bunga Sudut (Rapi & Sejajar) -->
+        
+        <!-- Ornamen Bunga Biru Sudut Mewah (Ukuran Proporsional & Rapi) -->
+        <div class="absolute -top-3 -left-4 w-28 h-40 sm:w-32 sm:h-48 pointer-events-none select-none z-10 opacity-85 drop-shadow-md">
+          <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain -rotate-6" onerror="this.src='assets/bunga-biru.png'">
+        </div>
+        <div class="absolute -top-3 -right-4 w-28 h-40 sm:w-32 sm:h-48 pointer-events-none select-none z-10 opacity-85 drop-shadow-md -scale-x-100">
+          <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain -rotate-6" onerror="this.src='assets/bunga-biru.png'">
+        </div>
+
         <!-- Basmalah & Kutipan Ayat Suci -->
         <div class="reveal-fade-up max-w-md mx-auto space-y-3">
           <span class="font-serif text-3xl sm:text-4xl font-bold tracking-widest text-[#B8860B] drop-shadow-xs block leading-relaxed">
@@ -671,6 +703,15 @@
            SECTION COUNTDOWN & GALERI FOTO (5 FOTO)
       ----------------------------------------- -->
       <section id="galeri" class="relative px-6 py-12 scroll-mt-6 text-center space-y-10 overflow-hidden">
+        
+        <!-- Ornamen Bunga Biru Sudut Galeri (Elegan, Sejajar & Estetik) -->
+        <div class="absolute -top-3 -left-4 w-24 h-36 sm:w-28 sm:h-40 pointer-events-none select-none z-10 opacity-80 drop-shadow-md">
+          <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain -rotate-6" onerror="this.src='assets/bunga-biru.png'">
+        </div>
+        <div class="absolute -top-3 -right-4 w-24 h-36 sm:w-28 sm:h-40 pointer-events-none select-none z-10 opacity-80 drop-shadow-md -scale-x-100">
+          <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain -rotate-6" onerror="this.src='assets/bunga-biru.png'">
+        </div>
+
         <!-- Minimalist Gold Corner Accents (Subtle, Neat & Aligned) -->
         <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-6 h-6 pointer-events-none select-none border-t-2 border-l-2 border-[#C5A059]/40 rounded-tl-lg" aria-hidden="true"></div>
         <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 pointer-events-none select-none border-t-2 border-r-2 border-[#C5A059]/40 rounded-tr-lg" aria-hidden="true"></div>
@@ -926,6 +967,14 @@
           </div>
         </div>
 
+        <!-- Ornamen Bunga Biru Sudut Penutup (Elegan, Sejajar & Estetik) -->
+        <div class="absolute -bottom-4 -left-4 w-24 h-36 sm:w-28 sm:h-40 pointer-events-none select-none z-10 opacity-80 drop-shadow-md">
+          <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain rotate-12" onerror="this.src='assets/bunga-biru.png'">
+        </div>
+        <div class="absolute -bottom-4 -right-4 w-24 h-36 sm:w-28 sm:h-40 pointer-events-none select-none z-10 opacity-80 drop-shadow-md -scale-x-100">
+          <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain rotate-12" onerror="this.src='assets/bunga-biru.png'">
+        </div>
+
         <!-- Minimalist Gold Corner Accents (Subtle, Neat & Aligned) -->
         <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-6 h-6 pointer-events-none select-none border-b-2 border-l-2 border-[#C5A059]/40 rounded-bl-lg" aria-hidden="true"></div>
         <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-6 h-6 pointer-events-none select-none border-b-2 border-r-2 border-[#C5A059]/40 rounded-br-lg" aria-hidden="true"></div>
@@ -1122,10 +1171,10 @@
 
         if (!isGeneric && decodedGuest !== '') {
           // Ada nama khusus tamu yang dimasukkan:
-          // Text di atas shape: "Kepada Yth Bapak/Ibu/Saudara"
+          // Text di atas shape: "Kepada Yth Bapak/Ibu/Saudara (i)"
           // Kolom nama: Nama khusus tamu
           if (guestIntroEl) {
-            guestIntroEl.textContent = 'Kepada Yth Bapak/Ibu/Saudara';
+            guestIntroEl.textContent = 'Kepada Yth Bapak/Ibu/Saudara (i)';
             guestIntroEl.classList.remove('hidden');
           }
           if (guestCoverEl) {
@@ -1133,22 +1182,22 @@
           }
         } else {
           // Tidak ada nama khusus tamu (atau bernilai generik "Tamu Undangan"):
-          // Hilangkan teks di atasnya, kolom nama diubah jadi "Kepada Yth Bapak/Ibu/Saudara"
+          // Hilangkan teks di atasnya, kolom nama diubah jadi "Kepada Yth Bapak/Ibu/Saudara (i)"
           if (guestIntroEl) {
             guestIntroEl.classList.add('hidden');
           }
           if (guestCoverEl) {
-            guestCoverEl.textContent = 'Kepada Yth Bapak/Ibu/Saudara';
+            guestCoverEl.textContent = 'Kepada Yth Bapak/Ibu/Saudara (i)';
           }
         }
       } else {
         // Tidak ada nama khusus tamu yang dimasukkan di URL parameter:
-        // Hilangkan teks di atasnya, dan kolom nama: "Kepada Yth Bapak/Ibu/Saudara"
+        // Hilangkan teks di atasnya, dan kolom nama: "Kepada Yth Bapak/Ibu/Saudara (i)"
         if (guestIntroEl) {
           guestIntroEl.classList.add('hidden');
         }
         if (guestCoverEl) {
-          guestCoverEl.textContent = 'Kepada Yth Bapak/Ibu/Saudara';
+          guestCoverEl.textContent = 'Kepada Yth Bapak/Ibu/Saudara (i)';
         }
       }
 

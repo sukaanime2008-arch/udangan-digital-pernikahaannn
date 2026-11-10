@@ -169,6 +169,18 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#181716] selection:bg-[#D4A5A5]/30 selection:text-[#181716] relative overflow-x-hidden">
+      {/* Latar Belakang Bunga Biru Besar Melintang (Fixed, Opacity 10%, Diam Saat Di-scroll) */}
+      <div className="fixed inset-0 pointer-events-none -z-30 overflow-hidden flex items-center justify-center" aria-hidden="true">
+        <img
+          src="/assets/bunga-hiasan.png"
+          alt=""
+          className="w-[125vw] max-w-[850px] min-h-[90vh] object-contain opacity-10 select-none rotate-12 filter drop-shadow-sm"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = '/assets/bunga-biru.png';
+          }}
+        />
+      </div>
+
       {/* 3D Pastel Blue Envelope with Soft Rose Pink Background on initial load */}
       <EnvelopeCover
         guestName={guestName}
