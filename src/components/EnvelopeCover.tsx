@@ -165,26 +165,8 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
               <line x1="360" y1="0" x2="180" y2="148" stroke="#C5A059" strokeWidth="1.5" opacity="0.75" />
             </svg>
 
-            {/* Circular Photo Frame on Envelope Flap with Refined Blue Floral Accents (Grand Size Harmonious with Main Page) */}
+            {/* Circular Photo Frame on Envelope Flap with Refined Clean Gold Border */}
             <div className="absolute left-1/2 -translate-x-1/2 top-[-6px] sm:top-[-10px] flex items-center justify-center pointer-events-none select-none z-20">
-              {/* Left Blue Floral Ornament (Enlarged for Mobile - Flanking Left Side) */}
-              <div className="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-18 sm:w-20 md:w-22 h-26 sm:h-28 md:h-32 pointer-events-none select-none z-15 drop-shadow-sm">
-                <img
-                  src="/assets/bunga-cluster.png"
-                  alt=""
-                  className="w-full h-full object-contain opacity-95"
-                />
-              </div>
-
-              {/* Right Blue Floral Ornament (Enlarged for Mobile - Flanking Right Side Mirrored) */}
-              <div className="absolute -right-10 sm:-right-12 top-1/2 -translate-y-1/2 w-18 sm:w-20 md:w-22 h-26 sm:h-28 md:h-32 pointer-events-none select-none z-15 scale-x-[-1] drop-shadow-sm">
-                <img
-                  src="/assets/bunga-cluster.png"
-                  alt=""
-                  className="w-full h-full object-contain opacity-95"
-                />
-              </div>
-
               {/* Delicate Thin Gold Ring Halo Accent */}
               <div className="absolute -inset-1.5 sm:-inset-2 rounded-full border border-[#C5A059]/40 border-dashed pointer-events-none -z-0" />
 

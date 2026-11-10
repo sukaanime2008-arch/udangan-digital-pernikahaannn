@@ -402,6 +402,9 @@ export default function App() {
               </p>
             </div>
           </ScrollReveal>
+
+          <BotanicalCorner position="bottom-left" className="absolute bottom-2 left-2" />
+          <BotanicalCorner position="bottom-right" className="absolute bottom-2 right-2" />
         </section>
 
         {/* =========================================================================
@@ -775,6 +778,9 @@ export default function App() {
               </div>
             </div>
           </ScrollReveal>
+
+          <BotanicalCorner position="bottom-left" className="absolute bottom-2 left-2" />
+          <BotanicalCorner position="bottom-right" className="absolute bottom-2 right-2" />
         </section>
 
         {/* Lightbox Modal for gallery photo viewing */}
@@ -931,6 +937,9 @@ export default function App() {
               </div>
             </div>
           )}
+
+          <BotanicalCorner position="bottom-left" className="absolute bottom-2 left-2" />
+          <BotanicalCorner position="bottom-right" className="absolute bottom-2 right-2" />
         </section>
 
         {/* =========================================================================
@@ -944,12 +953,17 @@ export default function App() {
           <ScrollReveal delay={100}>
             <GuestbookRSVP initialGuestName={guestName !== 'Tamu Undangan Yang Berbahagia' ? guestName : ''} />
           </ScrollReveal>
+
+          <BotanicalCorner position="bottom-left" className="absolute bottom-2 left-2" />
+          <BotanicalCorner position="bottom-right" className="absolute bottom-2 right-2" />
         </section>
 
         {/* =========================================================================
             6. SECTION PENUTUP (CLOSING & HORMAT KAMI YANG MENGUNDANG)
         ========================================================================= */}
-        <section className="px-6 pt-8 pb-28 text-center space-y-8 bg-[#FAF9F6]">
+        <section className="relative px-6 pt-8 pb-28 text-center space-y-8 bg-[#FAF9F6] overflow-hidden">
+          <BotanicalCorner position="top-left" className="absolute top-2 left-2" />
+          <BotanicalCorner position="top-right" className="absolute top-2 right-2" />
           <FloralBranchTop />
 
           <ScrollReveal delay={100} className="max-w-md mx-auto space-y-4">
@@ -1113,6 +1127,9 @@ export default function App() {
               </div>
             </div>
           )}
+
+          <BotanicalCorner position="bottom-left" className="absolute bottom-2 left-2" />
+          <BotanicalCorner position="bottom-right" className="absolute bottom-2 right-2" />
         </section>
       </div>
     </div>
