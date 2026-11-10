@@ -247,17 +247,14 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Menjaga keterbacaan teks di atas latar belakang bunga opacity 50% */
+    .floral-text-legible {
+      text-shadow: 0 0 12px rgba(250, 249, 246, 0.96), 0 1px 4px rgba(250, 249, 246, 0.96);
+    }
   </style>
 </head>
 <body class="bg-[#FAF9F6] text-[#181716] selection:bg-[#D4A5A5]/30 overflow-hidden relative">
-
-  <!-- Latar Belakang Bunga Biru Besar Melintang (Fixed, Opacity 10%, Diam Saat Di-scroll - Mendukung Mobile & Desktop) -->
-  <div class="fixed inset-0 pointer-events-none -z-50 overflow-hidden flex items-center justify-center select-none" aria-hidden="true">
-    <img src="assets/bunga-hiasan.png"
-         alt=""
-         class="w-[140vw] sm:w-[110vw] max-w-[900px] h-auto max-h-[92vh] object-contain opacity-10 select-none rotate-12 filter drop-shadow-sm"
-         onerror="this.src='assets/bunga-biru.png'">
-  </div>
 
   <!-- ==========================================
        TAG AUDIO HTML5 (BGM PERNIKAHAN)
@@ -392,11 +389,11 @@
   ========================================================================== -->
   <main id="isi-undangan" class="w-full relative">
 
-    <!-- Latar Belakang Bunga Biru Besar Melintang (Fixed, Opacity 10%, Diam Saat Di-scroll) -->
-    <div class="fixed inset-0 pointer-events-none -z-30 overflow-hidden flex items-center justify-center" aria-hidden="true">
+    <!-- Latar Belakang Bunga Biru Besar Melintang (Fixed, Opacity 50%, Diam Saat Di-scroll - Mendukung Mobile & Desktop) -->
+    <div class="fixed inset-0 pointer-events-none -z-30 overflow-hidden flex items-center justify-center select-none" aria-hidden="true">
       <img src="assets/bunga-hiasan.png"
            alt=""
-           class="w-[125vw] max-w-[850px] min-h-[90vh] object-contain opacity-10 select-none rotate-12 filter drop-shadow-sm"
+           class="w-[130vw] sm:w-[110vw] max-w-[900px] h-auto max-h-[92vh] object-contain opacity-50 select-none rotate-12 filter drop-shadow-sm"
            onerror="this.src='assets/bunga-biru.png'">
     </div>
 
@@ -419,12 +416,12 @@
 
 
 
-      <!-- Ornamen Bunga Biru Sudut Kiri & Kanan Paling Atas Isi Undangan (Sejajar & Simetris) -->
+      <!-- Ornamen Bunga Biru Sudut Kiri & Kanan Paling Atas Isi Undangan (Diperbesar, Sejajar & Simetris) -->
       <div class="absolute top-0 inset-x-0 flex justify-between items-start pointer-events-none select-none z-10" aria-hidden="true">
-        <div class="-mt-2 -ml-3 sm:-mt-3 sm:-ml-4 w-16 h-24 sm:w-28 sm:h-40 md:w-32 md:h-44 opacity-80 drop-shadow-lg shrink-0">
+        <div class="-mt-2 -ml-4 sm:-mt-3 sm:-ml-4 w-24 h-36 sm:w-32 sm:h-44 md:w-36 md:h-48 opacity-85 drop-shadow-lg shrink-0">
           <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain -rotate-6" onerror="this.src='assets/bunga-biru.png'">
         </div>
-        <div class="-mt-2 -mr-3 sm:-mt-3 sm:-mr-4 w-16 h-24 sm:w-28 sm:h-40 md:w-32 md:h-44 opacity-80 drop-shadow-lg -scale-x-100 shrink-0">
+        <div class="-mt-2 -mr-4 sm:-mt-3 sm:-mr-4 w-24 h-36 sm:w-32 sm:h-44 md:w-36 md:h-48 opacity-85 drop-shadow-lg -scale-x-100 shrink-0">
           <img src="assets/bunga-hiasan.png" alt="" class="w-full h-full object-contain -rotate-6" onerror="this.src='assets/bunga-biru.png'">
         </div>
       </div>
@@ -485,7 +482,7 @@
     <!-- ------------------------------------------------------------------------
          KONTEN DETAIL UNDANGAN (CONTAINER LUXURY PAPER BERBINGKAI ELEGAN)
     ------------------------------------------------------------------------- -->
-    <div class="max-w-xl mx-auto min-h-screen bg-[#FAF9F6]/90 backdrop-blur-xs shadow-2xl shadow-stone-300/40 border-x border-[#8FA9C4]/25 relative">
+    <div class="max-w-xl mx-auto min-h-screen bg-[#FAF9F6]/10 shadow-2xl shadow-stone-300/40 border-x border-[#8FA9C4]/25 relative">
 
       <!-- ----------------------------------------
            SECTION MEMPELAI (THE COUPLE & AYAT SUCI)
@@ -504,7 +501,7 @@
 
         <div class="relative z-20 space-y-10">
           <!-- Basmalah & Kutipan Ayat Suci -->
-          <div class="reveal-fade-up max-w-md mx-auto space-y-3">
+          <div class="reveal-fade-up max-w-md mx-auto space-y-3 floral-text-legible">
             <span class="font-serif text-3xl sm:text-4xl font-bold tracking-widest text-[#B8860B] drop-shadow-xs block leading-relaxed">
               بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
             </span>
@@ -538,7 +535,7 @@
               </div>
             </div>
 
-            <div class="w-full max-w-sm px-4 text-center space-y-1.5">
+            <div class="w-full max-w-sm px-4 text-center space-y-1.5 floral-text-legible">
               <span class="text-xs uppercase tracking-[0.25em] text-[#B87A7A] font-extrabold block">
                 Mempelai Wanita
               </span>
@@ -577,7 +574,7 @@
               </div>
             </div>
 
-            <div class="w-full max-w-sm px-4 text-center space-y-1.5">
+            <div class="w-full max-w-sm px-4 text-center space-y-1.5 floral-text-legible">
               <span class="text-xs uppercase tracking-[0.25em] text-[#000080] font-extrabold block">
                 Mempelai Pria
               </span>
@@ -606,7 +603,7 @@
       <section id="acara" class="relative px-6 py-12 scroll-mt-6 text-center overflow-hidden">
 
         <div class="relative z-20 space-y-8">
-          <div class="reveal-fade-up max-w-md mx-auto space-y-2">
+          <div class="reveal-fade-up max-w-md mx-auto space-y-2 floral-text-legible">
             <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold block">
               Rangkaian Acara
             </span>
@@ -743,13 +740,15 @@
         <div class="relative z-20 space-y-10">
           <!-- Countdown Timer -->
           <div class="reveal-fade-up space-y-3">
-            <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
-              Menghitung Hari
-            </span>
-            <h3 class="font-serif text-3xl font-bold text-[#181716]">Hitung Mundur Acara</h3>
-            <p class="text-xs text-[#252423] max-w-sm mx-auto font-medium">
-              Setiap detik menuju ikatan suci yang dinantikan bersama keluarga dan para sahabat
-            </p>
+            <div class="space-y-3 floral-text-legible">
+              <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
+                Menghitung Hari
+              </span>
+              <h3 class="font-serif text-3xl font-bold text-[#181716]">Hitung Mundur Acara</h3>
+              <p class="text-xs text-[#252423] max-w-sm mx-auto font-medium">
+                Setiap detik menuju ikatan suci yang dinantikan bersama keluarga dan para sahabat
+              </p>
+            </div>
 
             <!-- 4 Kotak Countdown Mewah -->
             <div class="grid grid-cols-4 gap-2.5 max-w-sm mx-auto pt-2">
@@ -774,7 +773,7 @@
 
           <!-- Galeri Foto: 5 Foto (Foto 1 Landscape di Atas, Foto 2-5 Portrait di Bawah) -->
           <div class="space-y-4">
-            <div class="reveal-fade-up">
+            <div class="reveal-fade-up floral-text-legible">
               <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
                 Memori Indah
               </span>
@@ -859,7 +858,7 @@
         </div>
 
         <div class="relative z-20 space-y-6">
-          <div class="reveal-fade-up space-y-2">
+          <div class="reveal-fade-up space-y-2 floral-text-legible">
             <div class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full bg-[#8FA9C4]/15 border border-[#8FA9C4]/35 text-[#000080] text-xs font-bold uppercase tracking-widest shadow-2xs">
               <span>🎁 Tanda Kasih</span>
             </div>
@@ -950,7 +949,7 @@
       <!-- ----------------------------------------
            SECTION PENUTUP & KELUARGA
       ----------------------------------------- -->
-      <section id="penutup" class="relative px-6 pt-12 pb-40 sm:pb-48 text-center bg-[#FAF9F6] overflow-hidden">
+      <section id="penutup" class="relative px-6 pt-12 pb-40 sm:pb-48 text-center bg-transparent overflow-hidden">
         <!-- Minimalist Gold Corner Accents (Subtle, Neat & Aligned) -->
         <div class="absolute top-3 inset-x-3 sm:top-4 sm:inset-x-4 flex justify-between items-start pointer-events-none select-none z-10" aria-hidden="true">
           <div class="w-6 h-6 border-t-2 border-l-2 border-[#C5A059]/40 rounded-tl-lg"></div>
@@ -959,13 +958,15 @@
 
         <div class="relative z-20 space-y-8">
           <div class="reveal-fade-up max-w-md mx-auto space-y-3">
-            <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
-              Ungkapan Hormat
-            </span>
-            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-[#181716]">
-              Hormat Kami Yang Mengundang
-            </h3>
-            <p class="text-xs text-[#252423] font-medium">Keluarga Besar &amp; Kedua Mempelai:</p>
+            <div class="space-y-3 floral-text-legible">
+              <span class="text-xs uppercase tracking-[0.25em] font-sans text-[#000080] font-extrabold">
+                Ungkapan Hormat
+              </span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-[#181716]">
+                Hormat Kami Yang Mengundang
+              </h3>
+              <p class="text-xs text-[#252423] font-medium">Keluarga Besar &amp; Kedua Mempelai:</p>
+            </div>
 
             <!-- Kartu Keluarga Terstruktur -->
             <div class="p-5 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-sm border border-[#8FA9C4]/35 shadow-xs text-left space-y-3">
@@ -991,7 +992,7 @@
             </div>
           </div>
 
-          <div class="reveal-fade-up max-w-md mx-auto pt-2 space-y-3">
+          <div class="reveal-fade-up max-w-md mx-auto pt-2 space-y-3 floral-text-legible">
             <p class="text-xs sm:text-sm text-[#252423] leading-relaxed font-semibold">
               Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.
             </p>
@@ -1074,7 +1075,7 @@
           </div>
 
           <!-- FOOTER DENGAN TRIGGER KUNCI SANDI "waliwali" -->
-          <footer class="pt-8 pb-4 text-center border-t border-stone-200/80">
+          <footer class="pt-8 pb-4 text-center border-t border-stone-200/80 floral-text-legible">
             <button id="btn-trigger-waliwali"
                     type="button"
                     class="group inline-flex flex-col items-center justify-center py-2 px-4 rounded-2xl hover:bg-sky-50 transition-colors cursor-pointer select-none">
