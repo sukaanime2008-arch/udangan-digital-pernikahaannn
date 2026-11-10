@@ -40,7 +40,7 @@ export const CountdownTimer: React.FC = () => {
   const getGoogleCalendarUrl = () => {
     const title = encodeURIComponent("Pernikahan Nur & Udi");
     const details = encodeURIComponent(
-      "Akad (09.00 WITA) & Resepsi (11.00 WITA s/d Selesai) Pernikahan Nurhidayah, S.Pd (Nur) & Muh. Saifuddin Assa'diah, S.Hf (Udi). Lokasi: Jl. Ranggong Dg Romo No. 56 B, Sinjai (Samping Mesjid Khaerussaadah Kalaka)."
+      "Akad (09.00 WITA) & Resepsi (11.00 WITA s/d Selesai) Pernikahan Nurhidayah, S.Pd (Nur) & Muh. Saifuddin Assa'diah, S.H (Udi). Lokasi: Jl. Ranggong Dg Romo No. 56 B, Sinjai (Samping Mesjid Khaerussaadah Kalaka)."
     );
     const location = encodeURIComponent(
       "Jl. Ranggong Dg Romo No. 56 B, Lingk. Taipa Kel. Biringere Kec. Sinjai Utara, Kab. Sinjai (Samping Mesjid Khaerussaadah Kalaka)"
@@ -57,7 +57,7 @@ export const CountdownTimer: React.FC = () => {
       'PRODID:-//Nur and Udi Wedding//EN',
       'BEGIN:VEVENT',
       'SUMMARY:Pernikahan Nur & Udi (Nurhidayah & Muh. Saifuddin)',
-      'DESCRIPTION:Akad (09.00 WITA) & Resepsi (11.00 WITA s/d Selesai) Pernikahan Nurhidayah, S.Pd (Nur) & Muh. Saifuddin Assa\'diah, S.Hf (Udi)',
+      'DESCRIPTION:Akad (09.00 WITA) & Resepsi (11.00 WITA s/d Selesai) Pernikahan Nurhidayah, S.Pd (Nur) & Muh. Saifuddin Assa\'diah, S.H (Udi)',
       'LOCATION:Jl. Ranggong Dg Romo No. 56 B, Lingk. Taipa Kel. Biringere Kec. Sinjai Utara, Kab. Sinjai (Samping Mesjid Khaerussaadah Kalaka)',
       'DTSTART:20261222T010000Z',
       'DTEND:20261222T100000Z',

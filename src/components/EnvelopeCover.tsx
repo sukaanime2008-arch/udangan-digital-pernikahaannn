@@ -192,11 +192,11 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
               <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full p-[2px] sm:p-[2.5px] bg-gradient-to-tr from-[#C5A059] via-[#FFF3D6] to-[#9E7E3E] shadow-xl z-10 ring-1 ring-white/80">
                 <div className="w-full h-full rounded-full overflow-hidden border border-white/90 bg-[#FAF9F6] shadow-inner">
                   <img
-                    src="/assets/foto-pasangan.jpg"
+                    src="/assets/sampul-cover.jpg"
                     alt="Foto Pasangan Nur & Udi"
                     className="w-full h-full object-cover object-[center_18%]"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/assets/hero.jpg';
+                      (e.target as HTMLImageElement).src = '/assets/foto-pasangan.jpg';
                     }}
                   />
                 </div>

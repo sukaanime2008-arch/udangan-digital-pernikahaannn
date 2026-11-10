@@ -35,7 +35,8 @@ import { CoupleSilhouetteIcon } from './components/CoupleSilhouetteIcon';
 
 // Image assets stored cleanly in assets/
 const IMAGES = {
-  cover: '/assets/foto-pasangan.jpg',
+  cover: '/assets/sampul-cover.jpg',
+  hero: '/assets/foto-pasangan.jpg',
   groom: '/assets/aistudio/kkl_5cb94ce9.png', // Foto Mempelai Pria (Muh. Saifuddin Assa'diah)
   bride: '/assets/aistudio/pere_4537ba05.png', // Foto Mempelai Wanita (Nurhidayah)
   galeri1: '/assets/galeri-1.jpg', // Landscape (Seated on grass)
@@ -240,14 +241,14 @@ export default function App() {
           </ScrollReveal>
 
           {/* Title & Couple Names - Tightly pulled upward under arch frame */}
-          <ScrollReveal delay={200} className="space-y-0.5 sm:space-y-1 z-10 mt-1 mb-1">
-            <p className="text-[10.5px] sm:text-xs font-serif tracking-[0.25em] text-[#000080] uppercase font-bold">
+          <ScrollReveal delay={200} className="space-y-1 sm:space-y-1.5 z-10 mt-3 mb-2">
+            <p className="text-xs sm:text-sm font-serif tracking-[0.3em] text-[#000080] uppercase font-bold">
               The Wedding of
             </p>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#181716] tracking-tight leading-none my-0.5">
-              Nur <span className="font-script text-2xl sm:text-3xl text-[#B87A7A] mx-0.5">&amp;</span> Udi
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#181716] tracking-tight leading-none my-1">
+              Nur <span className="font-script text-4xl sm:text-5xl md:text-6xl text-[#B87A7A] mx-1">&amp;</span> Udi
             </h1>
-            <p className="text-[10.5px] sm:text-xs text-[#000080] tracking-wide font-sans font-bold">
+            <p className="text-xs sm:text-sm text-[#000080] tracking-wide font-sans font-bold">
               Selasa, 22 Desember 2026 · Sinjai, Sulawesi Selatan
             </p>
           </ScrollReveal>
@@ -378,7 +379,7 @@ export default function App() {
                 <div className="w-full h-full arch-frame overflow-hidden relative group shadow-sm">
                   <img
                     src={IMAGES.groom}
-                    alt="Muh. Saifuddin Assa'diah, S.Hf (Udi)"
+                    alt="Muh. Saifuddin Assa'diah, S.H (Udi)"
                     className="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
@@ -394,7 +395,7 @@ export default function App() {
                 Mempelai Pria
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#181716]">
-                Muh. Saifuddin Assa'diah, S.Hf (Udi)
+                Muh. Saifuddin Assa'diah, S.H (Udi)
               </h3>
               <p className="text-xs sm:text-sm text-[#252423] leading-relaxed max-w-xs mx-auto font-semibold">
                 (Putra Pertama dari Bapak As'ad Mustamin BA dan Ibu Dra. Ruhbiah Hasan)

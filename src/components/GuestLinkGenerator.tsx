@@ -33,7 +33,7 @@ Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i un
 
 *Nurhidayah, S.Pd (Nur)*
 &
-*Muh. Saifuddin Assa'diah, S.Hf (Udi)*
+*Muh. Saifuddin Assa'diah, S.H (Udi)*
 
 Yang InsyaAllah akan diselenggarakan pada:
 🗓️ *Hari/Tgl:* Selasa, 22 Desember 2026
