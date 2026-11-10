@@ -253,22 +253,22 @@
   </audio>
 
   <!-- ==========================================
-       TOMBOL FLOATING MUSIK VINYL (SUDUT ATAS KANAN)
+       TOMBOL FLOATING MUSIK VINYL (SUDUT ATAS KANAN - UKURAN LEBIH KECIL & ELEGAN)
   =========================================== -->
-  <div class="fixed top-4 right-4 z-50">
+  <div class="fixed top-3.5 right-3.5 sm:top-4 sm:right-4 z-50">
     <button id="music-toggle-btn"
             type="button"
             aria-label="Putar / Jeda Lagu Pernikahan"
-            class="flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#C5A059] shadow-lg shadow-black/10 text-[#181716] hover:border-[#000080] transition-all active:scale-95 cursor-pointer">
-      <div id="vinyl-disc" class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#000080] via-[#6387A5] to-[#8FA9C4] flex items-center justify-center shadow-xs">
-        <div class="w-2.5 h-2.5 rounded-full bg-[#FAF9F6] border border-[#C5A059]"></div>
+            class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#C5A059] shadow-md shadow-black/10 text-[#181716] hover:border-[#000080] transition-all active:scale-95 cursor-pointer">
+      <div id="vinyl-disc" class="w-5 h-5 rounded-full bg-gradient-to-tr from-[#000080] via-[#6387A5] to-[#8FA9C4] flex items-center justify-center shadow-xs">
+        <div class="w-1.5 h-1.5 rounded-full bg-[#FAF9F6] border border-[#C5A059]"></div>
       </div>
-      <div class="flex items-center gap-1.5">
-        <span id="music-label" class="text-xs font-serif font-bold text-[#000080]">Putar Musik</span>
-        <svg id="music-icon-playing" class="w-4 h-4 text-[#C5A059] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="flex items-center gap-1">
+        <span id="music-label" class="text-[10px] sm:text-[11px] font-serif font-bold text-[#000080]">Putar Musik</span>
+        <svg id="music-icon-playing" class="w-3 h-3 text-[#C5A059] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
         </svg>
-        <svg id="music-icon-paused" class="w-4 h-4 text-[#8FA9C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="music-icon-paused" class="w-3 h-3 text-[#8FA9C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
         </svg>
@@ -315,27 +315,35 @@
     </div>
 
     <!-- KONTEN SAMPUL ATAS: Kicker "THE WEDDING OF", Nama Pasangan & Tanggal -->
-    <div id="cover-top-content" class="relative z-20 pt-8 sm:pt-12 max-w-lg mx-auto space-y-2.5 transition-all duration-700 ease-out">
-      <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-[#C5A059]/60 shadow-lg text-[#FFF2D6] text-xs font-sans uppercase tracking-[0.3em] font-bold">
-        <span>The Wedding Of</span>
-      </div>
+    <div id="cover-top-content" class="relative z-20 pt-8 sm:pt-12 max-w-lg mx-auto space-y-1.5 sm:space-y-2 transition-all duration-700 ease-out">
+      <!-- The Wedding of (Mungil, Elegan Tanpa Shape Box) -->
+      <p class="text-[10px] sm:text-xs font-sans uppercase tracking-[0.35em] text-[#FFF2D6] font-semibold drop-shadow-md">
+        The Wedding of
+      </p>
 
-      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-xl leading-tight">
-        Nur <span class="font-script text-4xl sm:text-5xl md:text-6xl text-[#D4A5A5] mx-1 drop-shadow-lg">&amp;</span> Udi
+      <!-- Inisial Nama Mempelai Nur & Udi (Lebih Besar & Megah) -->
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight drop-shadow-2xl leading-none py-0.5 sm:py-1">
+        Nur <span class="font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#D4A5A5] mx-1 sm:mx-2 drop-shadow-xl">&amp;</span> Udi
       </h1>
 
-      <div class="flex items-center justify-center gap-2.5 text-xs sm:text-sm font-sans tracking-wider text-[#EBF3FA] font-medium drop-shadow-md">
+      <!-- Tanggal (Didekatkan Sedikit ke Atas) -->
+      <div class="flex items-center justify-center gap-2.5 text-xs sm:text-sm font-sans tracking-wider text-[#EBF3FA] font-medium drop-shadow-md -mt-1 sm:-mt-1.5">
         <span class="w-6 sm:w-8 h-[1px] bg-[#C5A059]"></span>
         <span>Selasa, 22 Desember 2026</span>
         <span class="w-6 sm:w-8 h-[1px] bg-[#C5A059]"></span>
       </div>
     </div>
 
-    <!-- KONTEN SAMPUL BAWAH: Kotak Nama Tamu Dinamis (Bersih tanpa teks 'Undangan Digital' & 'Kepada Yth.') & Tombol Buka Undangan -->
-    <div id="cover-bottom-content" class="relative z-20 pb-6 sm:pb-10 w-full max-w-sm sm:max-w-md mx-auto space-y-3.5 transition-all duration-700 ease-out">
+    <!-- KONTEN SAMPUL BAWAH: Pesan Harapan, Kotak Nama Tamu Dinamis & Tombol Buka Undangan -->
+    <div id="cover-bottom-content" class="relative z-20 pb-5 sm:pb-8 w-full max-w-sm sm:max-w-md mx-auto space-y-2.5 sm:space-y-3 transition-all duration-700 ease-out">
       
-      <!-- Kotak Nama Tamu Elegan (Teks 'Undangan Digital' dan 'Kepada Yth.' Dihapus Bersih) -->
-      <div class="p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-[#FAF9F6]/95 backdrop-blur-md border-2 border-[#C5A059] shadow-2xl text-center space-y-1">
+      <!-- Teks Di Bagian Atas Shape Nama Tamu -->
+      <p class="text-xs sm:text-sm text-[#EBF3FA] font-serif italic tracking-wide drop-shadow-md text-center px-2">
+        Kami berharap Anda menjadi bagian dari hari istimewa kami
+      </p>
+
+      <!-- Kotak Nama Tamu Elegan -->
+      <div class="p-3.5 sm:p-4 rounded-2xl sm:rounded-3xl bg-[#FAF9F6]/95 backdrop-blur-md border-2 border-[#C5A059] shadow-2xl text-center space-y-1">
         <h2 id="guest-name-cover" class="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug px-1 drop-shadow-xs">
           Tamu Undangan Yang Berbahagia
         </h2>
@@ -344,19 +352,16 @@
         </p>
       </div>
 
-      <!-- Tombol Utama: Buka Undangan -->
-      <div class="pt-1">
+      <!-- Tombol Utama: Buka Undangan (Dikecilkan Sedikit & Dinaikkan ke Atas, Tanpa Teks di Bawahnya) -->
+      <div class="pt-0 -mt-1 flex justify-center">
         <button id="btn-open-cover"
                 type="button"
-                class="w-full group flex items-center justify-center gap-2.5 py-4 px-6 rounded-full bg-gradient-to-r from-[#6387A5] to-[#4F7391] hover:from-[#547896] hover:to-[#416480] text-white font-bold text-sm sm:text-base shadow-xl shadow-[#000080]/40 border-2 border-[#C5A059] transition-all duration-300 active:scale-95 hover:shadow-2xl hover:shadow-[#C5A059]/40 cursor-pointer">
-          <svg class="w-5 h-5 text-[#FFF2D6] transition-transform group-hover:rotate-12 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                class="w-auto min-w-[210px] sm:min-w-[230px] group flex items-center justify-center gap-2 py-2.5 sm:py-3 px-5 sm:px-6 rounded-full bg-gradient-to-r from-[#6387A5] to-[#4F7391] hover:from-[#547896] hover:to-[#416480] text-white font-bold text-xs sm:text-sm shadow-xl shadow-[#000080]/40 border-2 border-[#C5A059] transition-all duration-300 active:scale-95 hover:shadow-2xl hover:shadow-[#C5A059]/40 cursor-pointer">
+          <svg class="w-4 h-4 text-[#FFF2D6] transition-transform group-hover:rotate-12 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
           <span class="tracking-wide">Buka Undangan</span>
         </button>
-        <p class="text-[11px] text-[#FAF9F6]/85 drop-shadow-sm font-medium mt-2">
-          Ketuk tombol untuk membuka undangan &amp; memutar musik
-        </p>
       </div>
 
     </div>
@@ -402,49 +407,49 @@
       </div>
 
       <!-- KONTEN BAGIAN PALING ATAS: Walimatul 'Ursy & Save The Date -->
-      <div class="hero-reveal relative z-20 pt-8 sm:pt-12 max-w-lg mx-auto space-y-1.5 sm:space-y-2">
-        <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-[#C5A059]/60 shadow-lg text-[#FFF2D6] text-xs font-sans uppercase tracking-[0.3em] font-bold">
+      <div class="hero-reveal relative z-20 pt-5 sm:pt-8 max-w-lg mx-auto space-y-1 sm:space-y-1.5">
+        <div class="inline-flex items-center justify-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-[#C5A059]/60 shadow-lg text-[#FFF2D6] text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] font-bold">
           <span>Walimatul 'Ursy</span>
         </div>
-        <p class="text-xs sm:text-sm font-sans tracking-widest text-[#EBF3FA] font-medium uppercase drop-shadow-sm">
+        <p class="text-[10px] sm:text-xs font-sans tracking-widest text-[#EBF3FA] font-medium uppercase drop-shadow-sm">
           Save The Date
         </p>
       </div>
 
-      <!-- KELOMPOK TEKS BAGIAN BAWAH (THE WEDDING OF, NUR & UDI BESAR, TANGGAL & LOKASI SINJAI LEBIH DEKAT) -->
+      <!-- KELOMPOK TEKS BAGIAN BAWAH (THE WEDDING OF, NUR & UDI BESAR, TANGGAL & PESAN HARAPAN) -->
       <div class="relative z-20 w-full max-w-xl mx-auto flex flex-col items-center mt-auto mb-2 sm:mb-3">
         
-        <div class="hero-reveal w-full space-y-2 sm:space-y-2.5 mb-3 sm:mb-4">
+        <div class="hero-reveal w-full space-y-1.5 sm:space-y-2 mb-2 sm:mb-2.5">
           <!-- The Wedding of -->
-          <p class="text-xs sm:text-sm font-serif uppercase tracking-[0.35em] text-[#C5A059] font-bold drop-shadow-md">
+          <p class="text-[11px] sm:text-xs font-serif uppercase tracking-[0.35em] text-[#C5A059] font-bold drop-shadow-md">
             The Wedding of
           </p>
 
-          <!-- Inisial Nama Nur & Udi (Dibuat Lebih Besar & Megah) -->
-          <h2 class="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[7rem] font-bold text-white tracking-tight drop-shadow-2xl leading-none">
-            Nur <span class="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[7rem] text-[#D4A5A5] mx-1 sm:mx-2 drop-shadow-xl">&amp;</span> Udi
+          <!-- Inisial Nama Nur & Udi (Besar, Mewah & Proporsional) -->
+          <h2 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight drop-shadow-2xl leading-none">
+            Nur <span class="font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#D4A5A5] mx-1 sm:mx-2 drop-shadow-xl">&amp;</span> Udi
           </h2>
 
           <!-- Detail Tanggal Acara -->
-          <div class="flex items-center justify-center gap-3 pt-1 text-xs sm:text-sm md:text-base font-sans tracking-wider text-[#EBF3FA] font-semibold drop-shadow-md">
-            <span class="w-8 sm:w-14 h-[1.5px] bg-[#C5A059]"></span>
+          <div class="flex items-center justify-center gap-3 pt-0.5 text-xs sm:text-sm md:text-base font-sans tracking-wider text-[#EBF3FA] font-semibold drop-shadow-md">
+            <span class="w-7 sm:w-12 h-[1.5px] bg-[#C5A059]"></span>
             <span>Selasa, 22 Desember 2026</span>
-            <span class="w-8 sm:w-14 h-[1.5px] bg-[#C5A059]"></span>
+            <span class="w-7 sm:w-12 h-[1.5px] bg-[#C5A059]"></span>
           </div>
 
-          <!-- Detail Lokasi (Dibuat Lebih Dekat dengan Teks Tanggal di Atasnya) -->
-          <p class="text-[11px] sm:text-xs md:text-sm text-[#8FA9C4] font-bold tracking-widest uppercase drop-shadow-md -mt-0.5 sm:-mt-1">
-            Sinjai, Sulawesi Selatan
+          <!-- Pesan Harapan (Menggantikan Teks Sinjai, Sulawesi Selatan) -->
+          <p class="text-xs sm:text-sm text-[#EBF3FA] font-serif italic tracking-wide drop-shadow-md pt-0.5 px-3">
+            Kami berharap Anda menjadi bagian dari hari istimewa kami
           </p>
         </div>
 
-        <!-- Penunjuk Gulir ke Bawah -->
-        <div class="hero-reveal flex flex-col items-center gap-1.5 text-white/90 pt-1 pb-1">
-          <span class="text-[10px] sm:text-[11px] font-sans tracking-widest uppercase font-semibold text-[#FFF2D6] drop-shadow-sm">
+        <!-- Penunjuk Gulir ke Bawah (Dikecilkan & Pas Dalam Satu Frame) -->
+        <div class="hero-reveal flex flex-col items-center gap-1 text-white/90 pt-0.5">
+          <span class="text-[9px] sm:text-[10px] font-sans tracking-widest uppercase font-semibold text-[#FFF2D6] drop-shadow-sm">
             Gulir ke Bawah
           </span>
-          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg animate-bounce-slow">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFF2D6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-md animate-bounce-slow">
+            <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFF2D6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
             </svg>
           </div>
