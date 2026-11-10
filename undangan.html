@@ -112,14 +112,20 @@
 
     .reveal-bloom {
       opacity: 0;
-      transform: scale(0.35);
-      transition: opacity 0.65s ease-out, transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1);
+      transform: scale(0.4);
+      transition: opacity 0.7s ease-out, transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1);
       will-change: opacity, transform;
     }
     .reveal-bloom.active {
-      opacity: 0.8;
+      opacity: 0.85;
       transform: scale(1);
     }
+
+    /* Precision Floral Corner Alignment & Symmetry */
+    .floral-corner-tl { transform: none; }
+    .floral-corner-tr { transform: scaleX(-1); }
+    .floral-corner-bl { transform: scaleY(-1); }
+    .floral-corner-br { transform: scale(-1, -1); }
 
     .delay-100 { transition-delay: 100ms; }
     .delay-150 { transition-delay: 150ms; }
@@ -301,16 +307,16 @@
     <div id="cover-shimmer" class="golden-shimmer-sweep"></div>
 
     <!-- Ornamen Bunga Ilustrasi Cat Air Biru-Navy di Sudut-Sudut (Opacity-80, Rapi & Sejajar) -->
-    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10">
+    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10 floral-corner-tl">
       <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
     </div>
-    <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 scale-x-[-1] drop-shadow-md z-10">
+    <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10 floral-corner-tr">
       <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
     </div>
-    <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 scale-y-[-1] drop-shadow-md z-10">
+    <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10 floral-corner-bl">
       <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
     </div>
-    <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 scale-[-1] drop-shadow-md z-10">
+    <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10 floral-corner-br">
       <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
     </div>
 
@@ -393,16 +399,16 @@
       <div class="absolute inset-0 bg-radial from-transparent via-black/15 to-black/60 pointer-events-none -z-10"></div>
 
       <!-- Ornamen Bunga Ilustrasi Cat Air di Sudut-Sudut (Opacity-80, Rapi & Sejajar) -->
-      <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10">
+      <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10 floral-corner-tl">
         <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
       </div>
-      <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 scale-x-[-1] drop-shadow-md z-10">
+      <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10 floral-corner-tr">
         <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
       </div>
-      <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 scale-y-[-1] drop-shadow-md z-10">
+      <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10 floral-corner-bl">
         <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
       </div>
-      <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 scale-[-1] drop-shadow-md z-10">
+      <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-16 h-20 sm:w-20 sm:h-24 md:w-22 md:h-28 pointer-events-none select-none opacity-80 drop-shadow-md z-10 floral-corner-br">
         <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
       </div>
 
@@ -469,11 +475,15 @@
       ----------------------------------------- -->
       <section id="mempelai" class="relative px-6 py-12 scroll-mt-6 text-center space-y-10 overflow-hidden">
         <!-- Ornamen Bunga Sudut (Rapi & Sejajar) -->
-        <div class="absolute top-3 left-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tl">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
-        <div class="absolute top-3 right-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom scale-x-[-1] opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tr">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
 
         <!-- Basmalah & Kutipan Ayat Suci -->
@@ -524,13 +534,15 @@
           </div>
         </div>
 
-        <!-- "Dengan" Badge -->
-        <div class="reveal-bloom flex items-center justify-center my-4">
+        <!-- "Dengan" Floral Transition -->
+        <div class="reveal-bloom flex items-center justify-center gap-3 my-5">
+          <span class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></span>
           <div class="px-6 py-2 rounded-full bg-[#FAF9F6] border border-[#C5A059]/60 shadow-xs flex items-center justify-center">
             <span class="font-serif italic text-lg sm:text-xl text-[#000080] font-bold tracking-wider">
               Dengan
             </span>
           </div>
+          <span class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></span>
         </div>
 
         <!-- Profil Mempelai Pria (Groom) -->
@@ -563,25 +575,29 @@
 
       </section>
 
-      <!-- Pembatas Floral Emas -->
-      <div class="flex items-center justify-center gap-3 my-4 px-6 text-[#C5A059]">
-        <span class="h-[1px] w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
-        <div class="w-5 h-5 pointer-events-none select-none">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-80" onerror="this.src='assets/bunga-biru.png'">
+      <!-- Pembatas Floral Emas (Rapi, Sejajar, & Proporsional) -->
+      <div class="flex items-center justify-center gap-3 my-6 sm:my-8 px-6 text-[#C5A059] reveal-fade-up">
+        <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-r from-transparent to-[#C5A059]/80"></span>
+        <div class="w-7 h-7 sm:w-8 sm:h-8 pointer-events-none select-none drop-shadow-xs">
+          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-85" onerror="this.src='assets/bunga-biru.png'">
         </div>
-        <span class="h-[1px] w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+        <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-l from-transparent to-[#C5A059]/80"></span>
       </div>
 
       <!-- ----------------------------------------
            SECTION ACARA (RANGKAIAN ACARA & LOKASI)
       ----------------------------------------- -->
-      <section id="acara" class="relative px-6 py-10 scroll-mt-6 text-center space-y-8 overflow-hidden">
+      <section id="acara" class="relative px-6 py-12 scroll-mt-6 text-center space-y-8 overflow-hidden">
         <!-- Ornamen Bunga Sudut (Rapi & Sejajar) -->
-        <div class="absolute top-3 left-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tl">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
-        <div class="absolute top-3 right-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom scale-x-[-1] opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tr">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
 
         <div class="reveal-fade-up max-w-md mx-auto space-y-2">
@@ -683,25 +699,29 @@
 
       </section>
 
-      <!-- Pembatas Floral Emas -->
-      <div class="flex items-center justify-center gap-3 my-4 px-6 text-[#C5A059]">
-        <span class="h-[1px] w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
-        <div class="w-5 h-5 pointer-events-none select-none">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-80" onerror="this.src='assets/bunga-biru.png'">
+      <!-- Pembatas Floral Emas (Rapi, Sejajar, & Proporsional) -->
+      <div class="flex items-center justify-center gap-3 my-6 sm:my-8 px-6 text-[#C5A059] reveal-fade-up">
+        <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-r from-transparent to-[#C5A059]/80"></span>
+        <div class="w-7 h-7 sm:w-8 sm:h-8 pointer-events-none select-none drop-shadow-xs">
+          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-85" onerror="this.src='assets/bunga-biru.png'">
         </div>
-        <span class="h-[1px] w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+        <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-l from-transparent to-[#C5A059]/80"></span>
       </div>
 
       <!-- ----------------------------------------
            SECTION COUNTDOWN & GALERI FOTO (5 FOTO)
       ----------------------------------------- -->
-      <section id="galeri" class="relative px-6 py-10 scroll-mt-6 text-center space-y-10 overflow-hidden">
+      <section id="galeri" class="relative px-6 py-12 scroll-mt-6 text-center space-y-10 overflow-hidden">
         <!-- Ornamen Bunga Sudut (Rapi & Sejajar) -->
-        <div class="absolute top-3 left-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tl">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
-        <div class="absolute top-3 right-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom scale-x-[-1] opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tr">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
         
         <!-- Countdown Timer -->
@@ -797,25 +817,29 @@
 
       </section>
 
-      <!-- Pembatas Floral Emas -->
-      <div class="flex items-center justify-center gap-3 my-4 px-6 text-[#C5A059]">
-        <span class="h-[1px] w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
-        <div class="w-5 h-5 pointer-events-none select-none">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-80" onerror="this.src='assets/bunga-biru.png'">
+      <!-- Pembatas Floral Emas (Rapi, Sejajar, & Proporsional) -->
+      <div class="flex items-center justify-center gap-3 my-6 sm:my-8 px-6 text-[#C5A059] reveal-fade-up">
+        <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-r from-transparent to-[#C5A059]/80"></span>
+        <div class="w-7 h-7 sm:w-8 sm:h-8 pointer-events-none select-none drop-shadow-xs">
+          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-85" onerror="this.src='assets/bunga-biru.png'">
         </div>
-        <span class="h-[1px] w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+        <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-l from-transparent to-[#C5A059]/80"></span>
       </div>
 
       <!-- ----------------------------------------
            TANDA KASIH / DOMPET DIGITAL & REKENING
       ----------------------------------------- -->
-      <section id="tanda-kasih" class="relative px-6 py-10 scroll-mt-6 text-center space-y-6 overflow-hidden">
+      <section id="tanda-kasih" class="relative px-6 py-12 scroll-mt-6 text-center space-y-6 overflow-hidden">
         <!-- Ornamen Bunga Sudut (Rapi & Sejajar) -->
-        <div class="absolute top-3 left-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tl">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
-        <div class="absolute top-3 right-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom scale-x-[-1] opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tr">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
 
         <div class="reveal-fade-up space-y-2">
@@ -892,25 +916,29 @@
 
       </section>
 
-      <!-- Pembatas Floral Emas -->
-      <div class="flex items-center justify-center gap-3 my-4 px-6 text-[#C5A059]">
-        <span class="h-[1px] w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#C5A059]/70"></span>
-        <div class="w-5 h-5 pointer-events-none select-none">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-80" onerror="this.src='assets/bunga-biru.png'">
+      <!-- Pembatas Floral Emas (Rapi, Sejajar, & Proporsional) -->
+      <div class="flex items-center justify-center gap-3 my-6 sm:my-8 px-6 text-[#C5A059] reveal-fade-up">
+        <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-r from-transparent to-[#C5A059]/80"></span>
+        <div class="w-7 h-7 sm:w-8 sm:h-8 pointer-events-none select-none drop-shadow-xs">
+          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-85" onerror="this.src='assets/bunga-biru.png'">
         </div>
-        <span class="h-[1px] w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#C5A059]/70"></span>
+        <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-l from-transparent to-[#C5A059]/80"></span>
       </div>
 
       <!-- ----------------------------------------
            SECTION PENUTUP & KELUARGA
       ----------------------------------------- -->
-      <section id="penutup" class="relative px-6 pt-8 pb-20 text-center space-y-8 bg-[#FAF9F6] overflow-hidden">
+      <section id="penutup" class="relative px-6 pt-12 pb-20 text-center space-y-8 bg-[#FAF9F6] overflow-hidden">
         <!-- Ornamen Bunga Sudut (Rapi & Sejajar) -->
-        <div class="absolute top-3 left-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 left-3 sm:top-4 sm:left-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tl">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
-        <div class="absolute top-3 right-3 w-12 h-16 sm:w-14 sm:h-18 pointer-events-none select-none reveal-bloom scale-x-[-1] opacity-80 z-10">
-          <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 w-12 h-16 sm:w-14 sm:h-20 pointer-events-none select-none z-10 floral-corner-tr">
+          <div class="w-full h-full reveal-bloom opacity-85 origin-top-left">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain" onerror="this.src='assets/bunga-biru.png'">
+          </div>
         </div>
 
         <div class="reveal-fade-up max-w-md mx-auto space-y-3">
@@ -957,6 +985,15 @@
             <p class="text-xs font-serif uppercase tracking-widest text-[#000080] font-bold">Kami yang berbahagia,</p>
             <h4 class="font-script text-4xl sm:text-5xl text-[#B8860B] mt-1">Nur &amp; Udi</h4>
           </div>
+        </div>
+
+        <!-- Pembatas Floral Emas Penutup -->
+        <div class="flex items-center justify-center gap-3 my-6 sm:my-8 px-6 text-[#C5A059] reveal-fade-up">
+          <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-r from-transparent to-[#C5A059]/80"></span>
+          <div class="w-7 h-7 sm:w-8 sm:h-8 pointer-events-none select-none drop-shadow-xs">
+            <img src="assets/bunga-cluster.png" alt="" class="w-full h-full object-contain opacity-85" onerror="this.src='assets/bunga-biru.png'">
+          </div>
+          <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-l from-transparent to-[#C5A059]/80"></span>
         </div>
 
         <!-- PANEL GENERATOR LINK TAMU (Dibuka dengan sandi "waliwali") -->
