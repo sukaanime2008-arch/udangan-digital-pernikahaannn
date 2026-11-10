@@ -135,12 +135,20 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({
 
             {/* Recipient Badge on Front of Envelope (Enlarged prominent font) */}
             <div className="absolute inset-x-5 sm:inset-x-7 bottom-4 sm:bottom-5 z-25 bg-[#FAF9F6]/98 backdrop-blur-xs rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border-2 border-[#C5A059] shadow-lg text-center">
-              <span className="text-[10px] sm:text-xs uppercase font-sans tracking-widest text-[#000080] font-extrabold block">
-                Kepada Yth. Bapak/Ibu/Saudara/i:
-              </span>
-              <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug my-1 px-1 drop-shadow-xs">
-                {guestName}
-              </p>
+              {guestName && guestName !== 'Tamu Undangan Yang Berbahagia' && guestName !== 'Tamu Undangan' && guestName !== 'Kepada Yth Bapak/Ibu/Saudara' ? (
+                <>
+                  <span className="text-[10px] sm:text-xs uppercase font-sans tracking-widest text-[#000080] font-extrabold block">
+                    Kepada Yth Bapak/Ibu/Saudara
+                  </span>
+                  <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug my-1 px-1 drop-shadow-xs">
+                    {guestName}
+                  </p>
+                </>
+              ) : (
+                <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#000080] leading-snug my-1 px-1 drop-shadow-xs">
+                  Kepada Yth Bapak/Ibu/Saudara
+                </p>
+              )}
               <p className="text-[10px] sm:text-[11px] text-[#4A5568] font-medium italic">
                 Mohon maaf apabila ada kesalahan penulisan nama/gelar
               </p>
